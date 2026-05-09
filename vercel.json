@@ -2,10 +2,25 @@
   "cleanUrls": true,
   "outputDirectory": "public",
   "redirects": [
-    { "source": "/mittler-senior-technology", "destination": "/case-studies/mittler-senior-technology", "permanent": true },
-    { "source": "/denman-place-mall",         "destination": "/case-studies/denman-place-mall",         "permanent": true },
-    { "source": "/breathwave",                "destination": "/case-studies/breathwave",                "permanent": true },
-    { "source": "/oasis-of-change-website",   "destination": "/case-studies/oasis-of-change-website",   "permanent": true }
+    { "source": "/mittler-senior-technology",   "destination": "/case-studies/mittler-senior-technology",   "permanent": true },
+    { "source": "/denman-place-mall",           "destination": "/case-studies/denman-place-mall",           "permanent": true },
+    { "source": "/breathwave",                  "destination": "/case-studies/breathwave",                  "permanent": true },
+    { "source": "/oasis-of-change-website",     "destination": "/case-studies/oasis-of-change-website",     "permanent": true },
+
+    { "source": "/web-ready",                   "destination": "/initiatives/web-ready",                    "permanent": true },
+    { "source": "/vcasse",                      "destination": "/initiatives/vcasse",                       "permanent": true },
+    { "source": "/wra_platform",                "destination": "/initiatives/wra-platform",                 "permanent": true },
+    { "source": "/sustainable-technology-week", "destination": "/initiatives/sustainable-technology-week",  "permanent": true },
+
+    { "source": "/tree_planting",               "destination": "/tree-planting",                            "permanent": true },
+    { "source": "/accessibility_statement",     "destination": "/accessibility-statement",                  "permanent": true },
+    { "source": "/sustainability_statement",    "destination": "/sustainability-statement",                 "permanent": true },
+    { "source": "/get_involved",                "destination": "/get-involved",                             "permanent": true },
+    { "source": "/news_release",                "destination": "/news",                                     "permanent": true },
+    { "source": "/annual_reports",              "destination": "/annual-report",                            "permanent": true },
+    { "source": "/annual_report_2024_2025",     "destination": "/annual-report/2024-2025",                  "permanent": true },
+    { "source": "/annual_report_2025_2026",     "destination": "/annual-report/2025-2026",                  "permanent": true },
+    { "source": "/example_annual_report",       "destination": "/example-annual-report",                    "permanent": true }
   ],
   "headers": [
     {
