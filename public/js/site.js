@@ -1442,11 +1442,14 @@
       var idx = src.indexOf('images/');
       if (idx !== -1) base = src.slice(0, idx);
     }
+    var lang = document.documentElement.lang || 'en';
+    var localeText = { en: 'Based in Vancouver, Canada', es: 'Con sede en Vancouver, Canadá', fr: 'Basée à Vancouver, Canada' };
     var locale = document.createElement('div');
     locale.className = 'footer-locale';
-    locale.setAttribute('aria-label', 'Based in Vancouver, Canada');
+    locale.setAttribute('translate', 'no');
+    locale.setAttribute('aria-label', localeText[lang] || localeText.en);
     locale.innerHTML =
-      '<span>Based in Vancouver, Canada</span>' +
+      '<span><span data-lang-text="en">Based in Vancouver, Canada</span><span data-lang-text="es">Con sede en Vancouver, Canadá</span><span data-lang-text="fr">Basée à Vancouver, Canada</span></span>' +
       '<img class="footer-locale-flag" src="' + base + 'images/flag-canada.svg" alt="" width="22" height="11" loading="lazy" aria-hidden="true">';
     brand.appendChild(locale);
   }
