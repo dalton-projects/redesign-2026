@@ -15,7 +15,7 @@
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1">
     <meta name="author" content="Gabriel Dalton">
-    <meta name="keywords" content="digital sustainability TEDx, environmental impact of the internet, sustainable technology education, website carbon emissions, AI energy impact, Oasis of Change, Gabriel Dalton TEDx, low carbon websites, sustainable web design nonprofit, sustainable web design not-for-profit, internet carbon footprint talk, AI energy and water use, climate technology talk, TEDx digital sustainability, green web design, AI literacy nonprofit, sustainable internet education">
+    <meta name="keywords" content="digital sustainability TEDx, environmental impact of the internet, sustainable technology education, website carbon emissions, AI energy impact, Oasis of Change, Gabriel Dalton TEDx, low carbon websites, sustainable web design not-for-profit, internet carbon footprint talk, AI energy and water use, climate technology talk, TEDx digital sustainability, green web design, AI literacy not-for-profit, sustainable internet education">
     <meta name="geo.region" content="CA-BC">
     <meta name="geo.placename" content="Vancouver, British Columbia">
     <meta name="rating" content="general">
@@ -128,13 +128,13 @@
           "@type": "LearningResource",
           "@id": "https://oasisofchange.com/tedx-talk.html#learning",
           "name": "Digital Sustainability: A TEDx Talk on the Environmental Cost of the Internet and AI",
-          "description": "Free educational TEDx talk and accompanying explainer on digital sustainability, suitable for classrooms, nonprofits, and professional development.",
+          "description": "Free educational TEDx talk and accompanying explainer on digital sustainability, suitable for classrooms, not-for-profits, and professional development.",
           "learningResourceType": "Video lecture",
           "educationalLevel": "Secondary, Post-secondary, Professional",
           "teaches": [
             "What digital sustainability means",
             "How websites and AI consume electricity and water",
-            "How nonprofits and schools can reduce their digital footprint",
+            "How not-for-profits and schools can reduce their digital footprint",
             "Why sustainable technology belongs in modern digital literacy"
           ],
           "isAccessibleForFree": true,
@@ -168,7 +168,7 @@
             "Sustainable web design",
             "Environmental impact of the internet",
             "AI energy use",
-            "Nonprofit technology"
+            "Not-for-profit technology"
           ],
           "award": "2025 Youth Impact in Innovation Award, City of Vancouver Awards of Excellence"
         },
@@ -179,7 +179,7 @@
           "alternateName": "Oasis of Change",
           "url": "https://oasisofchange.com",
           "logo": "https://oasisofchange.com/images/logo/Oasis_of_Change-official.svg",
-          "description": "A Vancouver-based nonprofit advancing digital sustainability, low-carbon websites, and sustainable technology education.",
+          "description": "A Vancouver-based not-for-profit advancing digital sustainability, low-carbon websites, and sustainable technology education.",
           "founder": { "@id": "https://oasisofchange.com/gabriel-dalton.html#person" },
           "foundingDate": "2024-03",
           "areaServed": "Worldwide",
@@ -223,10 +223,10 @@
             },
             {
               "@type": "Question",
-              "name": "How can nonprofits make their websites more sustainable?",
+              "name": "How can not-for-profits make their websites more sustainable?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Nonprofits can move to green hosting, optimise images and video, remove unused scripts and trackers, and design lighter pages with strong accessibility. Oasis of Change supports nonprofits with practical guidance and rebuilds. Selected projects have reduced carbon, energy, and water impact by up to 98%."
+                "text": "Not-for-profits can move to green hosting, optimise images and video, remove unused scripts and trackers, and design lighter pages with strong accessibility. Oasis of Change supports not-for-profits with practical guidance and rebuilds. Selected projects have reduced carbon, energy, and water impact by up to 98%."
               }
             },
             {
@@ -250,7 +250,7 @@
               "name": "Can I share this TEDx talk with my school or organization?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. The talk is freely available on YouTube and is intended for educational use. Schools, nonprofits, technology teams, and community groups are welcome to share it, screen it, or use it as a discussion starter on digital sustainability and AI literacy."
+                "text": "Yes. The talk is freely available on YouTube and is intended for educational use. Schools, not-for-profits, technology teams, and community groups are welcome to share it, screen it, or use it as a discussion starter on digital sustainability and AI literacy."
               }
             },
             {
@@ -266,7 +266,7 @@
               "name": "Is the talk free to use in classrooms and training?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. The talk is freely available and is intended for educational use. Teachers, professors, librarians, nonprofit teams, and corporate sustainability or learning-and-development programs are all welcome to use it as a starting point for discussion."
+                "text": "Yes. The talk is freely available and is intended for educational use. Teachers, professors, librarians, not-for-profit teams, and corporate sustainability or learning-and-development programs are all welcome to use it as a starting point for discussion."
               }
             }
           ]
@@ -416,6 +416,52 @@
       .tedx-modal-secondary a:hover { color: #103a2c; background: rgba(0,0,0,0.04); }
       body.tedx-modal-open { overflow: hidden; }
 
+      .tedx-stats {
+        display: grid; grid-template-columns: 1fr; gap: 0.875rem;
+        margin: 0 0 2rem;
+      }
+      @media (min-width: 768px) {
+        .tedx-stats {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 1.25rem;
+          margin-bottom: 2.5rem;
+        }
+      }
+      .tedx-stat {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 1rem;
+        padding: 1.5rem 1.5rem 1.25rem;
+        display: flex; flex-direction: column;
+      }
+      .tedx-stat-value {
+        font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+        font-size: 1.875rem;
+        font-weight: 500;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        color: #ffffff;
+        white-space: nowrap;
+        margin: 0 0 0.45rem;
+      }
+      @media (min-width: 1024px) {
+        .tedx-stat-value { font-size: 2.125rem; }
+      }
+      .tedx-stat-label {
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #6ee7b7;
+        margin: 0;
+      }
+      .tedx-stat-desc {
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: rgba(255,255,255,0.6);
+        margin: 0.55rem 0 0;
+      }
+
       .tedx-key-ideas-grid {
         display: grid; grid-template-columns: 1fr; gap: 1.25rem;
         list-style: none; padding: 0; margin: 0;
@@ -553,7 +599,7 @@
                           <p class="nav-dd-kicker">Projects</p>
                           <ul>
                             <li><a href="initiatives/sustainable-technology-week/" class="nav-dd-link nav-dd-link--init"><span class="nav-dd-link-stack"><span class="nav-dd-link-title"><span translate="no">Sustainable Technology Week</span></span><span class="nav-dd-link-desc">A focused week of programming exploring sustainable technology, innovation, and culture.</span></span></a></li>
-                            <li><a href="initiatives/wra-platform/" class="nav-dd-link nav-dd-link--init"><span class="nav-dd-link-stack"><span class="nav-dd-link-title"><span translate="no">WRA Platform</span></span><span class="nav-dd-link-desc">Helping nonprofits build accessible, lower-carbon websites and access digital grants.</span></span></a></li>
+                            <li><a href="initiatives/wra-platform/" class="nav-dd-link nav-dd-link--init"><span class="nav-dd-link-stack"><span class="nav-dd-link-title"><span translate="no">WRA Platform</span></span><span class="nav-dd-link-desc">Helping not-for-profits build accessible, lower-carbon websites and access digital grants.</span></span></a></li>
                           </ul>
                         </div>
                       </div>
@@ -766,7 +812,7 @@
                 Gabriel Dalton
               </h2>
               <p class="text-gray-700 text-lg leading-8 tracking-tight mb-5">
-                Gabriel is the founder of <span translate="no">Oasis of Change</span>, a Vancouver-based nonprofit focused on digital sustainability and climate-conscious technology. He started coding at 10 and has spent the years since trying to make the invisible parts of the internet visible.
+                Gabriel is the founder of <span translate="no">Oasis of Change</span>, a Vancouver-based not-for-profit focused on digital sustainability and climate-conscious technology. He started coding at 10 and has spent the years since trying to make the invisible parts of the internet visible.
               </p>
               <p class="text-gray-700 text-lg leading-8 tracking-tight mb-5">
                 His work has supported <span translate="no">Stanley Park Ecology Society</span>, Plastic Bank, and The Dais at Toronto Metropolitan University. In 2025 he received the Youth Impact in Innovation Award at the City of Vancouver Awards of Excellence, and in February 2026 he gave this <span translate="no">TEDx</span> talk on why digital sustainability belongs in modern tech and AI literacy.
@@ -820,7 +866,7 @@
       <!-- OASIS OF CHANGE CONNECTION -->
       <section class="px-6 md:px-16 lg:px-24 py-20 md:py-24 bg-[#0b2a1f] text-white" aria-labelledby="oasis-connection">
         <div class="max-w-6xl mx-auto">
-          <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start mb-12 lg:mb-14">
             <div class="lg:col-span-5">
               <p class="tracking-[0.18em] uppercase text-xs font-semibold text-green-200 mb-3"><span translate="no">Oasis of Change</span></p>
               <h2 id="oasis-connection" class="font-heading text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
@@ -828,29 +874,29 @@
               </h2>
             </div>
             <div class="lg:col-span-7">
-              <p class="text-green-50 text-lg leading-8 tracking-tight mb-6">
-                <span translate="no">Oasis of Change</span> is a registered not-for-profit (nonprofit) working on digital sustainability education and low-carbon websites. We help nonprofits and community organizations rebuild their sites so they use less energy, and we share what we learn so others can do the same.
+              <p class="text-green-50 text-lg leading-8 tracking-tight">
+                <span translate="no">Oasis of Change</span> is a registered not-for-profit working on digital sustainability education and low-carbon websites. We help not-for-profits and community organizations rebuild their sites so they use less energy, and we share what we learn so others can do the same.
               </p>
-              <dl class="grid sm:grid-cols-3 gap-6 mb-8">
-                <div class="rounded-2xl bg-white/[0.06] border border-white/10 p-5">
-                  <dt class="text-xs uppercase tracking-[0.18em] text-green-200 mb-2">Carbon reduced</dt>
-                  <dd class="font-heading text-3xl font-medium leading-none">Up to 98%</dd>
-                  <p class="text-xs text-green-100/80 mt-2 leading-5">Reductions in carbon, energy, and water on selected client website rebuilds.</p>
-                </div>
-                <div class="rounded-2xl bg-white/[0.06] border border-white/10 p-5">
-                  <dt class="text-xs uppercase tracking-[0.18em] text-green-200 mb-2">Trees funded</dt>
-                  <dd class="font-heading text-3xl font-medium leading-none">7,144</dd>
-                  <p class="text-xs text-green-100/80 mt-2 leading-5">Planted across 14 countries on 6 continents in fiscal year 2025–2026.</p>
-                </div>
-                <div class="rounded-2xl bg-white/[0.06] border border-white/10 p-5">
-                  <dt class="text-xs uppercase tracking-[0.18em] text-green-200 mb-2">Lifetime CO₂</dt>
-                  <dd class="font-heading text-3xl font-medium leading-none">~358,750 kg</dd>
-                  <p class="text-xs text-green-100/80 mt-2 leading-5">Estimated CO₂ offset over the lifetime of trees planted in 2025–2026.</p>
-                </div>
-              </dl>
-              <a href="about.html" data-cta="oasis-mission" class="inline-flex items-center justify-center h-12 px-5 rounded-full bg-white text-[#0b2a1f] font-semibold tracking-tight hover:bg-green-100 transition">Our mission</a>
             </div>
           </div>
+          <div class="tedx-stats" role="list" aria-label="Oasis of Change impact stats">
+            <div class="tedx-stat" role="listitem">
+              <p class="tedx-stat-value">Up to 98%</p>
+              <p class="tedx-stat-label">Carbon reduced</p>
+              <p class="tedx-stat-desc">Carbon, energy, and water on selected client rebuilds.</p>
+            </div>
+            <div class="tedx-stat" role="listitem">
+              <p class="tedx-stat-value">7,144</p>
+              <p class="tedx-stat-label">Trees funded</p>
+              <p class="tedx-stat-desc">Across 14 countries and 6 continents in 2025&ndash;2026.</p>
+            </div>
+            <div class="tedx-stat" role="listitem">
+              <p class="tedx-stat-value">~358,750 kg</p>
+              <p class="tedx-stat-label">Lifetime CO₂</p>
+              <p class="tedx-stat-desc">Estimated lifetime offset for 2025&ndash;2026 plantings.</p>
+            </div>
+          </div>
+          <a href="about.html" data-cta="oasis-mission" class="inline-flex items-center justify-center h-12 px-5 rounded-full bg-white text-[#0b2a1f] font-semibold tracking-tight hover:bg-green-100 transition">Our mission</a>
         </div>
       </section>
 
@@ -981,7 +1027,7 @@
             </details>
             <details class="group py-5">
               <summary class="flex justify-between items-start gap-6 cursor-pointer list-none">
-                <h3 class="font-heading text-lg md:text-xl font-medium tracking-tight text-black leading-snug">How can nonprofits make their websites more sustainable?</h3>
+                <h3 class="font-heading text-lg md:text-xl font-medium tracking-tight text-black leading-snug">How can not-for-profits make their websites more sustainable?</h3>
                 <span class="shrink-0 mt-1 w-6 h-6 rounded-full border border-black/15 flex items-center justify-center text-black group-open:rotate-45 transition" aria-hidden="true">
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
                 </span>
@@ -1013,7 +1059,7 @@
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
                 </span>
               </summary>
-              <p class="mt-3 text-gray-700 leading-8 tracking-tight">Yes. The talk is freely available on YouTube and is intended for educational use. Schools, nonprofits, technology teams, and community groups are welcome to share it, screen it, or use it as a discussion starter on digital sustainability and AI literacy.</p>
+              <p class="mt-3 text-gray-700 leading-8 tracking-tight">Yes. The talk is freely available on YouTube and is intended for educational use. Schools, not-for-profits, technology teams, and community groups are welcome to share it, screen it, or use it as a discussion starter on digital sustainability and AI literacy.</p>
             </details>
           </div>
         </div>
