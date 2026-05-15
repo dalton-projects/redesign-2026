@@ -392,17 +392,26 @@
 
 .founder-section {
   display: grid;
-  grid-template-columns: 1fr 8rem;
-  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  gap: 2rem;
   align-items: start;
 }
 .founder-image-wrap {
   aspect-ratio: 3 / 4;
+  width: 100%;
+  max-width: 18rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.founder-image-wrap > div {
+  height: 100%;
 }
 @media (min-width: 640px) {
   .founder-section {
-    grid-template-columns: 1fr 11rem;
-    gap: 1.5rem;
+    gap: 2.5rem;
+  }
+  .founder-image-wrap {
+    max-width: 22rem;
   }
 }
 @media (min-width: 768px) {
@@ -414,6 +423,7 @@
   .founder-image-wrap {
     max-width: 28rem;
     margin-left: auto;
+    margin-right: 0;
   }
 }
 @media (min-width: 1024px) {
