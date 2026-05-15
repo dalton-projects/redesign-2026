@@ -25,6 +25,86 @@
     <script src="js/i18n.js" defer></script>
     <meta property="og:image" content="https://oasisofchange.com/images/og/404.png">
     <meta name="twitter:image" content="https://oasisofchange.com/images/og/404.png">
+    <style>
+      .error404-wrap {
+        position: relative;
+        overflow: hidden;
+      }
+      .error404-wrap > * { position: relative; z-index: 1; }
+      .error404-leaves {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .error404-display {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(0.1rem, 0.8vw, 0.75rem);
+        line-height: 0.9;
+      }
+      .error404-digit {
+        font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+        font-size: clamp(6rem, 22vw, 13rem);
+        font-weight: 500;
+        color: #fff;
+        letter-spacing: -0.04em;
+        line-height: 0.9;
+      }
+      .error404-planet-wrap {
+        display: inline-block;
+        width: clamp(6rem, 22vw, 13rem);
+        position: relative;
+      }
+      .error404-planet {
+        width: 100%;
+        height: auto;
+        display: block;
+        animation: error404-orbit 6s ease-in-out infinite;
+      }
+      .error404-seedling {
+        transform-box: fill-box;
+        transform-origin: 50% 100%;
+        animation: error404-sway 4s ease-in-out infinite;
+      }
+      @keyframes error404-sway {
+        0%   { transform: rotate(-5deg); }
+        50%  { transform: rotate(5deg);  }
+        100% { transform: rotate(-5deg); }
+      }
+      @keyframes error404-orbit {
+        0%   { transform: translateY(0); }
+        50%  { transform: translateY(-8px); }
+        100% { transform: translateY(0); }
+      }
+      .error404-leaf {
+        position: absolute;
+        top: -36px;
+        width: 22px;
+        height: 22px;
+        opacity: 0;
+        animation: error404-fall linear infinite;
+      }
+      .error404-leaf--1 { left: 6%;  color: #3bb63e; animation-duration: 13s; animation-delay: 0s;   }
+      .error404-leaf--2 { left: 22%; color: #2f8b3b; animation-duration: 15s; animation-delay: 4s;   }
+      .error404-leaf--3 { left: 64%; color: #3bb63e; animation-duration: 12s; animation-delay: 7s;   }
+      .error404-leaf--4 { left: 80%; color: #4493d6; animation-duration: 16s; animation-delay: 2s;   }
+      .error404-leaf--5 { left: 92%; color: #2f8b3b; animation-duration: 14s; animation-delay: 9s;   }
+      @keyframes error404-fall {
+        0%   { transform: translate3d(0, -40px, 0) rotate(0deg);    opacity: 0;   }
+        10%  { opacity: 0.65; }
+        50%  { transform: translate3d(22px, 50vh, 0) rotate(180deg); }
+        90%  { opacity: 0.65; }
+        100% { transform: translate3d(-10px, 100vh, 0) rotate(360deg); opacity: 0; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .error404-seedling,
+        .error404-planet,
+        .error404-leaf { animation: none !important; }
+        .error404-leaves { display: none; }
+      }
+    </style>
 </head>
 <body class="antialiased bg-black text-body font-body">
     <div style="display: flex; flex-direction: column; min-height: 100vh;">
@@ -233,15 +313,66 @@
         </div>
 
         <!-- 404 CONTENT -->
-        <div class="flex items-center justify-center py-10 sm:py-12 md:py-16" style="flex: 1 1 0%;">
-          <div class="text-center max-w-lg mx-auto px-4">
-            <p class="text-green-400 text-sm font-semibold tracking-widest uppercase mb-4">Error 404</p>
-            <h1 class="font-heading tracking-tight text-white text-4xl sm:text-5xl md:text-6xl font-medium leading-tight mb-6">Page not found</h1>
-            <p class="text-gray-300 text-base sm:text-lg leading-relaxed mb-10">The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a href="index.html" class="min-h-14 rounded-full px-6 py-3 inline-flex items-center justify-center tracking-tight font-semibold text-sm transition duration-200 bg-white text-black hover:bg-gray-100 w-full sm:w-auto">Go to Homepage</a>
-              <a href="contact.html" class="min-h-14 rounded-full px-6 py-3 inline-flex items-center justify-center tracking-tight font-semibold text-sm transition duration-200 bg-transparent border border-white/20 text-white hover:bg-white/5 w-full sm:w-auto">Contact Us</a>
-            </div>
+        <div class="error404-wrap flex flex-col items-center justify-center text-center py-6 sm:py-10 md:py-12 px-4" style="flex: 1 1 0%;">
+
+          <!-- Decorative falling leaves -->
+          <div class="error404-leaves" aria-hidden="true">
+            <svg class="error404-leaf error404-leaf--1" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 C 18 6 20 14 12 22 C 4 14 6 6 12 2 Z"/></svg>
+            <svg class="error404-leaf error404-leaf--2" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 C 18 6 20 14 12 22 C 4 14 6 6 12 2 Z"/></svg>
+            <svg class="error404-leaf error404-leaf--3" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 C 18 6 20 14 12 22 C 4 14 6 6 12 2 Z"/></svg>
+            <svg class="error404-leaf error404-leaf--4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 C 18 6 20 14 12 22 C 4 14 6 6 12 2 Z"/></svg>
+            <svg class="error404-leaf error404-leaf--5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 C 18 6 20 14 12 22 C 4 14 6 6 12 2 Z"/></svg>
+          </div>
+
+          <!-- Illustration: 4 [Earth with seedling] 4 -->
+          <div class="error404-display mb-4 sm:mb-6" role="img" aria-label="Error 404">
+            <span class="error404-digit" aria-hidden="true">4</span>
+            <span class="error404-planet-wrap" aria-hidden="true">
+              <svg class="error404-planet" viewBox="0 0 240 280" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="error404PlanetGrad" cx="0.35" cy="0.32" r="0.85">
+                    <stop offset="0%" stop-color="#5cb2e3"/>
+                    <stop offset="55%" stop-color="#4493d6"/>
+                    <stop offset="100%" stop-color="#1f2f7d"/>
+                  </radialGradient>
+                  <clipPath id="error404PlanetClip"><circle cx="120" cy="175" r="100"/></clipPath>
+                </defs>
+                <!-- Outer glow -->
+                <circle cx="120" cy="175" r="110" fill="rgba(91, 178, 227, 0.08)"/>
+                <!-- Planet body -->
+                <circle cx="120" cy="175" r="100" fill="url(#error404PlanetGrad)"/>
+                <!-- Continents -->
+                <g clip-path="url(#error404PlanetClip)">
+                  <path d="M50 145 q18 -22 40 -8 q22 14 4 34 q-18 20 -38 5 q-18 -14 -6 -31 Z" fill="#2f8b3b" opacity="0.88"/>
+                  <path d="M150 120 q22 -6 32 14 q5 16 -16 20 q-22 4 -22 -16 q0 -14 6 -18 Z" fill="#3bb63e" opacity="0.78"/>
+                  <path d="M115 200 q28 -10 50 8 q15 18 -8 32 q-30 14 -50 -8 q-12 -16 8 -32 Z" fill="#2f8b3b" opacity="0.85"/>
+                  <path d="M60 220 q18 -6 28 6 q8 14 -10 20 q-22 6 -26 -10 q-4 -12 8 -16 Z" fill="#3bb63e" opacity="0.72"/>
+                </g>
+                <!-- Atmosphere rim -->
+                <circle cx="120" cy="175" r="100" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1.5"/>
+                <!-- Soil mound on north pole -->
+                <ellipse cx="120" cy="78" rx="26" ry="6" fill="#4a3424"/>
+                <ellipse cx="120" cy="76" rx="22" ry="3.5" fill="#6a4326"/>
+                <!-- Seedling -->
+                <g class="error404-seedling">
+                  <path d="M120 78 Q120 55 120 30" stroke="#3bb63e" stroke-width="4" stroke-linecap="round" fill="none"/>
+                  <path d="M120 50 Q100 40 88 52 Q94 64 120 56 Z" fill="#2f8b3b"/>
+                  <path d="M120 50 Q100 40 88 52" stroke="#1d6b27" stroke-width="0.8" fill="none" opacity="0.45"/>
+                  <path d="M120 34 Q140 22 152 36 Q144 48 120 42 Z" fill="#3bb63e"/>
+                  <path d="M120 34 Q140 22 152 36" stroke="#1d6b27" stroke-width="0.8" fill="none" opacity="0.45"/>
+                </g>
+              </svg>
+            </span>
+            <span class="error404-digit" aria-hidden="true">4</span>
+          </div>
+
+          <p class="text-green-400 text-xs sm:text-sm font-semibold tracking-widest uppercase mb-3 sm:mb-4">Error 404 &middot; 100% Compostable</p>
+          <h1 class="font-heading tracking-tight text-white text-3xl sm:text-4xl md:text-5xl font-medium leading-tight mb-4 sm:mb-5 max-w-2xl">Even our trees couldn&rsquo;t find this one.</h1>
+          <p class="text-gray-300 text-base sm:text-lg leading-relaxed mb-8 sm:mb-10 max-w-lg">The page you&rsquo;re looking for may have been moved, renamed, or quietly composted. Let&rsquo;s plant you somewhere more useful.</p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-md sm:max-w-none">
+            <a href="index.html" class="min-h-14 rounded-full px-6 py-3 inline-flex items-center justify-center tracking-tight font-semibold text-sm transition duration-200 bg-white text-black hover:bg-gray-100 w-full sm:w-auto">Go to Homepage</a>
+            <a href="contact.html" class="min-h-14 rounded-full px-6 py-3 inline-flex items-center justify-center tracking-tight font-semibold text-sm transition duration-200 bg-transparent border border-white/20 text-white hover:bg-white/5 w-full sm:w-auto">Contact Us</a>
           </div>
         </div>
       </section>
