@@ -489,6 +489,10 @@
   .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
+@media (min-width: 1024px) {
+  .lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+}
+
 .items-start { align-items: flex-start; }
 .text-green-800 { color: #166534; }
 .text-gray-400  { color: #9ca3af; }
