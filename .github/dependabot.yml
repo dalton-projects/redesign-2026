@@ -1,0 +1,42 @@
+version: 2
+
+updates:
+  # Production npm dependencies — surface security and version updates weekly.
+  # Grouped so we get one PR per ecosystem per week instead of N noisy PRs.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "09:00"
+      timezone: America/Vancouver
+    open-pull-requests-limit: 5
+    labels:
+      - dependencies
+      - security
+    groups:
+      production-deps:
+        applies-to: version-updates
+        update-types:
+          - minor
+          - patch
+      security-updates:
+        applies-to: security-updates
+        update-types:
+          - patch
+          - minor
+          - major
+
+  # GitHub Actions versions — pin to commit-sha is the ideal but at minimum
+  # Dependabot will bump major-version refs (@v3 → @v4) when upstream ships.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "09:00"
+      timezone: America/Vancouver
+    open-pull-requests-limit: 3
+    labels:
+      - ci
+      - dependencies

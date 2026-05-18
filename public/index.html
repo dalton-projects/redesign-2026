@@ -345,28 +345,6 @@
                   <p translate="no" class="tracking-tight font-medium whitespace-nowrap px-4 sm:px-6 md:px-8"><span data-lang-text="en">Vancouver-Based</span><span data-lang-text="es">Con sede en Vancouver</span><span data-lang-text="fr">Bas&eacute;e &agrave; Vancouver</span></p>
                 </div>
               </div>
-              <script>
-                (function () {
-                  var track = document.querySelector('.ticker-track');
-                  var slowBtn = document.querySelector('[data-ticker-slow]');
-                  var pauseBtn = document.querySelector('[data-ticker-pause]');
-                  if (!track) return;
-                  if (slowBtn) {
-                    slowBtn.addEventListener('click', function () {
-                      var slowed = track.classList.toggle('is-slow');
-                      slowBtn.setAttribute('aria-pressed', slowed ? 'true' : 'false');
-                      slowBtn.setAttribute('aria-label', slowed ? 'Restore ticker speed' : 'Slow the ticker');
-                    });
-                  }
-                  if (pauseBtn) {
-                    pauseBtn.addEventListener('click', function () {
-                      var paused = track.classList.toggle('is-paused');
-                      pauseBtn.setAttribute('aria-pressed', paused ? 'true' : 'false');
-                      pauseBtn.setAttribute('aria-label', paused ? 'Resume the ticker' : 'Pause the ticker');
-                    });
-                  }
-                })();
-              </script>
             </div>
             <!-- HERO IMAGE -->
             <div class="relative">

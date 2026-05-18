@@ -518,6 +518,54 @@
     );
   }
 
+  // Loads Cloudflare Turnstile and renders the invisible challenge widget
+  // into the form. Reads the site key from <meta name="turnstile-site-key">.
+  // If the meta is missing/empty (i.e. Turnstile hasn't been configured yet)
+  // we skip silently so the form keeps working in pre-launch environments.
+  //
+  // Turnstile injects a hidden <input name="cf-turnstile-response"> into the
+  // mount element, which FormData automatically serializes and our /api/contact
+  // endpoint verifies server-side via Cloudflare siteverify.
+  function initTurnstile(form) {
+    if (!form) return;
+    var meta = document.querySelector('meta[name="turnstile-site-key"]');
+    var siteKey = meta ? (meta.getAttribute('content') || '').trim() : '';
+    if (!siteKey) return;
+
+    var mount = form.querySelector('[data-cf-turnstile]');
+    if (!mount) return;
+
+    // Mark the form so the submit handler knows it must wait for a token.
+    form.setAttribute('data-cf-turnstile-required', 'true');
+
+    window.__oocRenderTurnstile = function () {
+      if (!window.turnstile || typeof window.turnstile.render !== 'function') return;
+      window.turnstile.render(mount, {
+        sitekey: siteKey,
+        theme: 'auto',
+        appearance: 'always',
+        'error-callback': function () {
+          form.removeAttribute('data-cf-turnstile-ready');
+        },
+        'expired-callback': function () {
+          form.removeAttribute('data-cf-turnstile-ready');
+        },
+        callback: function () {
+          form.setAttribute('data-cf-turnstile-ready', 'true');
+        },
+      });
+      mount.classList.add('cf-turnstile-ready');
+    };
+
+    if (document.querySelector('script[data-cf-turnstile-api]')) return;
+    var s = document.createElement('script');
+    s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=__oocRenderTurnstile&render=explicit';
+    s.async = true;
+    s.defer = true;
+    s.setAttribute('data-cf-turnstile-api', '');
+    document.head.appendChild(s);
+  }
+
   function initContactForm() {
     var form = document.getElementById('contact-form');
     if (!form) return;
@@ -525,6 +573,8 @@
     // Record when the form became available; used as a min-fill-time check
     // against bots that submit instantly.
     window.__cfLoadedAt = Date.now();
+
+    initTurnstile(form);
 
     var typeSelect = document.getElementById('cf-type');
     var successEl = document.getElementById('cf-success');
@@ -807,6 +857,25 @@
           addError(field, 'Please enter a valid email address');
         }
       });
+
+      // Turnstile guard — if the widget is required but hasn't produced a
+      // token yet (slow network, expired challenge, user clicked too fast),
+      // surface a clear error instead of letting the request fail server-side.
+      if (form.getAttribute('data-cf-turnstile-required') === 'true'
+          && form.getAttribute('data-cf-turnstile-ready') !== 'true') {
+        valid = false;
+        var tsMount = form.querySelector('[data-cf-turnstile]');
+        if (tsMount) {
+          var existingErr = tsMount.parentElement && tsMount.parentElement.querySelector('.cf-error-text');
+          if (!existingErr) {
+            var errEl = document.createElement('p');
+            errEl.className = 'cf-error-text';
+            errEl.setAttribute('role', 'alert');
+            errEl.textContent = 'Please complete the verification check, then try again.';
+            tsMount.parentElement.appendChild(errEl);
+          }
+        }
+      }
 
       if (!valid) {
         // Focus the first invalid field so keyboard/screen-reader users land on it
@@ -1530,6 +1599,65 @@
     });
   }
 
+  // Home-page hero ticker controls (slow / pause). No-op on pages without the
+  // .ticker-track marker — moved out of an inline <script> so we can drop
+  // `script-src 'unsafe-inline'` from the CSP.
+  function initTicker() {
+    var track = document.querySelector('.ticker-track');
+    if (!track) return;
+    var slowBtn = document.querySelector('[data-ticker-slow]');
+    var pauseBtn = document.querySelector('[data-ticker-pause]');
+    if (slowBtn) {
+      slowBtn.addEventListener('click', function () {
+        var slowed = track.classList.toggle('is-slow');
+        slowBtn.setAttribute('aria-pressed', slowed ? 'true' : 'false');
+        slowBtn.setAttribute('aria-label', slowed ? 'Restore ticker speed' : 'Slow the ticker');
+      });
+    }
+    if (pauseBtn) {
+      pauseBtn.addEventListener('click', function () {
+        var paused = track.classList.toggle('is-paused');
+        pauseBtn.setAttribute('aria-pressed', paused ? 'true' : 'false');
+        pauseBtn.setAttribute('aria-label', paused ? 'Resume the ticker' : 'Pause the ticker');
+      });
+    }
+  }
+
+  // Table-of-contents scroll-spy for long report pages (privacy policy,
+  // annual reports). Adds .is-active to the matching .toc-link as the user
+  // scrolls past each .report-section. No-op on pages without those markers.
+  function initReportToc() {
+    var sections = document.querySelectorAll('.report-section');
+    var tocLinks = document.querySelectorAll('.toc-link');
+    if (!sections.length || !tocLinks.length) return;
+    if (!('IntersectionObserver' in window)) return;
+
+    function setActive(id) {
+      tocLinks.forEach(function (link) {
+        if (link.getAttribute('href') === '#' + id) link.classList.add('is-active');
+        else link.classList.remove('is-active');
+      });
+    }
+
+    setActive(sections[0].id);
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) setActive(entry.target.id);
+      });
+    }, { rootMargin: '-15% 0px -75% 0px', threshold: 0 });
+
+    sections.forEach(function (s) { observer.observe(s); });
+
+    // Bottom-of-page guard so the last TOC item lights up even when the final
+    // section is too short for the IntersectionObserver rootMargin to fire.
+    window.addEventListener('scroll', function () {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+        setActive(sections[sections.length - 1].id);
+      }
+    }, { passive: true });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initMobileNav();
     initAccordion();
@@ -1542,6 +1670,8 @@
     initCopyrightYear();
     initScrollReveal();
     initYouTubeFacades();
+    initTicker();
+    initReportToc();
     logCuriousCoderMessage();
   });
 })();

@@ -802,32 +802,5 @@
       {{include footer.html}}
     </div>
 
-    <script>
-    (function () {
-      var sections = document.querySelectorAll('.report-section');
-      var tocLinks = document.querySelectorAll('.toc-link');
-      if (!sections.length || !tocLinks.length) return;
-
-      function setActive(id) {
-        tocLinks.forEach(function (link) {
-          if (link.getAttribute('href') === '#' + id) {
-            link.classList.add('is-active');
-          } else {
-            link.classList.remove('is-active');
-          }
-        });
-      }
-
-      if (sections.length > 0) setActive(sections[0].id);
-
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) setActive(entry.target.id);
-        });
-      }, { rootMargin: '-15% 0px -75% 0px', threshold: 0 });
-
-      sections.forEach(function (s) { observer.observe(s); });
-    })();
-    </script>
 </body>
 </html>

@@ -5,5 +5,8 @@
   "description": "Oasis of Change website — static HTML/CSS/JS with Vercel serverless functions.",
   "engines": {
     "node": ">=18"
+  },
+  "optionalDependencies": {
+    "sharp": "^0.33.5"
   }
 }

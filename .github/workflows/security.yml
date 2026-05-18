@@ -1,0 +1,89 @@
+name: Security scan
+
+# Runs on every PR plus a weekly cron sweep on main so newly-disclosed CVEs
+# in pinned deps surface even if no code is being pushed. Manual dispatch
+# is enabled for ad-hoc runs.
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+    paths:
+      - 'api/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/security.yml'
+  schedule:
+    # 09:00 UTC every Monday — early enough that anything found has the
+    # week to be triaged.
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write   # Required for uploading SARIF results to the Security tab
+
+jobs:
+  npm-audit:
+    name: npm audit (high+)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install deps (production only)
+        run: npm install --omit=dev --no-audit --no-fund
+
+      - name: Run npm audit
+        # --audit-level=high so dev-only or low-severity advisories don't
+        # fail the build. Production-impact CVEs (high or critical) do.
+        run: npm audit --audit-level=high
+
+  semgrep:
+    name: Semgrep SAST
+    runs-on: ubuntu-latest
+    # Semgrep is a static analyzer — no need to install the project deps.
+    container:
+      image: semgrep/semgrep
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Semgrep
+        # The "auto" ruleset includes Semgrep's curated security rules for
+        # JS/TS/Node plus general OWASP patterns. Output as SARIF so GitHub
+        # surfaces findings in the repo's Security → Code Scanning view.
+        run: |
+          semgrep ci \
+            --config=p/security-audit \
+            --config=p/owasp-top-ten \
+            --config=p/javascript \
+            --config=p/nodejs \
+            --sarif --output=semgrep.sarif \
+            --metrics=off || true
+        env:
+          # SEMGREP_APP_TOKEN is optional — without it, Semgrep runs in
+          # OSS mode (free, no managed-policy features).
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+
+      - name: Upload SARIF results
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: semgrep.sarif
+
+  secret-scan:
+    name: Gitleaks secret scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # gitleaks needs full history to scan all refs
+
+      - name: Run Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

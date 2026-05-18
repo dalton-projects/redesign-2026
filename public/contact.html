@@ -24,6 +24,10 @@
     <script src="js/i18n.js" defer></script>
     <meta property="og:image" content="https://oasisofchange.com/images/og/contact.png">
     <meta name="twitter:image" content="https://oasisofchange.com/images/og/contact.png">
+    <!-- Cloudflare Turnstile site key. Leave blank to disable the bot challenge
+         (form keeps working, server-side verification is also skipped). Set the
+         matching TURNSTILE_SECRET_KEY env var in Vercel to enforce. -->
+    <meta name="turnstile-site-key" content="">
 </head>
 <body class="antialiased bg-white text-body font-body">
     <div class="">
@@ -674,17 +678,17 @@
                       <span>I agree to the <a href="privacy-policy.html" class="cf-link" target="_blank" rel="noopener noreferrer">Privacy Policy</a> <span class="cf-req" aria-hidden="true">*</span></span>
                     </label>
                   </div>
-                  <div class="cf-field">
-                    <label class="cf-check">
-                      <input type="checkbox" name="newsletter">
-                      <span>I would like to receive updates from <span translate="no">Oasis of Change</span></span>
-                    </label>
-                  </div>
-
                   <!-- Honeypot: hidden from users; bots fill it -->
                   <div class="cf-honeypot" aria-hidden="true">
                     <label for="cf-website-url">Leave this field empty</label>
                     <input type="text" id="cf-website-url" name="website_url" tabindex="-1" autocomplete="off">
+                  </div>
+
+                  <!-- Cloudflare Turnstile mount. Rendered by initTurnstile() in
+                       site.js only when the turnstile-site-key meta tag is set;
+                       empty/hidden otherwise so the form stays usable pre-config. -->
+                  <div class="cf-field">
+                    <div data-cf-turnstile></div>
                   </div>
 
                   <!-- Submit -->

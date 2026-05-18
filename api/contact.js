@@ -1,3 +1,13 @@
+const {
+  originAllowed,
+  clientIp,
+  rateLimit,
+  verifyTurnstile,
+  startApiResponse,
+  isFirstSeen,
+  shortHash,
+} = require('../lib/security');
+
 const MIN_FORM_TIME_MS = 3000;
 const MAX_MESSAGE_LEN = 5000;
 const MAX_FIELD_LEN = 1000;
@@ -5,10 +15,11 @@ const MAX_OTHER_LEN = 500;
 const MAX_REQUEST_BYTES = 64 * 1024;
 const ALLOWED_BLOB_HOST = 'blob.vercel-storage.com';
 
-const DEFAULT_ALLOWED_ORIGINS = [
-  'https://oasisofchange.com',
-  'https://www.oasisofchange.com',
-];
+// Per-IP rate limits. Generous enough that a real user filling out the form
+// across multiple inquiry types in one session won't hit them, but tight
+// enough that a bot loop is bounded to ~5/hour from any one address.
+const RATE_LIMIT_PER_HOUR = 5;
+const RATE_LIMIT_WINDOW_SECONDS = 3600;
 
 const INQUIRY_META = {
   'general':       { emoji: '💬', color: '#6b7280', label: 'General Inquiry' },
@@ -333,73 +344,67 @@ function buildBlocks(data, submissionId) {
   return { blocks, color: meta.color, label: meta.label, name };
 }
 
-function getAllowedOrigins() {
-  const env = process.env.ALLOWED_ORIGINS;
-  if (env && env.trim()) {
-    return env.split(',').map(s => s.trim()).filter(Boolean);
-  }
-  return DEFAULT_ALLOWED_ORIGINS;
-}
-
-// Cross-origin browser POSTs to this endpoint should only succeed from our
-// own front-end. If an Origin header is present, require it to match one of
-// the configured allowed origins (or *.vercel.app for preview deployments).
-// If Origin is absent the request is allowed through — non-browser clients
-// (curl, automated tests, etc.) don't always send one, and we can't reliably
-// distinguish them from a same-origin browser request.
-function originAllowed(origin) {
-  if (!origin) return true;
-  const allowed = getAllowedOrigins();
-  if (allowed.includes(origin)) return true;
-  try {
-    const host = new URL(origin).hostname;
-    if (host === 'localhost' || host === '127.0.0.1') return true;
-    if (host.endsWith('.vercel.app')) return true;
-  } catch (e) {
-    return false;
-  }
-  return false;
-}
-
 module.exports = async (req, res) => {
-  res.setHeader('Content-Type', 'application/json');
-  res.setHeader('Cache-Control', 'no-store');
-  res.setHeader('X-Content-Type-Options', 'nosniff');
+  const requestId = startApiResponse(res);
 
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
-    return res.status(405).json({ ok: false, error: 'Method not allowed' });
+    return res.status(405).json({ ok: false, error: 'Method not allowed', requestId });
   }
 
   if (!originAllowed(req.headers.origin)) {
-    return res.status(403).json({ ok: false, error: 'Origin not allowed' });
+    return res.status(403).json({ ok: false, error: 'Origin not allowed', requestId });
   }
 
   const webhook = process.env.SLACK_WEBHOOK_URL;
   if (!webhook) {
-    console.error('SLACK_WEBHOOK_URL is not set');
-    return res.status(500).json({ ok: false, error: 'Server misconfigured' });
+    console.error(`[${requestId}] SLACK_WEBHOOK_URL is not set`);
+    return res.status(500).json({ ok: false, error: 'Server misconfigured', requestId });
+  }
+
+  // Rate limit before doing any payload work. Honest users won't notice;
+  // a bot looping through inquiry types will get cut off after 5/hour.
+  const ip = clientIp(req);
+  const rl = await rateLimit('contact', ip, {
+    limit: RATE_LIMIT_PER_HOUR,
+    windowSeconds: RATE_LIMIT_WINDOW_SECONDS,
+  });
+  if (!rl.ok) {
+    res.setHeader('Retry-After', String(RATE_LIMIT_WINDOW_SECONDS));
+    return res.status(429).json({ ok: false, error: 'Too many requests. Please try again later.', requestId });
   }
 
   let data = req.body;
   if (typeof data === 'string') {
     if (data.length > MAX_REQUEST_BYTES) {
-      return res.status(413).json({ ok: false, error: 'Payload too large' });
+      return res.status(413).json({ ok: false, error: 'Payload too large', requestId });
     }
     try { data = JSON.parse(data); } catch (e) { data = {}; }
   }
   if (!data || typeof data !== 'object' || Array.isArray(data)) {
-    return res.status(400).json({ ok: false, error: 'Invalid payload' });
+    return res.status(400).json({ ok: false, error: 'Invalid payload', requestId });
+  }
+
+  // Verify Cloudflare Turnstile token (if configured). The token field is
+  // set client-side after the widget completes its challenge. We pull it
+  // out *before* clampPayload so it doesn't get trimmed by length limits.
+  const turnstileToken = typeof data['cf-turnstile-response'] === 'string'
+    ? data['cf-turnstile-response']
+    : (typeof data.turnstile_token === 'string' ? data.turnstile_token : '');
+  const turnstile = await verifyTurnstile(turnstileToken, { ip });
+  if (!turnstile.ok) {
+    console.warn(`[${requestId}] Turnstile rejected: ${turnstile.reason}`);
+    return res.status(403).json({ ok: false, error: 'Verification failed. Please reload the page and try again.', requestId });
   }
 
   data = clampPayload(data);
 
   if (isFilled(data.website_url)) {
-    return res.status(200).json({ ok: true });
+    return res.status(200).json({ ok: true, requestId });
   }
   const loadedAt = Number(data.form_loaded_at);
   if (loadedAt && (Date.now() - loadedAt) < MIN_FORM_TIME_MS) {
-    return res.status(200).json({ ok: true });
+    return res.status(200).json({ ok: true, requestId });
   }
 
   const missing = [];
@@ -411,17 +416,29 @@ module.exports = async (req, res) => {
   if (!data.privacy_consent)        missing.push('privacy_consent');
 
   if (missing.length) {
-    return res.status(400).json({ ok: false, error: 'Missing required fields', fields: missing });
+    return res.status(400).json({ ok: false, error: 'Missing required fields', fields: missing, requestId });
   }
   if (!/^[^\s@<>"'`,;:|\\]+@[^\s@<>"'`,;:|\\]+\.[^\s@<>"'`,;:|\\]+$/.test(String(data.email))
       || String(data.email).length > 254) {
-    return res.status(400).json({ ok: false, error: 'Invalid email address' });
+    return res.status(400).json({ ok: false, error: 'Invalid email address', requestId });
   }
   if (String(data.message).length > MAX_MESSAGE_LEN) {
-    return res.status(400).json({ ok: false, error: 'Message too long' });
+    return res.status(400).json({ ok: false, error: 'Message too long', requestId });
   }
   if (!INQUIRY_META[data.inquiry_type]) {
-    return res.status(400).json({ ok: false, error: 'Invalid inquiry type' });
+    return res.status(400).json({ ok: false, error: 'Invalid inquiry type', requestId });
+  }
+
+  // Collapse accidental double-submissions (back-button, retry click,
+  // network-flake re-fire) so the Slack channel sees one alert per real
+  // inquiry instead of two within a 60s window.
+  const dedupeKey = await shortHash(
+    String(data.email).toLowerCase() + ':' + String(data.message)
+  );
+  const firstSeen = await isFirstSeen('contact', dedupeKey, { windowSeconds: 60 });
+  if (!firstSeen) {
+    console.info(`[${requestId}] Duplicate submission suppressed (dedupe hit)`);
+    return res.status(200).json({ ok: true, requestId, deduplicated: true });
   }
 
   const submissionId = genSubmissionId();
@@ -444,13 +461,13 @@ module.exports = async (req, res) => {
 
     if (!slackRes.ok) {
       const body = await slackRes.text();
-      console.error('Slack webhook failed:', slackRes.status, body);
-      return res.status(502).json({ ok: false, error: 'Upstream error' });
+      console.error(`[${requestId}] Slack webhook failed:`, slackRes.status, body);
+      return res.status(502).json({ ok: false, error: 'Upstream error', requestId });
     }
 
-    return res.status(200).json({ ok: true, id: submissionId });
+    return res.status(200).json({ ok: true, id: submissionId, requestId });
   } catch (err) {
-    console.error('Slack fetch error:', err);
-    return res.status(500).json({ ok: false, error: 'Failed to send' });
+    console.error(`[${requestId}] Slack fetch error:`, err);
+    return res.status(500).json({ ok: false, error: 'Failed to send', requestId });
   }
 };

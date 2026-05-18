@@ -741,6 +741,9 @@ select.cf-input {
   select.cf-input::picker(select) {
     appearance: base-select;
   }
+  select.cf-input::picker-icon {
+    display: none;
+  }
   select.cf-input::picker(select) {
     max-height: none;
     border: 1px solid #d1d5db;
@@ -760,6 +763,7 @@ select.cf-input {
     background: #f3f4f6;
   }
 }
+
 textarea.cf-input {
   resize: vertical;
   min-height: 4.5rem;
