@@ -930,6 +930,17 @@
       clearFormError();
       announceToScreenReader('Sending your message…');
 
+      // Each Turnstile token is single-use and expires after a short window.
+      // If submit fails we must reset the widget so retry obtains a fresh
+      // token; otherwise the server rejects as timeout-or-duplicate.
+      function resetTurnstileIfPresent() {
+        if (form.getAttribute('data-cf-turnstile-required') !== 'true') return;
+        form.removeAttribute('data-cf-turnstile-ready');
+        if (window.turnstile && typeof window.turnstile.reset === 'function') {
+          try { window.turnstile.reset(); } catch (e) { /* no-op */ }
+        }
+      }
+
       uploadFileIfNeeded().then(function (fileUrl) {
         if (fileUrl) payload.attachment_url = fileUrl;
         return fetch('/api/contact', {
@@ -942,6 +953,7 @@
       }).then(function (result) {
         if (!result.ok) {
           if (submitBtn) { submitBtn.disabled = false; submitBtn.removeAttribute('aria-busy'); submitBtn.textContent = originalLabel; }
+          resetTurnstileIfPresent();
           var msg = (result.body && result.body.error)
             || 'Something went wrong. Please try again, or email us directly.';
           showFormError(msg);
@@ -960,6 +972,7 @@
         }
       }).catch(function () {
         if (submitBtn) { submitBtn.disabled = false; submitBtn.removeAttribute('aria-busy'); submitBtn.textContent = originalLabel; }
+        resetTurnstileIfPresent();
         showFormError('Network error. Please check your connection and try again.');
       });
     });
