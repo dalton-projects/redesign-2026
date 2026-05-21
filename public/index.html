@@ -266,9 +266,12 @@
                   top: 0.25rem;
                   right: 0.5rem;
                   z-index: 11;
-                  display: inline-flex;
+                  display: none;
                   align-items: center;
                   gap: 0.375rem;
+                }
+                @media (min-width: 640px) {
+                  .ticker-controls { display: inline-flex; }
                 }
                 .ticker-ctrl-btn {
                   width: 1.75rem;
