@@ -1679,6 +1679,22 @@ textarea.cf-input {
   flex: 1;
 }
 
+.np-svc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: #4b5563;
+  flex: 1;
+}
+.np-svc-list li {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+.np-svc-list li:first-child { padding-top: 0; }
+.np-svc-list li:last-child { border-bottom: 0; padding-bottom: 0; }
+
 .np-svc-link {
   display: inline-flex;
   align-items: center;
