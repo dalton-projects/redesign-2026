@@ -1278,6 +1278,7 @@
         var trigger = document.createElement('button');
         trigger.type = 'button';
         trigger.className = 'cs-trigger';
+        trigger.setAttribute('role', 'combobox');
         trigger.setAttribute('aria-haspopup', 'listbox');
         trigger.setAttribute('aria-expanded', 'false');
         var listboxId = 'cs-lb-' + uid;
