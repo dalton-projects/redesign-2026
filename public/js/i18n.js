@@ -543,7 +543,12 @@
       document.documentElement.lang = activeLang;
     }
 
-    loadGoogleTranslate();
+    // Only fetch the Google Translate runtime when the user has actively
+    // chosen a non-English language. English visitors (the default) never
+    // pay the ~123 kB Translate download.
+    if (activeLang !== 'en') {
+      loadGoogleTranslate();
+    }
 
     // Show the translation disclaimer once after the user has just switched
     // to a non-English language. Defer briefly so it appears over content
