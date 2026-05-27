@@ -10,12 +10,12 @@ html, body {
   overflow-x: clip;
 }
 :where(h1, h2, h3, h4, h5, h6) {
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   word-break: normal;
-  hyphens: auto;
+  hyphens: manual;
 }
 :where(p, li, blockquote, dt, dd, figcaption, label, a, span) {
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 :where(img, svg, video, canvas, picture, iframe) {
   max-width: 100%;
@@ -36,7 +36,7 @@ html, body {
 }
 /* Re-enable in-word breaking for headings only when content actually overflows */
 :where(.font-heading) {
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 /* Flex/grid pill rows: prevent fixed-width siblings from pushing siblings off-card.
