@@ -7,6 +7,8 @@
     { "source": "/breathwave",                  "destination": "/case-studies/breathwave",                  "permanent": true },
     { "source": "/oasis-of-change-website",     "destination": "/case-studies/oasis-of-change-website",     "permanent": true },
 
+    { "source": "/nonprofit-tech-grants",       "destination": "/nonprofits",                               "permanent": true },
+
     { "source": "/web-ready",                   "destination": "/initiatives/web-ready",                    "permanent": true },
     { "source": "/vcasse",                      "destination": "/initiatives/vcasse",                       "permanent": true },
     { "source": "/wra_platform",                "destination": "/initiatives/wra-platform",                 "permanent": true },
