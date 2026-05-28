@@ -46,26 +46,6 @@
       .ntg-legend-name { color:#0f172a; font-weight:500; }
       .ntg-legend-share { color:#4b5563; font-variant-numeric:tabular-nums; font-size:0.9rem; }
 
-      /* Methodology + per-grant valuation */
-      .ntg-method-list { counter-reset:ntg-step; display:grid; gap:1rem; }
-      .ntg-method-step { background:#fff; border:1px solid #e5e7eb; border-radius:1.25rem; padding:1.25rem 1.4rem; display:grid; grid-template-columns:2.25rem 1fr; gap:1rem; align-items:start; }
-      .ntg-method-num { counter-increment:ntg-step; width:2rem; height:2rem; border-radius:9999px; background:#ecfdf5; color:#047857; font-family:'Plus Jakarta Sans',system-ui,sans-serif; font-weight:600; font-size:0.85rem; display:inline-flex; align-items:center; justify-content:center; }
-      .ntg-method-num::before { content:counter(ntg-step, decimal-leading-zero); }
-      .ntg-method-title { font-family:'Plus Jakarta Sans',system-ui,sans-serif; font-weight:600; color:#000; margin-bottom:0.25rem; }
-      .ntg-method-body { color:#4b5563; line-height:1.6; font-size:0.95rem; }
-      .ntg-val-block { border-top:1px solid #d1d5db; padding-top:1.75rem; }
-      .ntg-val-list { display:grid; gap:0; }
-      .ntg-val-row { display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1.6fr) minmax(0,1fr); gap:1.25rem; padding:0.8rem 0; border-bottom:1px solid #e5e7eb; align-items:center; }
-      .ntg-val-row:first-child { padding-top:0; }
-      .ntg-val-row:last-child { border-bottom:0; padding-bottom:0; }
-      .ntg-val-name { color:#0f172a; font-weight:500; font-size:0.95rem; }
-      .ntg-val-math { color:#4b5563; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:0.82rem; }
-      .ntg-val-result { color:#0f172a; font-weight:600; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:0.82rem; text-align:right; }
-      @media (max-width:767px){
-        .ntg-val-row { grid-template-columns:1fr; gap:0.3rem; padding:0.95rem 0; }
-        .ntg-val-result { text-align:left; }
-      }
-
       /* Sources list */
       .ntg-src-list { list-style:none; counter-reset:ntg-src; padding:0; margin:0; display:grid; gap:0.85rem; }
       .ntg-src-list li { counter-increment:ntg-src; padding-left:2.25rem; position:relative; color:#4b5563; font-size:0.92rem; line-height:1.55; }
@@ -326,7 +306,6 @@
 
             <!-- GRANT PROGRAMS -->
             <div class="rounded-[2rem] border border-gray-200 bg-white px-5 py-7 sm:px-8 sm:py-9 md:px-10 md:py-10 mb-5 sm:mb-6">
-              <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-3">Grant programs we work with</p>
               <h3 class="text-black text-2xl md:text-3xl font-heading tracking-tight mb-4" style="line-height:1.15">Grants we help nonprofits unlock</h3>
               <p class="text-gray-600 leading-8 max-w-2xl mb-7">We help nonprofits apply, qualify, and get set up across the platforms they already use.</p>
               <div class="npg-grid">
@@ -353,7 +332,7 @@
                 </article>
                 <article class="npg-card">
                   <div class="npg-header">
-                    <svg class="npg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
+                    <svg class="npg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19a4.5 4.5 0 0 0 .5-9 6.5 6.5 0 0 0-12.7 1.5A4.5 4.5 0 0 0 6 19z"/></svg>
                     <h4 class="npg-title">Microsoft for Nonprofits</h4>
                   </div>
                   <p class="npg-body">Up to 300 free Microsoft 365 Business Basic licenses, plus 75% off Business Premium and other Microsoft cloud products.</p>
@@ -374,7 +353,7 @@
                 </article>
                 <article class="npg-card">
                   <div class="npg-header">
-                    <svg class="npg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3.5"/></svg>
+                    <svg class="npg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 10.5 8.5 5 10l5.5 1.5L12 17l1.5-5.5L19 10l-5.5-1.5z"/><path d="M18.5 16.5 17.7 18.7 15.5 19.5 17.7 20.3 18.5 22.5 19.3 20.3 21.5 19.5 19.3 18.7z"/></svg>
                     <h4 class="npg-title">Claude for Nonprofits</h4>
                   </div>
                   <p class="npg-body">Up to 75% off <span translate="no">Claude</span> Team for eligible nonprofits, with built-in integrations for <span translate="no">Blackbaud</span>, <span translate="no">Candid</span>, and <span translate="no">Benevity</span>.</p>
@@ -389,7 +368,6 @@
             <!-- BREAKDOWN -->
             <div class="rounded-[2rem] border border-gray-200 bg-white px-5 py-7 sm:px-8 sm:py-9 md:px-10 md:py-11 mb-5 sm:mb-6">
               <div class="mb-6 sm:mb-8">
-                <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-3">Where the value comes from</p>
                 <h2 class="text-black text-3xl md:text-4xl font-heading tracking-tight" style="line-height:1.05">Breakdown by program</h2>
               </div>
               <div class="ntg-chart-grid">
@@ -405,7 +383,6 @@
                     <text x="110" y="102" text-anchor="middle" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="10" fill="#6b7280" letter-spacing="1.5">TOTAL</text>
                     <text x="110" y="124" text-anchor="middle" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="20" font-weight="600" fill="#0f172a">$868.2K</text>
                   </svg>
-                  <figcaption class="text-xs text-center text-gray-500 mt-3">Share of $868,200 CAD in annual in-kind value secured.</figcaption>
                 </figure>
                 <div class="ntg-legend" role="list" aria-label="Programme share of total value">
                   <div class="ntg-legend-row" role="listitem">
@@ -432,76 +409,6 @@
                     TechSoup, Atlassian, and Claude are programs we also help with. No grants from these are reflected in the totals above yet.
                   </p>
                 </div>
-              </div>
-            </div>
-
-            <!-- METHODOLOGY -->
-            <div class="rounded-[2rem] border border-gray-200 bg-gray-50 px-5 py-8 sm:px-8 sm:py-10 md:px-10 md:py-12 mb-5 sm:mb-6">
-              <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 mb-8">
-                <div class="lg:col-span-5">
-                  <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-3">Methodology</p>
-                  <h2 class="text-black text-2xl md:text-3xl font-heading tracking-tight mb-4">How we calculate annual value</h2>
-                  <p class="text-gray-600 leading-8">Each figure on this page is what the nonprofit would otherwise pay at standard market rates for the same software or services. It is not cash transferred.</p>
-                </div>
-                <div class="lg:col-span-7">
-                  <div class="ntg-method-list">
-                    <div class="ntg-method-step">
-                      <span class="ntg-method-num" aria-hidden="true"></span>
-                      <div>
-                        <p class="ntg-method-title">Count what the grant unlocks</p>
-                        <p class="ntg-method-body">For each approved grant we identify the entitlement: number of free seats, storage allowance, monthly ad spend cap, or other in-kind benefit.</p>
-                      </div>
-                    </div>
-                    <div class="ntg-method-step">
-                      <span class="ntg-method-num" aria-hidden="true"></span>
-                      <div>
-                        <p class="ntg-method-title">Multiply by the retail rate, over 12 months</p>
-                        <p class="ntg-method-body">We use the publicly advertised market price the nonprofit would otherwise pay, multiplied across all seats (or units) and over 12 months.</p>
-                      </div>
-                    </div>
-                    <div class="ntg-method-step">
-                      <span class="ntg-method-num" aria-hidden="true"></span>
-                      <div>
-                        <p class="ntg-method-title">Convert USD to CAD where needed</p>
-                        <p class="ntg-method-body">USD-denominated grants are converted to Canadian dollars at the Bank of Canada annual average exchange rate for the grant's approval year. For round-number programs (Google Workspace, Google Ad Grants) we treat USD figures 1:1 as CAD.</p>
-                      </div>
-                    </div>
-                    <div class="ntg-method-step">
-                      <span class="ntg-method-num" aria-hidden="true"></span>
-                      <div>
-                        <p class="ntg-method-title">Recount on each approval</p>
-                        <p class="ntg-method-body">Figures update only when a new grant is approved, renewed, or revoked. We do not double-count multi-year approvals.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="ntg-val-block">
-                <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-5">How each grant is valued</p>
-                <div class="ntg-val-list">
-                  <div class="ntg-val-row">
-                    <span class="ntg-val-name">Canva for Nonprofits</span>
-                    <span class="ntg-val-math">50 seats &times; CA$19/month &times; 12</span>
-                    <span class="ntg-val-result">CA$11,400 / year</span>
-                  </div>
-                  <div class="ntg-val-row">
-                    <span class="ntg-val-name">Microsoft for Nonprofits</span>
-                    <span class="ntg-val-math">300 seats &times; US$6/month &times; 12, converted</span>
-                    <span class="ntg-val-result">&asymp; CA$30,000 / year</span>
-                  </div>
-                  <div class="ntg-val-row">
-                    <span class="ntg-val-name">Google Workspace for Nonprofits</span>
-                    <span class="ntg-val-math">~1,000 seats &times; US$14/month &times; 12</span>
-                    <span class="ntg-val-result">US$168,000 / year</span>
-                  </div>
-                  <div class="ntg-val-row">
-                    <span class="ntg-val-name">Google Ad Grants</span>
-                    <span class="ntg-val-math">US$10,000/month &times; 12</span>
-                    <span class="ntg-val-result">US$120,000 / year</span>
-                  </div>
-                </div>
-                <p class="text-xs text-gray-500 mt-5 leading-relaxed">These are per-grant values. The totals in the breakdown above include multiple grants per program.</p>
               </div>
             </div>
 
