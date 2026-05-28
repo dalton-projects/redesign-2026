@@ -2049,112 +2049,57 @@ textarea.cf-input {
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
+/* Compact, modern lightbox-style play button: a solid brand-green disc with a
+   crisp white play triangle. Hover simply darkens the disc, matching the
+   site's flat button system — no glow, scale, or pulse. */
 .yt-facade .yt-play {
-  --yt-size: 92px;
+  --yt-size: 80px;
   width: var(--yt-size);
   height: var(--yt-size);
   border-radius: 9999px;
-  background:
-    radial-gradient(120% 120% at 50% 0%, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0) 55%),
-    rgba(10, 10, 10, 0.58);
-  -webkit-backdrop-filter: blur(16px) saturate(150%);
-  backdrop-filter: blur(16px) saturate(150%);
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  box-shadow:
-    0 12px 36px rgba(0, 0, 0, 0.5),
-    0 2px 8px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.22);
-  color: #fff;
+  background: #2f8b3b;
+  color: #ffffff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition:
-    background 0.35s ease,
-    transform 0.35s cubic-bezier(.2, .7, .2, 1),
-    border-color 0.35s ease,
-    box-shadow 0.35s ease,
-    color 0.25s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
   pointer-events: none;
   z-index: 2;
   align-self: center;
   justify-self: center;
   position: relative;
 }
-
-.yt-facade .yt-play::before {
-  content: '';
-  position: absolute;
-  inset: -8px;
-  border-radius: inherit;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  opacity: 0.55;
-  transition: transform 0.45s ease, opacity 0.35s ease, border-color 0.35s ease;
-  pointer-events: none;
-  animation: yt-breath 3.6s ease-in-out infinite;
-}
-@keyframes yt-breath {
-  0%, 100% { transform: scale(1); opacity: 0.45; }
-  50%      { transform: scale(1.06); opacity: 0.75; }
-}
 .yt-facade .yt-play svg {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: auto;
   display: block;
-  overflow: visible;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
 }
 .yt-facade:hover img,
 .yt-facade:focus-visible img {
-  transform: scale(1.02);
-  filter: brightness(1.03) contrast(1.02);
+  filter: brightness(1.03);
 }
 .yt-facade:hover .yt-play,
 .yt-facade:focus-visible .yt-play {
-  background:
-    radial-gradient(120% 120% at 50% 0%, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 60%),
-    #4ade80;
-  border-color: rgba(255, 255, 255, 0.92);
-  color: #052e16;
-  transform: scale(1.05);
-  box-shadow:
-    0 16px 44px rgba(74, 222, 128, 0.45),
-    0 0 0 5px rgba(74, 222, 128, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.35);
-}
-.yt-facade:hover .yt-play svg,
-.yt-facade:focus-visible .yt-play svg {
-  filter: none;
-}
-.yt-facade:hover .yt-play::before,
-.yt-facade:focus-visible .yt-play::before {
-  animation: none;
-  transform: scale(1.18);
-  opacity: 0;
-  border-color: rgba(74, 222, 128, 0.6);
+  background: #256c2e;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.34);
 }
 .yt-facade:active .yt-play {
-  transform: scale(1.015);
-  transition-duration: 0.12s;
+  background: #1f5e28;
 }
 .yt-facade:focus-visible {
-  outline: 3px solid #4ade80;
+  outline: 2px solid rgb(74, 222, 128);
   outline-offset: 3px;
 }
 @media (max-width: 640px) {
   .yt-facade .yt-play {
-    --yt-size: 68px;
-  }
-  .yt-facade .yt-play svg {
-    width: 26px;
-    height: 26px;
+    --yt-size: 60px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
   .yt-facade img,
-  .yt-facade .yt-play,
-  .yt-facade .yt-play::before {
+  .yt-facade .yt-play {
     transition: none;
-    animation: none;
   }
 }
 
