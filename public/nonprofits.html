@@ -65,6 +65,13 @@
         .ntg-val-row { grid-template-columns:1fr; gap:0.3rem; padding:0.95rem 0; }
         .ntg-val-result { text-align:left; }
       }
+
+      /* Sources list */
+      .ntg-src-list { list-style:none; counter-reset:ntg-src; padding:0; margin:0; display:grid; gap:0.85rem; }
+      .ntg-src-list li { counter-increment:ntg-src; padding-left:2.25rem; position:relative; color:#4b5563; font-size:0.92rem; line-height:1.55; }
+      .ntg-src-list li::before { content:counter(ntg-src); position:absolute; left:0; top:0; width:1.6rem; height:1.6rem; border-radius:9999px; background:#f3f4f6; color:#111; font-family:'Plus Jakarta Sans',system-ui,sans-serif; font-weight:600; font-size:0.78rem; display:inline-flex; align-items:center; justify-content:center; }
+      .ntg-src-list a { color:#15803d; text-decoration:underline; text-underline-offset:2px; }
+      .ntg-src-list a:hover { color:#166534; }
     </style>
     <meta property="og:image" content="https://oasisofchange.com/images/og/nonprofits.png">
     <meta name="twitter:image" content="https://oasisofchange.com/images/og/nonprofits.png">
@@ -373,8 +380,8 @@
                   <p class="npg-body">Up to 75% off <span translate="no">Claude</span> Team for eligible nonprofits, with built-in integrations for <span translate="no">Blackbaud</span>, <span translate="no">Candid</span>, and <span translate="no">Benevity</span>.</p>
                 </article>
               </div>
-              <a href="nonprofit-tech-grants/" class="inline-flex items-center gap-2 text-sm font-semibold tracking-tight text-black hover:text-green-700 transition duration-200 mt-7">
-                Sources &amp; footnotes
+              <a href="#sources" class="inline-flex items-center gap-2 text-sm font-semibold tracking-tight text-black hover:text-green-700 transition duration-200 mt-7">
+                Sources
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </a>
             </div>
@@ -496,6 +503,22 @@
                 </div>
                 <p class="text-xs text-gray-500 mt-5 leading-relaxed">These are per-grant values. The totals in the breakdown above include multiple grants per program.</p>
               </div>
+            </div>
+
+            <!-- SOURCES -->
+            <div id="sources" class="rounded-[2rem] border border-gray-200 bg-white px-5 py-7 sm:px-8 sm:py-9 md:px-10 md:py-10 mb-5 sm:mb-6 scroll-mt-24">
+              <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-5">Sources</p>
+              <ol class="ntg-src-list">
+                <li>Total annual in-kind value secured across all approved grants we've helped nonprofits apply for, as of <span translate="no">May 2026</span>. Values reflect the retail-equivalent annual list price of each entitlement, not cash transferred.</li>
+                <li>Google for Nonprofits. Google Workspace for Nonprofits. <a href="https://www.google.com/nonprofits/offerings/workspace/" target="_blank" rel="noopener noreferrer">google.com/nonprofits/offerings/workspace</a></li>
+                <li>Google for Nonprofits. Google Ad Grants. In-kind cap of US$10,000 per month. <a href="https://www.google.com/grants/" target="_blank" rel="noopener noreferrer">google.com/grants</a></li>
+                <li>Canva. Canva for Nonprofits. <a href="https://www.canva.com/canva-for-nonprofits/" target="_blank" rel="noopener noreferrer">canva.com/canva-for-nonprofits</a></li>
+                <li>Microsoft. Microsoft for Nonprofits. Microsoft 365 Business Premium grants and discounts plus Azure credits for eligible nonprofits. <a href="https://www.microsoft.com/en-us/nonprofits/eligibility" target="_blank" rel="noopener noreferrer">microsoft.com/nonprofits/eligibility</a></li>
+                <li>TechSoup. About TechSoup. <a href="https://www.techsoup.org/about" target="_blank" rel="noopener noreferrer">techsoup.org/about</a></li>
+                <li>Atlassian. Community License Program for nonprofits. 100% off Teamwork Collection for up to 25 users, 75% off Atlassian Cloud above that. <a href="https://www.atlassian.com/teams/nonprofits" target="_blank" rel="noopener noreferrer">atlassian.com/teams/nonprofits</a></li>
+                <li>Anthropic. Claude for Nonprofits. <a href="https://claude.com/contact-sales/nonprofits" target="_blank" rel="noopener noreferrer">claude.com/contact-sales/nonprofits</a></li>
+                <li>Bank of Canada annual average exchange rates. <a href="https://www.bankofcanada.ca/rates/exchange/annual-average-exchange-rates/" target="_blank" rel="noopener noreferrer">bankofcanada.ca/rates/exchange/annual-average-exchange-rates</a></li>
+              </ol>
             </div>
 
           </div>

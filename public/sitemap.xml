@@ -46,11 +46,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oasisofchange.com/nonprofit-tech-grants/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://oasisofchange.com/news/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
