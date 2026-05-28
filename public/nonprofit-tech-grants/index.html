@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="../images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="../images/favicon/site.webmanifest">
+    <title>Nonprofit Technology Grants | Oasis of Change, Inc.</title>
+    <meta name="description" content="The grant programs Oasis of Change helps nonprofits access — Google for Nonprofits, Canva, Microsoft, Atlassian, TechSoup, Claude — with a transparent breakdown of total annual value secured to date.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Nonprofit Technology Grants | Oasis of Change, Inc.">
+    <meta property="og:description" content="A source of truth for the in-kind technology grants we help nonprofits unlock, with a transparent breakdown of total annual value secured to date.">
+    <meta property="og:site_name" content="Oasis of Change, Inc.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nonprofit Technology Grants | Oasis of Change, Inc.">
+    <meta name="twitter:description" content="A source of truth for the in-kind technology grants we help nonprofits unlock, with a transparent breakdown of total annual value secured to date.">
+    <style>@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style>
+    <link rel="stylesheet" href="../css/site.css">
+    <link rel="stylesheet" href="../css/tailwind/tailwind.min.css?v=2">
+    <script src="../js/site.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <style>
+      /* Scoped styles for the Nonprofit Tech Grants page */
+      .ntg-hero { background: linear-gradient(145deg, #f8faf6 0%, #f0f7ed 45%, #eef6ec 100%); position: relative; overflow: hidden; }
+      .ntg-hero::after { content: ''; position: absolute; top: -120px; right: -60px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(74,222,128,0.10) 0%, transparent 65%); pointer-events: none; }
+      .ntg-kpi { background: #fff; border: 1px solid rgba(0,0,0,0.06); border-radius: 1.75rem; padding: 1.5rem 1.5rem 1.5rem; }
+      .ntg-kpi-eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #4b5563; }
+      .ntg-kpi-value { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 2.5rem; font-weight: 500; letter-spacing: -0.025em; line-height: 1.05; color: #000; margin: 0.6rem 0 0.5rem; }
+      .ntg-kpi-foot { color: #4b5563; font-size: 0.95rem; line-height: 1.55; }
+
+      .ntg-prog-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+      @media (min-width: 640px) { .ntg-prog-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (min-width: 1024px) { .ntg-prog-grid { grid-template-columns: repeat(4, 1fr); } }
+      .ntg-prog-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 1.5rem; padding: 1.5rem 1.4rem; display: flex; flex-direction: column; gap: 0.6rem; transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; }
+      .ntg-prog-card:hover { border-color: #d1d5db; transform: translateY(-3px); box-shadow: 0 14px 32px -10px rgba(0,0,0,0.08); }
+      .ntg-prog-dot { width: 0.7rem; height: 0.7rem; border-radius: 9999px; display: inline-block; }
+      .ntg-prog-title { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: -0.015em; color: #000; }
+      .ntg-prog-tag { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #4b5563; }
+      .ntg-prog-body { color: #4b5563; font-size: 0.92rem; line-height: 1.6; }
+      .ntg-prog-link { font-size: 0.82rem; font-weight: 600; color: #0f172a; text-decoration: none; border-bottom: 1px dashed #d1d5db; padding-bottom: 1px; display: inline-flex; align-items: center; gap: 0.3rem; transition: color 0.2s ease, border-color 0.2s ease; align-self: flex-start; margin-top: auto; }
+      .ntg-prog-link:hover { color: #15803d; border-color: #15803d; }
+
+      .ntg-chart-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; }
+      @media (min-width: 1024px) { .ntg-chart-grid { grid-template-columns: minmax(0, 320px) 1fr; gap: 3rem; } }
+      .ntg-chart-svg { width: 100%; max-width: 320px; height: auto; display: block; margin: 0 auto; }
+      .ntg-chart-slice { transition: transform 0.25s ease, opacity 0.25s ease; transform-origin: 110px 110px; }
+      .ntg-chart-slice:hover { opacity: 0.92; }
+      .ntg-legend { display: flex; flex-direction: column; gap: 0.75rem; }
+      .ntg-legend-row { display: grid; grid-template-columns: 1.25rem 1fr auto; align-items: center; gap: 0.75rem; padding: 0.6rem 0; border-bottom: 1px solid #f3f4f6; }
+      .ntg-legend-row:last-child { border-bottom: 0; }
+      .ntg-legend-swatch { width: 0.85rem; height: 0.85rem; border-radius: 0.25rem; }
+      .ntg-legend-name { color: #0f172a; font-weight: 500; }
+      .ntg-legend-share { color: #4b5563; font-variant-numeric: tabular-nums; font-size: 0.9rem; }
+
+      .ntg-method-list { counter-reset: ntg-step; display: grid; gap: 1rem; }
+      .ntg-method-step { background: #fff; border: 1px solid #e5e7eb; border-radius: 1.25rem; padding: 1.25rem 1.4rem; display: grid; grid-template-columns: 2.25rem 1fr; gap: 1rem; align-items: start; }
+      .ntg-method-num { counter-increment: ntg-step; width: 2rem; height: 2rem; border-radius: 9999px; background: #ecfdf5; color: #047857; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 600; font-size: 0.85rem; display: inline-flex; align-items: center; justify-content: center; }
+      .ntg-method-num::before { content: counter(ntg-step, decimal-leading-zero); }
+      .ntg-method-title { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 600; color: #000; margin-bottom: 0.25rem; }
+      .ntg-method-body { color: #4b5563; line-height: 1.6; font-size: 0.95rem; }
+
+      .ntg-foot-list { list-style: none; counter-reset: ntg-foot; padding: 0; margin: 0; display: grid; gap: 0.85rem; }
+      .ntg-foot-list li { counter-increment: ntg-foot; padding-left: 2.25rem; position: relative; color: #4b5563; font-size: 0.92rem; line-height: 1.55; }
+      .ntg-foot-list li::before { content: counter(ntg-foot); position: absolute; left: 0; top: 0; width: 1.6rem; height: 1.6rem; border-radius: 9999px; background: #f3f4f6; color: #111; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 600; font-size: 0.78rem; display: inline-flex; align-items: center; justify-content: center; }
+      .ntg-foot-list a { color: #15803d; text-decoration: underline; text-underline-offset: 2px; }
+      .ntg-foot-list a:hover { color: #166534; }
+
+      .ntg-cta-dark { background: linear-gradient(140deg, #0a0a0a 0%, #111 100%); position: relative; overflow: hidden; }
+      .ntg-cta-dark::before { content: ''; position: absolute; top: -120px; left: -80px; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle, rgba(34,197,94,0.18) 0%, transparent 65%); pointer-events: none; }
+      .ntg-btn-green { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; background: #15803d; color: #fff; font-weight: 600; padding: 0.85rem 1.4rem; border-radius: 9999px; transition: opacity 0.2s ease, transform 0.2s ease; }
+      .ntg-btn-green:hover { opacity: 0.92; transform: translateY(-1px); }
+      .ntg-btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.22); font-weight: 600; padding: 0.8rem 1.35rem; border-radius: 9999px; transition: background 0.2s ease, border-color 0.2s ease; }
+      .ntg-btn-ghost:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.4); }
+
+      .ntg-confidential-note { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.8rem; border-radius: 9999px; background: rgba(20, 83, 45, 0.08); color: #166534; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(20,83,45,0.18); }
+
+      @media (prefers-reduced-motion: reduce) {
+        .ntg-prog-card, .ntg-chart-slice, .ntg-btn-green, .ntg-btn-ghost { transition: none; }
+      }
+    </style>
+    <meta property="og:image" content="https://oasisofchange.com/images/og/nonprofit-tech-grants.png">
+    <meta name="twitter:image" content="https://oasisofchange.com/images/og/nonprofit-tech-grants.png">
+</head>
+<body class="antialiased bg-white text-body font-body">
+    <div class="">
+      <main id="main-content">
+
+      <section class="pt-3 sm:pt-4 px-4 sm:px-6 md:px-12 lg:px-24">
+        <div class="max-w-[1400px] mx-auto">
+          <!-- NAV -->
+          <nav aria-label="Main" class="relative z-[100] bg-black rounded-2xl px-4 py-3 sm:px-6 sm:py-4 border border-white/10 mb-4 sm:mb-6 shadow-[0_12px_30px_rgba(0,0,0,0.12)]">
+            <div class="flex items-center justify-between gap-4">
+              <div class="flex items-center gap-3 min-w-0 lg:flex-1">
+                <a href="../index.html" class="inline-block shrink-0">
+                  <img class="h-11 sm:h-12 md:h-14 w-auto" src="../images/logo/Oasis_of_Change-official.svg" alt="Oasis of Change" width="281" height="56">
+                </a>
+              </div>
+              <ul class="hidden lg:flex items-center gap-2 text-white text-sm font-medium tracking-tight">
+                <li><a href="../index.html" class="inline-block py-2 px-3 hover:bg-gray-900 transition duration-200 rounded-full">Home</a></li>
+                <!-- Initiatives -->
+                <li class="relative group">
+                  <a href="../initiatives.html" class="inline-block py-2 px-3 hover:bg-gray-900 transition duration-200 rounded-full">
+                    <div class="flex items-center gap-2">
+                      <span>Initiatives</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewbox="0 0 17 16" fill="none">
+                        <path d="M12.848 6L8.18132 10.6667L3.51465 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </div>
+                  </a>
+                  <div class="absolute top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 z-[120] nav-dd-initiatives-popover">
+                    <div data-site-nav-dropdown class="nav-dd-panel nav-dd-panel--initiatives">
+                      <div class="nav-dd-initiatives-top">
+                        <ul>
+                          <li>
+                            <a href="../initiatives.html" class="nav-dd-link nav-dd-link--init font-medium"><span class="nav-dd-link-stack"><span class="nav-dd-link-title">All Initiatives</span><span class="nav-dd-link-desc">See the full portfolio and all our initiatives in one place.</span></span><svg class="nav-dd-icon shrink-0 w-4 h-4 text-gray-300 transition-colors" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM13.5 6c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-2.25A1.125 1.125 0 0113.5 8.25V6zM3.75 15.75a2.25 2.25 0 012.25-2.25h2.25a2.25 2.25 0 012.25 2.25v2.25a2.25 2.25 0 01-2.25 2.25h-2.25a2.25 2.25 0 01-2.25-2.25v-2.25zM13.5 15.75c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125v-2.25z" /></svg></a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="nav-dd-initiatives-split">
+                        <div class="nav-dd-initiatives-col">
+                          <p class="nav-dd-kicker">Subsidiaries</p>
+                          <ul>
+                            <li>
+                              <a href="../initiatives/web-ready/" class="nav-dd-link nav-dd-link--init"><span class="nav-dd-link-stack"><span class="nav-dd-link-title"><span translate="no">Web-Ready</span></span><span class="nav-dd-link-desc">Sustainable website development and digital strategy for mission-driven organizations.</span></span></a>
+                            </li>
+                            <li>
+                              <a href="../initiatives/vcasse/" class="nav-dd-link nav-dd-link--init"><span class="nav-dd-link-stack"><span class="nav-dd-link-title"><span translate="no">VCASSE</span></span><span class="nav-dd-link-desc">Advancing responsible AI, safety, sustainability, and ethical technology leadership.</span></span></a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="nav-dd-initiatives-col">
+                          <p class="nav-dd-kicker">Projects</p>
+                          <ul>
+                            <li>
+                              <a href="../initiatives/sustainable-technology-week/" class="nav-dd-link nav-dd-link--init"><span class="nav-dd-link-stack"><span class="nav-dd-link-title"><span translate="no">Sustainable Technology Week</span></span><span class="nav-dd-link-desc">A focused week of programming exploring sustainable technology, innovation, and culture.</span></span></a>
+                            </li>
+                            <li>
+                              <a href="../initiatives/wra-platform/" class="nav-dd-link nav-dd-link--init"><span class="nav-dd-link-stack"><span class="nav-dd-link-title"><span translate="no">WRA Platform</span></span><span class="nav-dd-link-desc">Helping nonprofits build accessible, lower-carbon websites and access digital grants.</span></span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="nav-dd-initiatives-foot">
+                        <p class="nav-dd-kicker">Accountability</p>
+                        <ul>
+                          <li>
+                            <a href="https://impact.oasisofchange.com" target="_blank" rel="noopener noreferrer" class="nav-dd-link nav-dd-link--init"><span class="nav-dd-link-stack"><span class="nav-dd-link-title">Impact Dashboard</span><span class="nav-dd-link-desc">Tracking live impact, transparency, and measurable outcomes across our initiatives.</span></span><svg class="nav-dd-icon shrink-0 w-4 h-4 text-gray-300 transition-colors" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg></a>
+                          </li>
+                        </ul>
+                      </div>
+</div>
+                  </div>
+                </li>
+                <li><a href="../case-studies/" class="inline-block py-2 px-3 hover:bg-gray-900 transition duration-200 rounded-full whitespace-nowrap">Case Studies</a></li>
+                <!-- Company -->
+                <li class="relative group">
+                  <a href="../company.html" class="inline-block py-2 px-3 hover:bg-gray-900 transition duration-200 rounded-full">
+                    <div class="flex items-center gap-2">
+                      <span>Company</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewbox="0 0 17 16" fill="none">
+                        <path d="M12.848 6L8.18132 10.6667L3.51465 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </div>
+                  </a>
+                  <div class="absolute left-0 top-full opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 z-[120] nav-dd-company-popover">
+                    <div data-site-nav-dropdown class="nav-dd-panel nav-dd-panel--company">
+                      <ul class="flex flex-col gap-0.5">
+                        <li>
+                          <a href="../about.html" class="nav-dd-link"><svg class="nav-dd-icon shrink-0 w-4 h-4 text-gray-300 transition-colors" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg><span class="whitespace-nowrap">Our Story</span></a>
+                        </li>
+                        <li>
+                          <a href="../about.html#OurMission" class="nav-dd-link"><svg class="nav-dd-icon shrink-0 w-4 h-4 text-gray-300 transition-colors" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 3.75H6A2.25 2.25 0 0 0 3.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0 1 20.25 6v1.5m0 9V18A2.25 2.25 0 0 1 18 20.25h-1.5m-9 0H6A2.25 2.25 0 0 1 3.75 18v-1.5M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" /></svg><span class="whitespace-nowrap">Our Mission</span></a>
+                        </li>
+                        <li>
+                          <a href="../gabriel-dalton.html" class="nav-dd-link"><svg class="nav-dd-icon shrink-0 w-4 h-4 text-gray-300 transition-colors" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg><span class="whitespace-nowrap">Our Founder</span></a>
+                        </li>
+                        <li>
+                          <a href="../about.html#our-board" class="nav-dd-link"><svg class="nav-dd-icon shrink-0 w-4 h-4 text-gray-300 transition-colors" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg><span class="whitespace-nowrap">Our Board</span></a>
+                        </li>
+                        <li>
+                          <a href="../annual-report/" class="nav-dd-link"><svg class="nav-dd-icon shrink-0 w-4 h-4 text-gray-300 transition-colors" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg><span class="whitespace-nowrap">Annual Reports</span></a>
+                        </li>
+                        <li>
+                          <a href="../news/" class="nav-dd-link"><svg class="nav-dd-icon shrink-0 w-4 h-4 text-gray-300 transition-colors" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M13.5 7.5h-9v9h9v-9z" /></svg><span class="whitespace-nowrap">News &amp; Press</span></a>
+                        </li>
+                        <li>
+                          <a href="../nonprofits.html" class="nav-dd-link"><svg class="nav-dd-icon shrink-0 w-4 h-4 text-gray-300 transition-colors" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" /></svg><span class="whitespace-nowrap">For Nonprofits</span></a>
+                        </li>
+                      </ul>
+</div>
+                  </div>
+                </li>
+                <li><a href="../blog/" class="inline-block py-2 px-3 hover:bg-gray-900 transition duration-200 rounded-full">Blog</a></li>
+              </ul>
+              <div class="hidden lg:flex lg:flex-1 justify-end">
+                <a href="../get-involved/" class="rounded-full border border-gray-200 bg-white text-black px-5 py-3 h-14 hover:bg-gray-50 focus:ring-4 focus:ring-gray-200 inline-flex items-center justify-center gap-2 transition duration-200 shrink-0">
+                  <span class="text-sm font-semibold tracking-tight">Get Involved</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16" fill="none">
+                    <path d="M14 6.66666H7.33333C4.38781 6.66666 2 9.05447 2 12V13.3333M14 6.66666L10 10.6667M14 6.66666L10 2.66666" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </a>
+              </div>
+              <button data-mobile-toggle type="button" class="relative lg:hidden inline-flex items-center justify-center w-12 h-12 rounded-full border border-white/20 bg-white/5 text-white hover:bg-white/10 transition duration-200 shrink-0" aria-label="Open navigation menu" aria-expanded="false">
+                <span data-icon-menu class="absolute inset-0 flex items-center justify-center transition-opacity duration-150" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <path d="M4 6h16M4 12h16M4 18h16"></path>
+                  </svg>
+                </span>
+                <span data-icon-close class="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-150" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <path d="M6 6l12 12M18 6L6 18"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <!-- MOBILE NAV PANEL -->
+            <div data-mobile-panel class="lg:hidden pt-4" style="display: none;">
+              <div class="border-t border-white/10 pt-4 pb-4">
+                <div class="flex flex-col gap-1">
+                  <a href="../index.html" class="text-white text-sm font-medium tracking-tight p-3 rounded-xl hover:bg-gray-900 transition">Home</a>
+                  <div>
+                    <button data-nav-dropdown-toggle class="flex items-center justify-between w-full text-white text-sm font-medium tracking-tight p-3 rounded-xl hover:bg-gray-900 transition">
+                      <span>Initiatives</span>
+                      <svg data-nav-dropdown-chevron class="w-4 h-4 text-gray-300 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" fill="none">
+                        <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </button>
+                    <div data-nav-dropdown-content class="grid overflow-hidden" style="display: grid; grid-template-rows: 0fr;">
+                      <div class="min-h-0 overflow-hidden">
+                        <div class="rounded-xl border border-white/10 p-2 ml-3 mt-1 mb-2">
+                        <a href="../initiatives.html" class="text-white text-sm font-medium py-2.5 px-3 rounded-xl hover:bg-gray-900 transition block mb-2">All Initiatives</a>
+                        <div class="mb-2 border-t border-white/10 pt-3 px-1">
+                          <p class="text-[10px] uppercase tracking-[0.18em] text-gray-300 mb-2">Subsidiaries</p>
+                          <div class="flex flex-col gap-1">
+                            <a href="../initiatives/web-ready/" class="text-gray-300 text-sm py-1.5 px-2 rounded-lg hover:bg-gray-900 hover:text-white transition"><span translate="no">Web-Ready</span></a>
+                            <a href="../initiatives/vcasse/" class="text-gray-300 text-sm py-1.5 px-2 rounded-lg hover:bg-gray-900 hover:text-white transition"><span translate="no">VCASSE</span></a>
+                          </div>
+                        </div>
+                        <div class="mb-2 border-t border-white/10 pt-3 px-1">
+                          <p class="text-[10px] uppercase tracking-[0.18em] text-gray-300 mb-2">Projects</p>
+                          <div class="flex flex-col gap-1">
+                            <a href="../initiatives/sustainable-technology-week/" class="text-gray-300 text-sm py-1.5 px-2 rounded-lg hover:bg-gray-900 hover:text-white transition"><span translate="no">Sustainable Technology Week</span></a>
+                            <a href="../initiatives/wra-platform/" class="text-gray-300 text-sm py-1.5 px-2 rounded-lg hover:bg-gray-900 hover:text-white transition"><span translate="no">WRA Platform</span></a>
+                          </div>
+                        </div>
+                        <div class="border-t border-white/10 pt-3 px-1">
+                          <p class="text-[10px] uppercase tracking-[0.18em] text-gray-300 mb-2">Accountability</p>
+                          <div class="flex flex-col gap-1">
+                            <a href="https://impact.oasisofchange.com" class="text-gray-300 text-sm py-1.5 px-2 rounded-lg hover:bg-gray-900 hover:text-white transition">Impact Dashboard</a>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="../case-studies/" class="text-white text-sm font-medium tracking-tight p-3 rounded-xl hover:bg-gray-900 transition">Case Studies</a>
+                  <div>
+                    <button data-nav-dropdown-toggle class="flex items-center justify-between w-full text-white text-sm font-medium tracking-tight p-3 rounded-xl hover:bg-gray-900 transition">
+                      <span>Company</span>
+                      <svg data-nav-dropdown-chevron class="w-4 h-4 text-gray-300 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" fill="none">
+                        <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </button>
+                    <div data-nav-dropdown-content class="grid overflow-hidden" style="display: grid; grid-template-rows: 0fr;">
+                      <div class="min-h-0 overflow-hidden">
+                        <div class="rounded-xl border border-white/10 p-2 ml-3 mt-1 mb-2">
+                        <div class="flex flex-col gap-1">
+                          <a href="../about.html" class="text-gray-300 text-sm py-2 px-3 rounded-xl hover:bg-gray-900 hover:text-white transition">Our Story</a>
+                          <a href="../about.html#OurMission" class="text-gray-300 text-sm py-2 px-3 rounded-xl hover:bg-gray-900 hover:text-white transition">Our Mission</a>
+                          <a href="../gabriel-dalton.html" class="text-gray-300 text-sm py-2 px-3 rounded-xl hover:bg-gray-900 hover:text-white transition">Our Founder</a>
+                          <a href="../about.html#our-board" class="text-gray-300 text-sm py-2 px-3 rounded-xl hover:bg-gray-900 hover:text-white transition">Our Board</a>
+                          <a href="../annual-report/" class="text-gray-300 text-sm py-2 px-3 rounded-xl hover:bg-gray-900 hover:text-white transition">Annual Reports</a>
+                          <a href="../news/" class="text-gray-300 text-sm py-2 px-3 rounded-xl hover:bg-gray-900 hover:text-white transition">News &amp; Press</a>
+                          <a href="../nonprofits.html" class="text-gray-300 text-sm py-2 px-3 rounded-xl hover:bg-gray-900 hover:text-white transition">For Nonprofits</a>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="../blog/" class="text-white text-sm font-medium tracking-tight p-3 rounded-xl hover:bg-gray-900 transition">Blog</a>
+                  <a href="../get-involved/" class="mt-3 rounded-full border border-gray-200 bg-white text-black px-5 py-3 hover:bg-gray-50 transition inline-flex items-center justify-center gap-2">
+                    <span class="text-sm font-semibold tracking-tight">Get Involved</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16" fill="none">
+                      <path d="M14 6.66666H7.33333C4.38781 6.66666 2 9.05447 2 12V13.3333M14 6.66666L10 10.6667M14 6.66666L10 2.66666" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </section>
+
+      <section class="pb-16 md:pb-24">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
+
+          <!-- HERO -->
+          <div class="ntg-hero rounded-[2rem] px-5 sm:px-8 md:px-12 lg:px-16 py-10 sm:py-12 md:py-16 lg:py-20 mb-5 sm:mb-6">
+            <nav class="text-sm text-gray-600 mb-8" aria-label="Breadcrumb">
+              <a href="../index.html" class="hover:text-black transition duration-200">Home</a>
+              <span class="mx-2 text-gray-400">/</span>
+              <a href="../nonprofits.html" class="hover:text-black transition duration-200">For Nonprofits</a>
+              <span class="mx-2 text-gray-400">/</span>
+              <span class="text-gray-900 font-medium">Nonprofit Tech Grants</span>
+            </nav>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+              <div class="lg:col-span-7">
+                <span class="ntg-confidential-note mb-5">Source of truth &middot; Updated regularly</span>
+                <h1 class="font-heading tracking-tight text-black text-4xl sm:text-5xl md:text-[3.5rem] font-medium leading-[1.05] mb-5 mt-5">Nonprofit<br>technology grants</h1>
+                <p class="tracking-tight text-gray-600 text-lg sm:text-xl leading-8 sm:leading-9 max-w-2xl">
+                  We help mission-driven organizations access in-kind technology grants from the platforms they already rely on. This page is a transparent record of the programs we work with and the total annual value we&rsquo;ve helped unlock to date.
+                </p>
+              </div>
+              <div class="lg:col-span-5">
+                <div class="rounded-[1.75rem] bg-white p-6 sm:p-7" style="box-shadow:0 8px 32px rgba(0,0,0,0.06),0 0 0 1px rgba(0,0,0,0.03)">
+                  <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-2">In-kind value secured</p>
+                  <p class="font-heading tracking-tight text-black text-4xl sm:text-5xl font-medium leading-none mb-2">$868,200<sup class="text-sm align-super text-gray-500">1</sup></p>
+                  <p class="text-gray-600 text-sm mb-5">Cumulative annual value (CAD) across all grants we&rsquo;ve helped nonprofits secure.</p>
+                  <a href="../contact.html?type=nonprofit-grants" class="w-full inline-flex items-center justify-center rounded-full bg-black px-5 py-3 text-sm font-semibold tracking-tight text-white hover:bg-gray-900 focus:ring-4 focus:ring-gray-200 transition duration-200">
+                    Apply with us
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- KPIs -->
+          <section class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-5 sm:mb-6" aria-label="Programme summary">
+            <div class="ntg-kpi">
+              <p class="ntg-kpi-eyebrow">Total value</p>
+              <p class="ntg-kpi-value">$868.2K</p>
+              <p class="ntg-kpi-foot">Annual value of grants secured (CAD).<sup>1</sup></p>
+            </div>
+            <div class="ntg-kpi">
+              <p class="ntg-kpi-eyebrow">Grants secured</p>
+              <p class="ntg-kpi-value">11</p>
+              <p class="ntg-kpi-foot">Awards approved across multiple programs.</p>
+            </div>
+            <div class="ntg-kpi">
+              <p class="ntg-kpi-eyebrow">Organizations</p>
+              <p class="ntg-kpi-value">3</p>
+              <p class="ntg-kpi-foot">Nonprofits supported, including <span translate="no">Oasis of Change</span>.</p>
+            </div>
+            <div class="ntg-kpi">
+              <p class="ntg-kpi-eyebrow">Programs we work with</p>
+              <p class="ntg-kpi-value">8</p>
+              <p class="ntg-kpi-foot">Tech grants we help nonprofits apply to and set up.</p>
+            </div>
+          </section>
+
+          <!-- WHAT WE COVER -->
+          <div class="mb-5 sm:mb-6">
+            <div class="flex items-end justify-between gap-6 mb-7 sm:mb-8">
+              <div>
+                <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-3">Programs we work with</p>
+                <h2 class="text-black text-3xl md:text-4xl lg:text-[2.75rem] font-heading tracking-tight" style="line-height:1.05">Eight tech grants &mdash; one front door</h2>
+              </div>
+            </div>
+
+            <div class="ntg-prog-grid">
+
+              <!-- Google Workspace -->
+              <article class="ntg-prog-card">
+                <span class="ntg-prog-tag"><span class="ntg-prog-dot" style="background:#15803d"></span> Productivity</span>
+                <h3 class="ntg-prog-title">Google Workspace for Nonprofits</h3>
+                <p class="ntg-prog-body">Free Google Workspace Business Standard for eligible nonprofits &mdash; mail, Drive, Meet, Docs, and admin controls under your own domain.<sup>2</sup></p>
+                <a class="ntg-prog-link" href="https://www.google.com/nonprofits/offerings/workspace/" target="_blank" rel="noopener noreferrer">Programme details
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                </a>
+              </article>
+
+              <!-- Google Ad Grants -->
+              <article class="ntg-prog-card">
+                <span class="ntg-prog-tag"><span class="ntg-prog-dot" style="background:#0891b2"></span> Marketing</span>
+                <h3 class="ntg-prog-title">Google Ad Grants</h3>
+                <p class="ntg-prog-body">Up to <strong>US$10,000 / month</strong> in in-kind search advertising for eligible nonprofits, used to drive awareness, donations, and volunteer sign-ups.<sup>3</sup></p>
+                <a class="ntg-prog-link" href="https://www.google.com/grants/" target="_blank" rel="noopener noreferrer">Programme details
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                </a>
+              </article>
+
+              <!-- Canva for Nonprofits -->
+              <article class="ntg-prog-card">
+                <span class="ntg-prog-tag"><span class="ntg-prog-dot" style="background:#6d28d9"></span> Design</span>
+                <h3 class="ntg-prog-title">Canva for Nonprofits</h3>
+                <p class="ntg-prog-body">Free <span translate="no">Canva Teams</span> for eligible nonprofits &mdash; brand kits, premium templates, photos, fonts, and team collaboration.<sup>4</sup></p>
+                <a class="ntg-prog-link" href="https://www.canva.com/canva-for-nonprofits/" target="_blank" rel="noopener noreferrer">Programme details
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                </a>
+              </article>
+
+              <!-- Microsoft for Nonprofits -->
+              <article class="ntg-prog-card">
+                <span class="ntg-prog-tag"><span class="ntg-prog-dot" style="background:#a16207"></span> Productivity</span>
+                <h3 class="ntg-prog-title">Microsoft for Nonprofits</h3>
+                <p class="ntg-prog-body">Microsoft 365 Business Premium grants and discounts, plus US$3,500 in Azure credits per year for eligible nonprofits.<sup>5</sup></p>
+                <a class="ntg-prog-link" href="https://www.microsoft.com/en-us/nonprofits" target="_blank" rel="noopener noreferrer">Programme details
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                </a>
+              </article>
+
+              <!-- TechSoup -->
+              <article class="ntg-prog-card">
+                <span class="ntg-prog-tag"><span class="ntg-prog-dot" style="background:#475569"></span> Marketplace</span>
+                <h3 class="ntg-prog-title">TechSoup</h3>
+                <p class="ntg-prog-body">A nonprofit-validation gateway to discounted and donated software from dozens of vendors, including admin fees only on most items.<sup>6</sup></p>
+                <a class="ntg-prog-link" href="https://www.techsoup.org/" target="_blank" rel="noopener noreferrer">Programme details
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                </a>
+              </article>
+
+              <!-- Atlassian for Nonprofits -->
+              <article class="ntg-prog-card">
+                <span class="ntg-prog-tag"><span class="ntg-prog-dot" style="background:#1d4ed8"></span> Operations</span>
+                <h3 class="ntg-prog-title">Atlassian for Nonprofits</h3>
+                <p class="ntg-prog-body">75% discount on <span translate="no">Jira</span>, <span translate="no">Confluence</span>, and other Atlassian Cloud products for eligible registered charities.<sup>7</sup></p>
+                <a class="ntg-prog-link" href="https://www.atlassian.com/teams/nonprofits" target="_blank" rel="noopener noreferrer">Programme details
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                </a>
+              </article>
+
+              <!-- Claude for Nonprofits -->
+              <article class="ntg-prog-card">
+                <span class="ntg-prog-tag"><span class="ntg-prog-dot" style="background:#c2410c"></span> AI</span>
+                <h3 class="ntg-prog-title">Claude for Nonprofits</h3>
+                <p class="ntg-prog-body">Discounted access to <span translate="no">Claude</span>, Anthropic&rsquo;s AI assistant, for qualifying nonprofits &mdash; for writing, research, accessibility, and operations.<sup>8</sup></p>
+                <a class="ntg-prog-link" href="https://www.anthropic.com/contact-sales/for-nonprofits" target="_blank" rel="noopener noreferrer">Programme details
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                </a>
+              </article>
+
+              <!-- Google for Nonprofits umbrella -->
+              <article class="ntg-prog-card">
+                <span class="ntg-prog-tag"><span class="ntg-prog-dot" style="background:#0f766e"></span> Eligibility</span>
+                <h3 class="ntg-prog-title">Google for Nonprofits</h3>
+                <p class="ntg-prog-body">The verification gateway that unlocks Google Workspace, Ad Grants, and YouTube Nonprofit features under one account.<sup>9</sup></p>
+                <a class="ntg-prog-link" href="https://www.google.com/nonprofits/" target="_blank" rel="noopener noreferrer">Programme details
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                </a>
+              </article>
+
+            </div>
+          </div>
+
+          <!-- BREAKDOWN -->
+          <div class="rounded-[2rem] border border-gray-200 bg-white px-5 py-7 sm:px-8 sm:py-9 md:px-10 md:py-11 mb-5 sm:mb-6">
+            <div class="flex items-end justify-between gap-6 mb-6 sm:mb-8 flex-wrap">
+              <div>
+                <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-3">Where the value comes from</p>
+                <h2 class="text-black text-3xl md:text-4xl font-heading tracking-tight" style="line-height:1.05">Breakdown by program</h2>
+              </div>
+              <span class="ntg-confidential-note">Per-client figures kept confidential</span>
+            </div>
+
+            <div class="ntg-chart-grid">
+              <figure class="m-0">
+                <svg class="ntg-chart-svg" viewBox="0 0 220 220" role="img" aria-labelledby="ntgChartTitle ntgChartDesc">
+                  <title id="ntgChartTitle">Annual value of in-kind grants by program</title>
+                  <desc id="ntgChartDesc">A pie chart showing the share of total annual in-kind value secured: Google Workspace 58.1%, Google Ads 27.6%, Microsoft for Nonprofits 10.4%, Canva 3.9%. Total $868,200 CAD.</desc>
+                  <!-- Slices, starting at 12 o'clock and proceeding clockwise -->
+                  <path class="ntg-chart-slice" d="M110,110 L110,10 A100,100 0 1 1 61.60,197.50 Z" fill="#15803d"></path>
+                  <path class="ntg-chart-slice" d="M110,110 L61.60,197.50 A100,100 0 0 1 31.68,47.82 Z" fill="#0891b2"></path>
+                  <path class="ntg-chart-slice" d="M110,110 L31.68,47.82 A100,100 0 0 1 85.61,13.02 Z" fill="#a16207"></path>
+                  <path class="ntg-chart-slice" d="M110,110 L85.61,13.02 A100,100 0 0 1 110,10 Z" fill="#6d28d9"></path>
+                  <!-- Inner ring + total label -->
+                  <circle cx="110" cy="110" r="58" fill="#fff"></circle>
+                  <text x="110" y="102" text-anchor="middle" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="10" fill="#6b7280" letter-spacing="1.5">TOTAL</text>
+                  <text x="110" y="124" text-anchor="middle" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="20" font-weight="600" fill="#0f172a">$868.2K</text>
+                </svg>
+                <figcaption class="text-xs text-center text-gray-500 mt-3">Share of $868,200 CAD in annual in-kind value secured.</figcaption>
+              </figure>
+
+              <div class="ntg-legend" role="list" aria-label="Programme share of total value">
+                <div class="ntg-legend-row" role="listitem">
+                  <span class="ntg-legend-swatch" style="background:#15803d" aria-hidden="true"></span>
+                  <span class="ntg-legend-name">Google Workspace</span>
+                  <span class="ntg-legend-share">58.1%&nbsp;&middot;&nbsp;$504.0K</span>
+                </div>
+                <div class="ntg-legend-row" role="listitem">
+                  <span class="ntg-legend-swatch" style="background:#0891b2" aria-hidden="true"></span>
+                  <span class="ntg-legend-name">Google Ad Grants</span>
+                  <span class="ntg-legend-share">27.6%&nbsp;&middot;&nbsp;$240.0K</span>
+                </div>
+                <div class="ntg-legend-row" role="listitem">
+                  <span class="ntg-legend-swatch" style="background:#a16207" aria-hidden="true"></span>
+                  <span class="ntg-legend-name">Microsoft for Nonprofits</span>
+                  <span class="ntg-legend-share">10.4%&nbsp;&middot;&nbsp;$90.0K</span>
+                </div>
+                <div class="ntg-legend-row" role="listitem">
+                  <span class="ntg-legend-swatch" style="background:#6d28d9" aria-hidden="true"></span>
+                  <span class="ntg-legend-name">Canva for Nonprofits</span>
+                  <span class="ntg-legend-share">3.9%&nbsp;&middot;&nbsp;$34.2K</span>
+                </div>
+                <p class="text-gray-500 text-xs leading-relaxed mt-3">
+                  TechSoup, Atlassian, and Claude programs are also part of our standard support, but no associated grants are reflected in the totals above yet.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- METHODOLOGY -->
+          <div class="rounded-[2rem] border border-gray-200 bg-gray-50 px-5 py-8 sm:px-8 sm:py-10 md:px-10 md:py-12 mb-5 sm:mb-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 mb-6">
+              <div class="lg:col-span-5">
+                <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-3">Methodology</p>
+                <h2 class="text-black text-2xl md:text-3xl font-heading tracking-tight mb-4">How we calculate annual value</h2>
+                <p class="text-gray-600 leading-8">Every figure on this page is the <em>retail-equivalent annual list price</em> of the in-kind benefit a nonprofit would otherwise pay for at standard market rates &mdash; not cash transferred. We use the most conservative published rate for each program.</p>
+              </div>
+              <div class="lg:col-span-7">
+                <div class="ntg-method-list">
+                  <div class="ntg-method-step">
+                    <span class="ntg-method-num" aria-hidden="true"></span>
+                    <div>
+                      <p class="ntg-method-title">Start from the program&rsquo;s public list price</p>
+                      <p class="ntg-method-body">For each program, we anchor the value to the publicly advertised standard rate that the nonprofit would pay without the grant &mdash; e.g. Google Workspace Business Standard at US$14/user/month<sup>10</sup>, or Microsoft 365 Business Premium at US$22/user/month.<sup>11</sup></p>
+                    </div>
+                  </div>
+                  <div class="ntg-method-step">
+                    <span class="ntg-method-num" aria-hidden="true"></span>
+                    <div>
+                      <p class="ntg-method-title">Apply the granted entitlement</p>
+                      <p class="ntg-method-body">We multiply by the number of user seats, the in-kind ad spend cap, or the credit ceiling that the grant actually unlocks for the organization (e.g. US$10,000/month for Google Ad Grants<sup>3</sup>).</p>
+                    </div>
+                  </div>
+                  <div class="ntg-method-step">
+                    <span class="ntg-method-num" aria-hidden="true"></span>
+                    <div>
+                      <p class="ntg-method-title">Convert to CAD, annualized</p>
+                      <p class="ntg-method-body">USD-denominated grants are converted to Canadian dollars at the Bank of Canada annual average exchange rate for the grant&rsquo;s approval year<sup>12</sup>, then multiplied by 12 months to express an annual value.</p>
+                    </div>
+                  </div>
+                  <div class="ntg-method-step">
+                    <span class="ntg-method-num" aria-hidden="true"></span>
+                    <div>
+                      <p class="ntg-method-title">Use the conservative figure</p>
+                      <p class="ntg-method-body">Where a program publishes a range (e.g. variable Azure credit usage), we report the floor of the entitlement to avoid overstating in-kind value. Discounts are valued at <em>retail minus nonprofit price</em>, not retail.</p>
+                    </div>
+                  </div>
+                  <div class="ntg-method-step">
+                    <span class="ntg-method-num" aria-hidden="true"></span>
+                    <div>
+                      <p class="ntg-method-title">Recount on each approval</p>
+                      <p class="ntg-method-body">Figures update only when a new grant is approved, renewed, or revoked. We do not double-count multi-year approvals: each approved grant contributes one annual-value figure per year of validity.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FOOTNOTES -->
+          <div class="rounded-[2rem] border border-gray-200 bg-white px-5 py-7 sm:px-8 sm:py-9 md:px-10 md:py-10 mb-5 sm:mb-6">
+            <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-5">Footnotes &amp; sources</p>
+            <ol class="ntg-foot-list">
+              <li>Cumulative annual in-kind value secured across all approved grants we&rsquo;ve helped nonprofits apply for, as of <span translate="no">May 2026</span>. Values reflect the retail-equivalent annual list price of each entitlement, not cash transferred. Per-client breakdowns are confidential and not displayed.</li>
+              <li>Google for Nonprofits. <em>Google Workspace for Nonprofits</em>. <a href="https://www.google.com/nonprofits/offerings/workspace/" target="_blank" rel="noopener noreferrer">google.com/nonprofits/offerings/workspace</a></li>
+              <li>Google for Nonprofits. <em>Google Ad Grants</em>. In-kind cap of US$10,000/month. <a href="https://www.google.com/grants/" target="_blank" rel="noopener noreferrer">google.com/grants</a></li>
+              <li>Canva. <em>Canva for Nonprofits</em>. <a href="https://www.canva.com/canva-for-nonprofits/" target="_blank" rel="noopener noreferrer">canva.com/canva-for-nonprofits</a></li>
+              <li>Microsoft. <em>Microsoft for Nonprofits</em>. Annual Azure grant US$3,500 plus Microsoft 365 Business Premium grants/discounts for eligible nonprofits. <a href="https://www.microsoft.com/en-us/nonprofits/eligibility" target="_blank" rel="noopener noreferrer">microsoft.com/nonprofits/eligibility</a></li>
+              <li>TechSoup. <em>About TechSoup</em>. <a href="https://www.techsoup.org/about" target="_blank" rel="noopener noreferrer">techsoup.org/about</a></li>
+              <li>Atlassian. <em>Community License Program for nonprofits</em>. 75% off Atlassian Cloud for eligible registered charities. <a href="https://www.atlassian.com/teams/nonprofits" target="_blank" rel="noopener noreferrer">atlassian.com/teams/nonprofits</a></li>
+              <li>Anthropic. <em>Claude for Nonprofits</em>. <a href="https://www.anthropic.com/contact-sales/for-nonprofits" target="_blank" rel="noopener noreferrer">anthropic.com/contact-sales/for-nonprofits</a></li>
+              <li>Google. <em>Google for Nonprofits</em> umbrella verification. <a href="https://www.google.com/nonprofits/" target="_blank" rel="noopener noreferrer">google.com/nonprofits</a></li>
+              <li>Google Workspace standard list pricing &mdash; Business Standard tier. <a href="https://workspace.google.com/pricing.html" target="_blank" rel="noopener noreferrer">workspace.google.com/pricing</a></li>
+              <li>Microsoft 365 Business Premium standard pricing. <a href="https://www.microsoft.com/en-ca/microsoft-365/business/compare-all-plans" target="_blank" rel="noopener noreferrer">microsoft.com/microsoft-365/business/compare-all-plans</a></li>
+              <li>Bank of Canada annual average exchange rates. <a href="https://www.bankofcanada.ca/rates/exchange/annual-average-exchange-rates/" target="_blank" rel="noopener noreferrer">bankofcanada.ca/rates/exchange/annual-average-exchange-rates</a></li>
+            </ol>
+            <p class="text-xs text-gray-500 leading-relaxed mt-6 pt-5 border-t border-gray-100">
+              Program names and logos are the property of their respective owners. Eligibility, entitlements, and standard pricing change &mdash; the figures on this page reflect our best understanding at the time of each grant&rsquo;s approval and may not match a given nonprofit&rsquo;s current pricing.
+            </p>
+          </div>
+
+          <!-- CTA -->
+          <div class="ntg-cta-dark rounded-[2rem] px-5 py-10 sm:px-8 sm:py-12 md:px-12 md:py-14">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start" style="position:relative;z-index:1">
+              <div class="lg:col-span-7">
+                <p class="text-sm uppercase tracking-[0.18em] mb-4" style="color:#9ca3af">Apply with us</p>
+                <h2 class="text-white text-2xl md:text-3xl lg:text-4xl font-heading tracking-tight mb-4" style="line-height:1.15">Let&rsquo;s find the grants your nonprofit qualifies for</h2>
+                <p class="leading-8 mb-7 max-w-2xl" style="color:#9ca3af">Tell us about your organization and what you need. We&rsquo;ll help with eligibility, the application, and getting set up after approval &mdash; at no cost to qualifying nonprofits.</p>
+                <div class="flex flex-col sm:flex-row gap-3">
+                  <a href="../contact.html?type=nonprofit-grants" class="ntg-btn-green w-full sm:w-auto">
+                    Talk to us about grants
+                  </a>
+                  <a href="../initiatives/wra-platform/" class="ntg-btn-ghost w-full sm:w-auto">
+                    <span>Explore the <span translate="no">WRA Platform</span></span>
+                  </a>
+                </div>
+              </div>
+              <div class="lg:col-span-5">
+                <p class="text-sm uppercase tracking-[0.18em] mb-5" style="color:#6b7280">Related</p>
+                <div class="flex flex-col">
+                  <a href="../nonprofits.html" class="np-cta-link">
+                    <span>For Nonprofits</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  </a>
+                  <a href="../case-studies/" class="np-cta-link">
+                    <span>View case studies</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  </a>
+                  <a href="https://impact.oasisofchange.com" class="np-cta-link">
+                    <span>Impact dashboard</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      </main>
+
+      <footer class="site-global-footer pt-20 pb-8 overflow-hidden bg-black bs-section-dragged">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="site-footer-layout">
+        <div class="site-footer-brand">
+          <div class="mb-4">
+            <img class="h-14 sm:h-16 w-auto" style="margin-top:-1.05rem" src="../images/logo/Oasis_of_Change-official.svg" alt="Oasis of Change" width="64" height="64" loading="lazy">
+          </div>
+          <p translate="no" class="tracking-tight text-gray-200 leading-relaxed text-sm">
+            <span data-lang-text="en">Building a more sustainable digital future through energy-efficient websites, transparent impact, and technology that supports communities and the planet.</span><span data-lang-text="es">Construyendo un futuro digital m&aacute;s sostenible mediante sitios web energ&eacute;ticamente eficientes, impacto transparente y tecnolog&iacute;a que apoya a las comunidades y al planeta.</span><span data-lang-text="fr">Construire un avenir num&eacute;rique plus durable gr&acirc;ce &agrave; des sites &eacute;conomes en &eacute;nergie, un impact transparent et une technologie au service des communaut&eacute;s et de la plan&egrave;te.</span>
+          </p>
+        </div>
+        <nav class="site-footer-nav tracking-tight text-sm" aria-label="Footer">
+          <div>
+            <p translate="no" class="site-footer-heading text-white font-semibold uppercase"><span data-lang-text="en">General</span><span data-lang-text="es">General</span><span data-lang-text="fr">G&eacute;n&eacute;ral</span></p>
+            <ul class="site-footer-list">
+              <li><a href="../index.html" translate="no" class="site-footer-link text-gray-200 hover:text-green-300 transition duration-200"><span data-lang-text="en">Home</span><span data-lang-text="es">Inicio</span><span data-lang-text="fr">Accueil</span></a></li>
+              <li><a href="../get-involved/" translate="no" class="site-footer-link text-gray-200 hover:text-green-300 transition duration-200 whitespace-nowrap"><span data-lang-text="en">Get Involved</span><span data-lang-text="es">Participar</span><span data-lang-text="fr">S&rsquo;impliquer</span></a></li>
+              <li><a href="../nonprofits.html" translate="no" class="site-footer-link text-gray-200 hover:text-green-300 transition duration-200 whitespace-nowrap"><span data-lang-text="en">For Nonprofits</span><span data-lang-text="es">Para organizaciones sin fines de lucro</span><span data-lang-text="fr">Pour les organismes &agrave; but non lucratif</span></a></li>
+              <li><a href="../blog/" translate="no" class="site-footer-link text-gray-200 hover:text-green-300 transition duration-200"><span data-lang-text="en">Blog</span><span data-lang-text="es">Blog</span><span data-lang-text="fr">Blogue</span></a></li>
+              <li><a href="../case-studies/" translate="no" class="site-footer-link text-gray-200 hover:text-green-300 transition duration-200 whitespace-nowrap"><span data-lang-text="en">Case Studies</span><span data-lang-text="es">Estudios de caso</span><span data-lang-text="fr">&Eacute;tudes de cas</span></a></li>
+              <li><a href="../contact.html" translate="no" class="site-footer-link text-gray-200 hover:text-green-300 transition duration-200"><span data-lang-text="en">Contact</span><span data-lang-text="es">Contacto</span><span data-lang-text="fr">Contact</span></a></li>
+            </ul>
+          </div>
+          <div>
+            <p translate="no" class="site-footer-heading text-white font-semibold uppercase"><span data-lang-text="en">Initiatives</span><span data-lang-text="es">Iniciativas</span><span data-lang-text="fr">Initiatives</span></p>
+            <ul class="site-footer-list">
+              <li><a href="../initiatives/web-ready/" class="site-footer-link text-gray-200 hover:text-green-300 transition duration-200 whitespace-nowrap"><span translate="no">Web-Ready</span></a></li>
+              <li><a href="../initiatives/vcasse/" translate="no" class="site-footer-link text-gray-200 hover:text-green-300 transition duration-200 leading-snug"><span data-lang-text="en">Vancouver Centre for AI Safety, Sustainability, and Ethics (VCASSE)</span><span data-lang-text="es">Centro de Vancouver para la Seguridad, Sostenibilidad y &Eacute;tica de la IA (VCASSE)</span><span data-lang-text="fr">Centre de Vancouver pour la s&eacute;curit&eacute;, la durabilit&eacute; et l&rsquo;&eacute;thique de l&rsquo;IA (VCASSE)</span></a></li>
+              <li><a href="../initiatives/sustainable-technology-week/" class="site-footer-link text-gray-200 hover:text-green-300 transition duration-200 leading-snug"><span translate="no">Sustainable Technology Week</span></a></li>
+              <li><a href="../initiatives/wra-platform/" class="site-footer-link text-gray-200 hover:text-green-300 transition duration-200 whitespace-nowrap"><span translate="no">WRA Platform</span></a></li>
+            </ul>
+          </div>
+          <div>
+            <p translate="no" class="site-footer-heading text-white font-semibold uppercase"><span data-lang-text="en">Company</span><span data-lang-text="es">Empresa</span><span data-lang-text="fr">Soci&eacute;t&eacute;</span></p>
+            <ul class="site-footer-list">
+              <li><a href="../about.html" translate="no" class="site-footer-link text-gray-200 hover:text-green-300 transition duration-200 whitespace-nowrap"><span data-lang-text="en">Our Story</span><span data-lang-text="es">Nuestra historia</span><span data-lang-text="fr">Notre histoire</span></a></li>
+              <li><a href="../about.html#OurMission" translate="no" class="site-footer-link text-gray-200 hover:text-green-300 transition duration-200 whitespace-nowrap"><span data-lang-text="en">Our Mission</span><span data-lang-text="es">Nuestra misi&oacute;n</span><span data-lang-text="fr">Notre mission</span></a></li>
+              <li><a href="../gabriel-dalton.html" translate="no" class="site-footer-link text-gray-200 hover:text-green-300 transition duration-200 whitespace-nowrap"><span data-lang-text="en">Our Founder</span><span data-lang-text="es">Nuestro fundador</span><span data-lang-text="fr">Notre fondateur</span></a></li>
+              <li><a href="../about.html#our-board" translate="no" class="site-footer-link text-gray-200 hover:text-green-300 transition duration-200 whitespace-nowrap"><span data-lang-text="en">Our Board</span><span data-lang-text="es">Nuestra junta</span><span data-lang-text="fr">Notre conseil</span></a></li>
+              <li><a href="../annual-report/" translate="no" class="site-footer-link text-gray-200 hover:text-green-300 transition duration-200 whitespace-nowrap"><span data-lang-text="en">Annual Reports</span><span data-lang-text="es">Informes anuales</span><span data-lang-text="fr">Rapports annuels</span></a></li>
+              <li><a href="../news/" translate="no" class="site-footer-link text-gray-200 hover:text-green-300 transition duration-200 whitespace-nowrap"><span data-lang-text="en">News &amp; Press</span><span data-lang-text="es">Noticias y prensa</span><span data-lang-text="fr">Actualit&eacute;s et presse</span></a></li>
+            </ul>
+          </div>
+          <div>
+            <p translate="no" class="site-footer-heading text-white font-semibold uppercase"><span data-lang-text="en">Accountability</span><span data-lang-text="es">Rendici&oacute;n de cuentas</span><span data-lang-text="fr">Reddition de comptes</span></p>
+            <ul class="site-footer-list">
+              <li><a href="https://impact.oasisofchange.com" target="_blank" rel="noopener noreferrer" translate="no" class="site-footer-link text-gray-200 hover:text-green-300 transition duration-200 whitespace-nowrap"><span data-lang-text="en">Impact Dashboard</span><span data-lang-text="es">Panel de impacto</span><span data-lang-text="fr">Tableau de bord d&rsquo;impact</span></a></li>
+              <li><a href="../sustainability-statement/" translate="no" class="site-footer-link text-gray-200 hover:text-green-300 transition duration-200 leading-snug"><span data-lang-text="en">Sustainability Statement</span><span data-lang-text="es">Declaraci&oacute;n de sostenibilidad</span><span data-lang-text="fr">D&eacute;claration de durabilit&eacute;</span></a></li>
+              <li><a href="../tree-planting/" translate="no" class="site-footer-link text-gray-200 hover:text-green-300 transition duration-200 leading-snug"><span data-lang-text="en">Tree Planting Statement</span><span data-lang-text="es">Declaraci&oacute;n de plantaci&oacute;n de &aacute;rboles</span><span data-lang-text="fr">D&eacute;claration sur la plantation d&rsquo;arbres</span></a></li>
+              <li><a href="../accessibility-statement/" translate="no" class="site-footer-link text-gray-200 hover:text-green-300 transition duration-200 leading-snug"><span data-lang-text="en">Accessibility Statement</span><span data-lang-text="es">Declaraci&oacute;n de accesibilidad</span><span data-lang-text="fr">D&eacute;claration d&rsquo;accessibilit&eacute;</span></a></li>
+              <li><a href="../privacy-policy.html" translate="no" class="site-footer-link text-gray-200 hover:text-green-300 transition duration-200 whitespace-nowrap"><span data-lang-text="en">Privacy Policy</span><span data-lang-text="es">Pol&iacute;tica de privacidad</span><span data-lang-text="fr">Politique de confidentialit&eacute;</span></a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="border-t border-gray-800 mt-16 pt-6">
+        <p translate="no" class="text-center text-gray-300 text-xs sm:text-sm tracking-tight px-2"><span data-lang-text="en">&copy; <span data-copyright-year>2026</span> Oasis of Change, Inc. All rights reserved.</span><span data-lang-text="es">&copy; <span data-copyright-year>2026</span> Oasis of Change, Inc. Todos los derechos reservados.</span><span data-lang-text="fr">&copy; <span data-copyright-year>2026</span> Oasis of Change, Inc. Tous droits r&eacute;serv&eacute;s.</span></p>
+      </div>
+    </div>
+      </footer>
+
+    </div>
+</body>
+</html>
