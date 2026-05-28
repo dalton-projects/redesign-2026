@@ -26,11 +26,6 @@
       /* Scoped styles for the Nonprofit Tech Grants page */
       .ntg-hero { background: linear-gradient(145deg, #f8faf6 0%, #f0f7ed 45%, #eef6ec 100%); position: relative; overflow: hidden; }
       .ntg-hero::after { content: ''; position: absolute; top: -120px; right: -60px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(74,222,128,0.10) 0%, transparent 65%); pointer-events: none; }
-      .ntg-kpi { background: #fff; border: 1px solid rgba(0,0,0,0.06); border-radius: 1.75rem; padding: 1.5rem 1.5rem 1.5rem; }
-      .ntg-kpi-eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #4b5563; }
-      .ntg-kpi-value { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 2.5rem; font-weight: 500; letter-spacing: -0.025em; line-height: 1.05; color: #000; margin: 0.6rem 0 0.5rem; }
-      .ntg-kpi-foot { color: #4b5563; font-size: 0.95rem; line-height: 1.55; }
-
       .ntg-prog-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
       @media (min-width: 640px) { .ntg-prog-grid { grid-template-columns: repeat(2, 1fr); } }
       @media (min-width: 1024px) { .ntg-prog-grid { grid-template-columns: repeat(4, 1fr); } }
@@ -319,14 +314,14 @@
               <div class="lg:col-span-7">
                 <h1 class="font-heading tracking-tight text-black text-4xl sm:text-5xl md:text-[3.5rem] font-medium leading-[1.05] mb-5">Nonprofit<br>technology grants</h1>
                 <p class="tracking-tight text-gray-600 text-lg sm:text-xl leading-8 sm:leading-9 max-w-2xl">
-                  We help nonprofits access in-kind technology grants from the platforms they already use. This page lists the programs we work with and the total annual value we've helped secure.
+                  We help nonprofits access in-kind technology grants from the platforms they already use. This page lists the programs we work with and the estimated annual value we've helped secure.
                 </p>
               </div>
               <div class="lg:col-span-5">
                 <div class="rounded-[1.75rem] bg-white p-6 sm:p-7" style="box-shadow:0 8px 32px rgba(0,0,0,0.06),0 0 0 1px rgba(0,0,0,0.03)">
-                  <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-2">In-kind value secured</p>
+                  <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-2">Estimated in-kind value</p>
                   <p class="font-heading tracking-tight text-black text-4xl sm:text-5xl font-medium leading-none mb-2">$868,200<sup class="text-sm align-super text-gray-500">1</sup></p>
-                  <p class="text-gray-600 text-sm mb-5">Total annual value in CAD across grants we've helped nonprofits secure.</p>
+                  <p class="text-gray-600 text-sm mb-5">Estimated annual value in CAD across grants we've helped nonprofits secure.</p>
                   <a href="../contact.html?type=nonprofit-grants" class="w-full inline-flex items-center justify-center rounded-full bg-black px-5 py-3 text-sm font-semibold tracking-tight text-white hover:bg-gray-900 focus:ring-4 focus:ring-gray-200 transition duration-200">
                     Apply with us
                   </a>
@@ -335,34 +330,9 @@
             </div>
           </div>
 
-          <!-- KPIs -->
-          <section class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-5 sm:mb-6" aria-label="Programme summary">
-            <div class="ntg-kpi">
-              <p class="ntg-kpi-eyebrow">Total value</p>
-              <p class="ntg-kpi-value">$868.2K</p>
-              <p class="ntg-kpi-foot">Total annual value in CAD.<sup>1</sup></p>
-            </div>
-            <div class="ntg-kpi">
-              <p class="ntg-kpi-eyebrow">Grants secured</p>
-              <p class="ntg-kpi-value">11</p>
-              <p class="ntg-kpi-foot">Grants approved across programs.</p>
-            </div>
-            <div class="ntg-kpi">
-              <p class="ntg-kpi-eyebrow">Organizations</p>
-              <p class="ntg-kpi-value">3</p>
-              <p class="ntg-kpi-foot">Nonprofits supported, including <span translate="no">Oasis of Change</span>.</p>
-            </div>
-            <div class="ntg-kpi">
-              <p class="ntg-kpi-eyebrow">Programs we work with</p>
-              <p class="ntg-kpi-value">7</p>
-              <p class="ntg-kpi-foot">Programs we help nonprofits apply for and set up.</p>
-            </div>
-          </section>
-
           <!-- WHAT WE COVER -->
           <div class="mb-5 sm:mb-6">
             <div class="mb-7 sm:mb-8">
-              <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-3">Programs we work with</p>
               <h2 class="text-black text-3xl md:text-4xl lg:text-[2.75rem] font-heading tracking-tight" style="line-height:1.05">Grants we help nonprofits unlock</h2>
             </div>
 
@@ -409,7 +379,6 @@
           <!-- BREAKDOWN -->
           <div class="rounded-[2rem] border border-gray-200 bg-white px-5 py-7 sm:px-8 sm:py-9 md:px-10 md:py-11 mb-5 sm:mb-6">
             <div class="mb-6 sm:mb-8">
-              <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-3">Where the value comes from</p>
               <h2 class="text-black text-3xl md:text-4xl font-heading tracking-tight" style="line-height:1.05">Breakdown by program</h2>
             </div>
 
@@ -417,7 +386,7 @@
               <figure class="m-0">
                 <svg class="ntg-chart-svg" viewBox="0 0 220 220" role="img" aria-labelledby="ntgChartTitle ntgChartDesc">
                   <title id="ntgChartTitle">Annual value of in-kind grants by program</title>
-                  <desc id="ntgChartDesc">A pie chart showing the share of total annual in-kind value secured: Google Workspace 58.1%, Google Ads 27.6%, Microsoft for Nonprofits 10.4%, Canva 3.9%. Total $868,200 CAD.</desc>
+                  <desc id="ntgChartDesc">A pie chart showing the share of estimated annual in-kind value secured: Google Workspace 58.1%, Google Ads 27.6%, Microsoft for Nonprofits 10.4%, Canva 3.9%. Total $868,200 CAD.</desc>
                   <!-- Slices, starting at 12 o'clock and proceeding clockwise -->
                   <path class="ntg-chart-slice" d="M110,110 L110,10 A100,100 0 1 1 61.60,197.50 Z" fill="#15803d"></path>
                   <path class="ntg-chart-slice" d="M110,110 L61.60,197.50 A100,100 0 0 1 31.68,47.82 Z" fill="#0891b2"></path>
@@ -428,7 +397,7 @@
                   <text x="110" y="102" text-anchor="middle" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="10" fill="#6b7280" letter-spacing="1.5">TOTAL</text>
                   <text x="110" y="124" text-anchor="middle" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="20" font-weight="600" fill="#0f172a">$868.2K</text>
                 </svg>
-                <figcaption class="text-xs text-center text-gray-500 mt-3">Share of $868,200 CAD in annual in-kind value secured.</figcaption>
+                <figcaption class="text-xs text-center text-gray-500 mt-3">Share of $868,200 CAD in estimated annual in-kind value.</figcaption>
               </figure>
 
               <div class="ntg-legend" role="list" aria-label="Programme share of total value">
@@ -465,7 +434,7 @@
               <div class="lg:col-span-5">
                 <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-3">Methodology</p>
                 <h2 class="text-black text-2xl md:text-3xl font-heading tracking-tight mb-4">How we calculate annual value</h2>
-                <p class="text-gray-600 leading-8">Each figure on this page is what the nonprofit would otherwise pay at standard market rates for the same software or services. It is not cash transferred.</p>
+                <p class="text-gray-600 leading-8">Each figure on this page is an estimate of what the nonprofit would otherwise pay at standard market rates for the same software or services. It is not cash transferred.</p>
               </div>
               <div class="lg:col-span-7">
                 <div class="ntg-method-list">
@@ -525,7 +494,7 @@
                   <span class="ntg-val-result">US$120,000 / year</span>
                 </div>
               </div>
-              <p class="text-xs text-gray-500 mt-5 leading-relaxed">These are per-grant values. The totals shown in the breakdown above include multiple grants per program across the nonprofits we work with.</p>
+              <p class="text-xs text-gray-500 mt-5 leading-relaxed">These are per-grant values. The totals in the breakdown above include multiple grants per program.</p>
             </div>
           </div>
 
@@ -533,7 +502,7 @@
           <div class="rounded-[2rem] border border-gray-200 bg-white px-5 py-7 sm:px-8 sm:py-9 md:px-10 md:py-10 mb-5 sm:mb-6">
             <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-5">Footnotes &amp; sources</p>
             <ol class="ntg-foot-list">
-              <li>Total annual in-kind value secured across all approved grants we've helped nonprofits apply for, as of <span translate="no">May 2026</span>. Values reflect the retail-equivalent annual list price of each entitlement, not cash transferred.</li>
+              <li>Total estimated annual in-kind value secured across all approved grants we've helped nonprofits apply for, as of <span translate="no">May 2026</span>. Values reflect the retail-equivalent annual list price of each entitlement, not cash transferred.</li>
               <li>Google for Nonprofits. Google Workspace for Nonprofits. <a href="https://www.google.com/nonprofits/offerings/workspace/" target="_blank" rel="noopener noreferrer">google.com/nonprofits/offerings/workspace</a></li>
               <li>Google for Nonprofits. Google Ad Grants. In-kind cap of US$10,000 per month. <a href="https://www.google.com/grants/" target="_blank" rel="noopener noreferrer">google.com/grants</a></li>
               <li>Canva. Canva for Nonprofits. <a href="https://www.canva.com/canva-for-nonprofits/" target="_blank" rel="noopener noreferrer">canva.com/canva-for-nonprofits</a></li>
@@ -543,9 +512,6 @@
               <li>Anthropic. Claude for Nonprofits. <a href="https://claude.com/contact-sales/nonprofits" target="_blank" rel="noopener noreferrer">claude.com/contact-sales/nonprofits</a></li>
               <li>Bank of Canada annual average exchange rates. <a href="https://www.bankofcanada.ca/rates/exchange/annual-average-exchange-rates/" target="_blank" rel="noopener noreferrer">bankofcanada.ca/rates/exchange/annual-average-exchange-rates</a></li>
             </ol>
-            <p class="text-xs text-gray-500 leading-relaxed mt-6 pt-5 border-t border-gray-100">
-              Program names and logos are the property of their respective owners. Eligibility, entitlements, and standard pricing change. The figures on this page reflect our best understanding at the time of each grant's approval and may not match a given nonprofit's current pricing.
-            </p>
           </div>
 
           <!-- CTA -->
