@@ -250,10 +250,13 @@
 
     function measureNavOverflow() {
       var children = flexRow.children;
-      var savedShrink = [];
+      var saved = [];
       for (var i = 0; i < children.length; i++) {
-        savedShrink.push(children[i].style.flexShrink);
-        children[i].style.flexShrink = '0';
+        var s = children[i].style;
+        saved.push([s.flexShrink, s.flexGrow, s.flexBasis]);
+        s.flexShrink = '0';
+        s.flexGrow = '0';
+        s.flexBasis = 'auto';
       }
       var containerWidth = flexRow.clientWidth;
       var totalWidth = 0;
@@ -264,7 +267,10 @@
       }
       if (visibleCount > 1) totalWidth += 16 * (visibleCount - 1);
       for (var i = 0; i < children.length; i++) {
-        children[i].style.flexShrink = savedShrink[i];
+        var s = children[i].style;
+        s.flexShrink = saved[i][0];
+        s.flexGrow = saved[i][1];
+        s.flexBasis = saved[i][2];
       }
       return totalWidth > containerWidth;
     }
