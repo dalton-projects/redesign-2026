@@ -2049,27 +2049,21 @@ textarea.cf-input {
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
-/* Clean, editorial play button — solid white disc with a deep forest-green
-   mark, matching the site's white CTA pills on dark surfaces. No neon glow or
-   pulsing ring; just a calm scale + soft-shadow lift on hover/focus. */
+/* Compact, modern lightbox-style play button: a solid brand-green disc with a
+   crisp white play triangle. Hover simply darkens the disc, matching the
+   site's flat button system — no glow, scale, or pulse. */
 .yt-facade .yt-play {
-  --yt-size: 88px;
+  --yt-size: 80px;
   width: var(--yt-size);
   height: var(--yt-size);
   border-radius: 9999px;
-  background: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.28),
-    0 2px 6px rgba(0, 0, 0, 0.18);
-  color: #0b2a1f;
+  background: #2f8b3b;
+  color: #ffffff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition:
-    transform 0.25s cubic-bezier(.2, .7, .2, 1),
-    box-shadow 0.25s ease,
-    color 0.25s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
   pointer-events: none;
   z-index: 2;
   align-self: center;
@@ -2077,51 +2071,35 @@ textarea.cf-input {
   position: relative;
 }
 .yt-facade .yt-play svg {
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: auto;
   display: block;
-  overflow: visible;
 }
 .yt-facade:hover img,
 .yt-facade:focus-visible img {
-  transform: scale(1.015);
-  filter: brightness(1.02);
+  filter: brightness(1.03);
 }
 .yt-facade:hover .yt-play,
 .yt-facade:focus-visible .yt-play {
-  transform: scale(1.04);
-  color: #2f8b3b;
-  box-shadow:
-    0 14px 38px rgba(0, 0, 0, 0.32),
-    0 3px 8px rgba(0, 0, 0, 0.22);
+  background: #256c2e;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.34);
 }
 .yt-facade:active .yt-play {
-  transform: scale(1.01);
-  transition-duration: 0.12s;
+  background: #1f5e28;
 }
 .yt-facade:focus-visible {
   outline: 2px solid rgb(74, 222, 128);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 @media (max-width: 640px) {
   .yt-facade .yt-play {
-    --yt-size: 64px;
-  }
-  .yt-facade .yt-play svg {
-    width: 24px;
-    height: 24px;
+    --yt-size: 60px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
   .yt-facade img,
   .yt-facade .yt-play {
     transition: none;
-  }
-  .yt-facade:hover img,
-  .yt-facade:focus-visible img,
-  .yt-facade:hover .yt-play,
-  .yt-facade:focus-visible .yt-play {
-    transform: none;
   }
 }
 
