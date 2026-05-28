@@ -36,12 +36,10 @@
       @media (min-width: 1024px) { .ntg-prog-grid { grid-template-columns: repeat(4, 1fr); } }
       .ntg-prog-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 1.5rem; padding: 1.5rem 1.4rem; display: flex; flex-direction: column; gap: 0.6rem; transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; }
       .ntg-prog-card:hover { border-color: #d1d5db; transform: translateY(-3px); box-shadow: 0 14px 32px -10px rgba(0,0,0,0.08); }
-      .ntg-prog-dot { width: 0.7rem; height: 0.7rem; border-radius: 9999px; display: inline-block; }
-      .ntg-prog-title { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: -0.015em; color: #000; }
-      .ntg-prog-tag { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #4b5563; }
+      .ntg-prog-header { display: flex; align-items: center; gap: 0.55rem; }
+      .ntg-prog-dot { width: 0.7rem; height: 0.7rem; border-radius: 9999px; display: inline-block; flex-shrink: 0; }
+      .ntg-prog-title { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: -0.015em; color: #000; margin: 0; }
       .ntg-prog-body { color: #4b5563; font-size: 0.92rem; line-height: 1.6; }
-      .ntg-prog-link { font-size: 0.82rem; font-weight: 600; color: #0f172a; text-decoration: none; border-bottom: 1px dashed #d1d5db; padding-bottom: 1px; display: inline-flex; align-items: center; gap: 0.3rem; transition: color 0.2s ease, border-color 0.2s ease; align-self: flex-start; margin-top: auto; }
-      .ntg-prog-link:hover { color: #15803d; border-color: #15803d; }
 
       .ntg-chart-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; }
       @media (min-width: 1024px) { .ntg-chart-grid { grid-template-columns: minmax(0, 320px) 1fr; gap: 3rem; } }
@@ -74,8 +72,6 @@
       .ntg-btn-green:hover { opacity: 0.92; transform: translateY(-1px); }
       .ntg-btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.22); font-weight: 600; padding: 0.8rem 1.35rem; border-radius: 9999px; transition: background 0.2s ease, border-color 0.2s ease; }
       .ntg-btn-ghost:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.4); }
-
-      .ntg-confidential-note { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.8rem; border-radius: 9999px; background: rgba(20, 83, 45, 0.08); color: #166534; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(20,83,45,0.18); }
 
       @media (prefers-reduced-motion: reduce) {
         .ntg-prog-card, .ntg-chart-slice, .ntg-btn-green, .ntg-btn-ghost { transition: none; }
@@ -308,17 +304,16 @@
             </nav>
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
               <div class="lg:col-span-7">
-                <span class="ntg-confidential-note mb-5">Source of truth &middot; Updated regularly</span>
-                <h1 class="font-heading tracking-tight text-black text-4xl sm:text-5xl md:text-[3.5rem] font-medium leading-[1.05] mb-5 mt-5">Nonprofit<br>technology grants</h1>
+                <h1 class="font-heading tracking-tight text-black text-4xl sm:text-5xl md:text-[3.5rem] font-medium leading-[1.05] mb-5">Nonprofit<br>technology grants</h1>
                 <p class="tracking-tight text-gray-600 text-lg sm:text-xl leading-8 sm:leading-9 max-w-2xl">
-                  We help mission-driven organizations access in-kind technology grants from the platforms they already rely on. This page is a transparent record of the programs we work with and the total annual value we&rsquo;ve helped unlock to date.
+                  We help nonprofits access in-kind technology grants from the platforms they already use. This page lists the programs we work with and the total annual value we've helped secure.
                 </p>
               </div>
               <div class="lg:col-span-5">
                 <div class="rounded-[1.75rem] bg-white p-6 sm:p-7" style="box-shadow:0 8px 32px rgba(0,0,0,0.06),0 0 0 1px rgba(0,0,0,0.03)">
                   <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-2">In-kind value secured</p>
                   <p class="font-heading tracking-tight text-black text-4xl sm:text-5xl font-medium leading-none mb-2">$868,200<sup class="text-sm align-super text-gray-500">1</sup></p>
-                  <p class="text-gray-600 text-sm mb-5">Cumulative annual value (CAD) across all grants we&rsquo;ve helped nonprofits secure.</p>
+                  <p class="text-gray-600 text-sm mb-5">Total annual value in CAD across grants we've helped nonprofits secure.</p>
                   <a href="../contact.html?type=nonprofit-grants" class="w-full inline-flex items-center justify-center rounded-full bg-black px-5 py-3 text-sm font-semibold tracking-tight text-white hover:bg-gray-900 focus:ring-4 focus:ring-gray-200 transition duration-200">
                     Apply with us
                   </a>
@@ -332,12 +327,12 @@
             <div class="ntg-kpi">
               <p class="ntg-kpi-eyebrow">Total value</p>
               <p class="ntg-kpi-value">$868.2K</p>
-              <p class="ntg-kpi-foot">Annual value of grants secured (CAD).<sup>1</sup></p>
+              <p class="ntg-kpi-foot">Total annual value in CAD.<sup>1</sup></p>
             </div>
             <div class="ntg-kpi">
               <p class="ntg-kpi-eyebrow">Grants secured</p>
               <p class="ntg-kpi-value">11</p>
-              <p class="ntg-kpi-foot">Awards approved across multiple programs.</p>
+              <p class="ntg-kpi-foot">Grants approved across programs.</p>
             </div>
             <div class="ntg-kpi">
               <p class="ntg-kpi-eyebrow">Organizations</p>
@@ -346,100 +341,53 @@
             </div>
             <div class="ntg-kpi">
               <p class="ntg-kpi-eyebrow">Programs we work with</p>
-              <p class="ntg-kpi-value">8</p>
-              <p class="ntg-kpi-foot">Tech grants we help nonprofits apply to and set up.</p>
+              <p class="ntg-kpi-value">7</p>
+              <p class="ntg-kpi-foot">Programs we help nonprofits apply for and set up.</p>
             </div>
           </section>
 
           <!-- WHAT WE COVER -->
           <div class="mb-5 sm:mb-6">
-            <div class="flex items-end justify-between gap-6 mb-7 sm:mb-8">
-              <div>
-                <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-3">Programs we work with</p>
-                <h2 class="text-black text-3xl md:text-4xl lg:text-[2.75rem] font-heading tracking-tight" style="line-height:1.05">Eight tech grants &mdash; one front door</h2>
-              </div>
+            <div class="mb-7 sm:mb-8">
+              <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-3">Programs we work with</p>
+              <h2 class="text-black text-3xl md:text-4xl lg:text-[2.75rem] font-heading tracking-tight" style="line-height:1.05">Grants we help nonprofits unlock</h2>
             </div>
 
             <div class="ntg-prog-grid">
 
-              <!-- Google Workspace -->
               <article class="ntg-prog-card">
-                <span class="ntg-prog-tag"><span class="ntg-prog-dot" style="background:#15803d"></span> Productivity</span>
-                <h3 class="ntg-prog-title">Google Workspace for Nonprofits</h3>
-                <p class="ntg-prog-body">Free Google Workspace Business Standard for eligible nonprofits &mdash; mail, Drive, Meet, Docs, and admin controls under your own domain.<sup>2</sup></p>
-                <a class="ntg-prog-link" href="https://www.google.com/nonprofits/offerings/workspace/" target="_blank" rel="noopener noreferrer">Programme details
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-                </a>
+                <div class="ntg-prog-header"><span class="ntg-prog-dot" style="background:#15803d"></span><h3 class="ntg-prog-title">Google Workspace for Nonprofits</h3></div>
+                <p class="ntg-prog-body">Free Google Workspace for eligible nonprofits, with discounted upgrades to Business Standard and higher tiers. Includes mail, Drive, Meet, Docs, and admin controls under your own domain.<sup>2</sup></p>
               </article>
 
-              <!-- Google Ad Grants -->
               <article class="ntg-prog-card">
-                <span class="ntg-prog-tag"><span class="ntg-prog-dot" style="background:#0891b2"></span> Marketing</span>
-                <h3 class="ntg-prog-title">Google Ad Grants</h3>
-                <p class="ntg-prog-body">Up to <strong>US$10,000 / month</strong> in in-kind search advertising for eligible nonprofits, used to drive awareness, donations, and volunteer sign-ups.<sup>3</sup></p>
-                <a class="ntg-prog-link" href="https://www.google.com/grants/" target="_blank" rel="noopener noreferrer">Programme details
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-                </a>
+                <div class="ntg-prog-header"><span class="ntg-prog-dot" style="background:#0891b2"></span><h3 class="ntg-prog-title">Google Ad Grants</h3></div>
+                <p class="ntg-prog-body">Up to US$10,000 per month in in-kind search advertising for eligible nonprofits, used to drive awareness, donations, and volunteer sign-ups.<sup>3</sup></p>
               </article>
 
-              <!-- Canva for Nonprofits -->
               <article class="ntg-prog-card">
-                <span class="ntg-prog-tag"><span class="ntg-prog-dot" style="background:#6d28d9"></span> Design</span>
-                <h3 class="ntg-prog-title">Canva for Nonprofits</h3>
-                <p class="ntg-prog-body">Free <span translate="no">Canva Teams</span> for eligible nonprofits &mdash; brand kits, premium templates, photos, fonts, and team collaboration.<sup>4</sup></p>
-                <a class="ntg-prog-link" href="https://www.canva.com/canva-for-nonprofits/" target="_blank" rel="noopener noreferrer">Programme details
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-                </a>
+                <div class="ntg-prog-header"><span class="ntg-prog-dot" style="background:#6d28d9"></span><h3 class="ntg-prog-title">Canva for Nonprofits</h3></div>
+                <p class="ntg-prog-body">Free <span translate="no">Canva Pro</span> features for teams of up to 50 users at eligible nonprofits. Includes brand kits, premium templates, photos, fonts, and team collaboration.<sup>4</sup></p>
               </article>
 
-              <!-- Microsoft for Nonprofits -->
               <article class="ntg-prog-card">
-                <span class="ntg-prog-tag"><span class="ntg-prog-dot" style="background:#a16207"></span> Productivity</span>
-                <h3 class="ntg-prog-title">Microsoft for Nonprofits</h3>
-                <p class="ntg-prog-body">Microsoft 365 Business Premium grants and discounts, plus US$3,500 in Azure credits per year for eligible nonprofits.<sup>5</sup></p>
-                <a class="ntg-prog-link" href="https://www.microsoft.com/en-us/nonprofits" target="_blank" rel="noopener noreferrer">Programme details
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-                </a>
+                <div class="ntg-prog-header"><span class="ntg-prog-dot" style="background:#a16207"></span><h3 class="ntg-prog-title">Microsoft for Nonprofits</h3></div>
+                <p class="ntg-prog-body">Microsoft 365 Business Premium grants and discounts, plus US$2,000 in Azure credits per year for eligible nonprofits.<sup>5</sup></p>
               </article>
 
-              <!-- TechSoup -->
               <article class="ntg-prog-card">
-                <span class="ntg-prog-tag"><span class="ntg-prog-dot" style="background:#475569"></span> Marketplace</span>
-                <h3 class="ntg-prog-title">TechSoup</h3>
-                <p class="ntg-prog-body">A nonprofit-validation gateway to discounted and donated software from dozens of vendors, including admin fees only on most items.<sup>6</sup></p>
-                <a class="ntg-prog-link" href="https://www.techsoup.org/" target="_blank" rel="noopener noreferrer">Programme details
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-                </a>
+                <div class="ntg-prog-header"><span class="ntg-prog-dot" style="background:#475569"></span><h3 class="ntg-prog-title">TechSoup</h3></div>
+                <p class="ntg-prog-body">A nonprofit-validation gateway to discounted and donated software from dozens of vendors, with admin fees only on most items.<sup>6</sup></p>
               </article>
 
-              <!-- Atlassian for Nonprofits -->
               <article class="ntg-prog-card">
-                <span class="ntg-prog-tag"><span class="ntg-prog-dot" style="background:#1d4ed8"></span> Operations</span>
-                <h3 class="ntg-prog-title">Atlassian for Nonprofits</h3>
+                <div class="ntg-prog-header"><span class="ntg-prog-dot" style="background:#1d4ed8"></span><h3 class="ntg-prog-title">Atlassian for Nonprofits</h3></div>
                 <p class="ntg-prog-body">75% discount on <span translate="no">Jira</span>, <span translate="no">Confluence</span>, and other Atlassian Cloud products for eligible registered charities.<sup>7</sup></p>
-                <a class="ntg-prog-link" href="https://www.atlassian.com/teams/nonprofits" target="_blank" rel="noopener noreferrer">Programme details
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-                </a>
               </article>
 
-              <!-- Claude for Nonprofits -->
               <article class="ntg-prog-card">
-                <span class="ntg-prog-tag"><span class="ntg-prog-dot" style="background:#c2410c"></span> AI</span>
-                <h3 class="ntg-prog-title">Claude for Nonprofits</h3>
-                <p class="ntg-prog-body">Discounted access to <span translate="no">Claude</span>, Anthropic&rsquo;s AI assistant, for qualifying nonprofits &mdash; for writing, research, accessibility, and operations.<sup>8</sup></p>
-                <a class="ntg-prog-link" href="https://www.anthropic.com/contact-sales/for-nonprofits" target="_blank" rel="noopener noreferrer">Programme details
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-                </a>
-              </article>
-
-              <!-- Google for Nonprofits umbrella -->
-              <article class="ntg-prog-card">
-                <span class="ntg-prog-tag"><span class="ntg-prog-dot" style="background:#0f766e"></span> Eligibility</span>
-                <h3 class="ntg-prog-title">Google for Nonprofits</h3>
-                <p class="ntg-prog-body">The verification gateway that unlocks Google Workspace, Ad Grants, and YouTube Nonprofit features under one account.<sup>9</sup></p>
-                <a class="ntg-prog-link" href="https://www.google.com/nonprofits/" target="_blank" rel="noopener noreferrer">Programme details
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-                </a>
+                <div class="ntg-prog-header"><span class="ntg-prog-dot" style="background:#c2410c"></span><h3 class="ntg-prog-title">Claude for Nonprofits</h3></div>
+                <p class="ntg-prog-body">Discounted access to <span translate="no">Claude</span>, Anthropic's AI assistant, for qualifying nonprofits. Useful for writing, research, accessibility, and operations.<sup>8</sup></p>
               </article>
 
             </div>
@@ -447,12 +395,9 @@
 
           <!-- BREAKDOWN -->
           <div class="rounded-[2rem] border border-gray-200 bg-white px-5 py-7 sm:px-8 sm:py-9 md:px-10 md:py-11 mb-5 sm:mb-6">
-            <div class="flex items-end justify-between gap-6 mb-6 sm:mb-8 flex-wrap">
-              <div>
-                <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-3">Where the value comes from</p>
-                <h2 class="text-black text-3xl md:text-4xl font-heading tracking-tight" style="line-height:1.05">Breakdown by program</h2>
-              </div>
-              <span class="ntg-confidential-note">Per-client figures kept confidential</span>
+            <div class="mb-6 sm:mb-8">
+              <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-3">Where the value comes from</p>
+              <h2 class="text-black text-3xl md:text-4xl font-heading tracking-tight" style="line-height:1.05">Breakdown by program</h2>
             </div>
 
             <div class="ntg-chart-grid">
@@ -477,25 +422,25 @@
                 <div class="ntg-legend-row" role="listitem">
                   <span class="ntg-legend-swatch" style="background:#15803d" aria-hidden="true"></span>
                   <span class="ntg-legend-name">Google Workspace</span>
-                  <span class="ntg-legend-share">58.1%&nbsp;&middot;&nbsp;$504.0K</span>
+                  <span class="ntg-legend-share">$504,000 (58.1%)</span>
                 </div>
                 <div class="ntg-legend-row" role="listitem">
                   <span class="ntg-legend-swatch" style="background:#0891b2" aria-hidden="true"></span>
                   <span class="ntg-legend-name">Google Ad Grants</span>
-                  <span class="ntg-legend-share">27.6%&nbsp;&middot;&nbsp;$240.0K</span>
+                  <span class="ntg-legend-share">$240,000 (27.6%)</span>
                 </div>
                 <div class="ntg-legend-row" role="listitem">
                   <span class="ntg-legend-swatch" style="background:#a16207" aria-hidden="true"></span>
                   <span class="ntg-legend-name">Microsoft for Nonprofits</span>
-                  <span class="ntg-legend-share">10.4%&nbsp;&middot;&nbsp;$90.0K</span>
+                  <span class="ntg-legend-share">$90,000 (10.4%)</span>
                 </div>
                 <div class="ntg-legend-row" role="listitem">
                   <span class="ntg-legend-swatch" style="background:#6d28d9" aria-hidden="true"></span>
                   <span class="ntg-legend-name">Canva for Nonprofits</span>
-                  <span class="ntg-legend-share">3.9%&nbsp;&middot;&nbsp;$34.2K</span>
+                  <span class="ntg-legend-share">$34,200 (3.9%)</span>
                 </div>
                 <p class="text-gray-500 text-xs leading-relaxed mt-3">
-                  TechSoup, Atlassian, and Claude programs are also part of our standard support, but no associated grants are reflected in the totals above yet.
+                  TechSoup, Atlassian, and Claude are programs we also help with. No grants from these are reflected in the totals above yet.
                 </p>
               </div>
             </div>
@@ -507,43 +452,43 @@
               <div class="lg:col-span-5">
                 <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-3">Methodology</p>
                 <h2 class="text-black text-2xl md:text-3xl font-heading tracking-tight mb-4">How we calculate annual value</h2>
-                <p class="text-gray-600 leading-8">Every figure on this page is the <em>retail-equivalent annual list price</em> of the in-kind benefit a nonprofit would otherwise pay for at standard market rates &mdash; not cash transferred. We use the most conservative published rate for each program.</p>
+                <p class="text-gray-600 leading-8">Every figure on this page is the retail-equivalent annual list price. It reflects what a nonprofit would otherwise pay at standard market rates. It is not cash transferred. We use the most conservative published rate for each program.</p>
               </div>
               <div class="lg:col-span-7">
                 <div class="ntg-method-list">
                   <div class="ntg-method-step">
                     <span class="ntg-method-num" aria-hidden="true"></span>
                     <div>
-                      <p class="ntg-method-title">Start from the program&rsquo;s public list price</p>
-                      <p class="ntg-method-body">For each program, we anchor the value to the publicly advertised standard rate that the nonprofit would pay without the grant &mdash; e.g. Google Workspace Business Standard at US$14/user/month<sup>10</sup>, or Microsoft 365 Business Premium at US$22/user/month.<sup>11</sup></p>
+                      <p class="ntg-method-title">Start from the program's public list price</p>
+                      <p class="ntg-method-body">For each program, we anchor the value to the publicly advertised standard rate that the nonprofit would pay without the grant. For example, Google Workspace Business Standard at US$14/user/month<sup>9</sup>, or Microsoft 365 Business Premium at US$22/user/month.<sup>10</sup></p>
                     </div>
                   </div>
                   <div class="ntg-method-step">
                     <span class="ntg-method-num" aria-hidden="true"></span>
                     <div>
                       <p class="ntg-method-title">Apply the granted entitlement</p>
-                      <p class="ntg-method-body">We multiply by the number of user seats, the in-kind ad spend cap, or the credit ceiling that the grant actually unlocks for the organization (e.g. US$10,000/month for Google Ad Grants<sup>3</sup>).</p>
+                      <p class="ntg-method-body">We multiply by the number of user seats, the in-kind ad spend cap, or the credit ceiling that the grant actually unlocks for the organization (for example, US$10,000/month for Google Ad Grants<sup>3</sup>).</p>
                     </div>
                   </div>
                   <div class="ntg-method-step">
                     <span class="ntg-method-num" aria-hidden="true"></span>
                     <div>
                       <p class="ntg-method-title">Convert to CAD, annualized</p>
-                      <p class="ntg-method-body">USD-denominated grants are converted to Canadian dollars at the Bank of Canada annual average exchange rate for the grant&rsquo;s approval year<sup>12</sup>, then multiplied by 12 months to express an annual value.</p>
+                      <p class="ntg-method-body">USD-denominated grants are converted to Canadian dollars at the Bank of Canada annual average exchange rate for the grant's approval year<sup>11</sup>, then multiplied by 12 months to express an annual value.</p>
                     </div>
                   </div>
                   <div class="ntg-method-step">
                     <span class="ntg-method-num" aria-hidden="true"></span>
                     <div>
                       <p class="ntg-method-title">Use the conservative figure</p>
-                      <p class="ntg-method-body">Where a program publishes a range (e.g. variable Azure credit usage), we report the floor of the entitlement to avoid overstating in-kind value. Discounts are valued at <em>retail minus nonprofit price</em>, not retail.</p>
+                      <p class="ntg-method-body">Where a program publishes a range (for example, variable Azure credit usage), we report the floor of the entitlement to avoid overstating in-kind value. Discounts are valued at retail minus nonprofit price, not retail.</p>
                     </div>
                   </div>
                   <div class="ntg-method-step">
                     <span class="ntg-method-num" aria-hidden="true"></span>
                     <div>
                       <p class="ntg-method-title">Recount on each approval</p>
-                      <p class="ntg-method-body">Figures update only when a new grant is approved, renewed, or revoked. We do not double-count multi-year approvals: each approved grant contributes one annual-value figure per year of validity.</p>
+                      <p class="ntg-method-body">Figures update only when a new grant is approved, renewed, or revoked. We do not double-count multi-year approvals. Each approved grant contributes one annual-value figure per year of validity.</p>
                     </div>
                   </div>
                 </div>
@@ -555,21 +500,20 @@
           <div class="rounded-[2rem] border border-gray-200 bg-white px-5 py-7 sm:px-8 sm:py-9 md:px-10 md:py-10 mb-5 sm:mb-6">
             <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-5">Footnotes &amp; sources</p>
             <ol class="ntg-foot-list">
-              <li>Cumulative annual in-kind value secured across all approved grants we&rsquo;ve helped nonprofits apply for, as of <span translate="no">May 2026</span>. Values reflect the retail-equivalent annual list price of each entitlement, not cash transferred. Per-client breakdowns are confidential and not displayed.</li>
-              <li>Google for Nonprofits. <em>Google Workspace for Nonprofits</em>. <a href="https://www.google.com/nonprofits/offerings/workspace/" target="_blank" rel="noopener noreferrer">google.com/nonprofits/offerings/workspace</a></li>
-              <li>Google for Nonprofits. <em>Google Ad Grants</em>. In-kind cap of US$10,000/month. <a href="https://www.google.com/grants/" target="_blank" rel="noopener noreferrer">google.com/grants</a></li>
-              <li>Canva. <em>Canva for Nonprofits</em>. <a href="https://www.canva.com/canva-for-nonprofits/" target="_blank" rel="noopener noreferrer">canva.com/canva-for-nonprofits</a></li>
-              <li>Microsoft. <em>Microsoft for Nonprofits</em>. Annual Azure grant US$3,500 plus Microsoft 365 Business Premium grants/discounts for eligible nonprofits. <a href="https://www.microsoft.com/en-us/nonprofits/eligibility" target="_blank" rel="noopener noreferrer">microsoft.com/nonprofits/eligibility</a></li>
-              <li>TechSoup. <em>About TechSoup</em>. <a href="https://www.techsoup.org/about" target="_blank" rel="noopener noreferrer">techsoup.org/about</a></li>
-              <li>Atlassian. <em>Community License Program for nonprofits</em>. 75% off Atlassian Cloud for eligible registered charities. <a href="https://www.atlassian.com/teams/nonprofits" target="_blank" rel="noopener noreferrer">atlassian.com/teams/nonprofits</a></li>
-              <li>Anthropic. <em>Claude for Nonprofits</em>. <a href="https://www.anthropic.com/contact-sales/for-nonprofits" target="_blank" rel="noopener noreferrer">anthropic.com/contact-sales/for-nonprofits</a></li>
-              <li>Google. <em>Google for Nonprofits</em> umbrella verification. <a href="https://www.google.com/nonprofits/" target="_blank" rel="noopener noreferrer">google.com/nonprofits</a></li>
-              <li>Google Workspace standard list pricing &mdash; Business Standard tier. <a href="https://workspace.google.com/pricing.html" target="_blank" rel="noopener noreferrer">workspace.google.com/pricing</a></li>
+              <li>Total annual in-kind value secured across all approved grants we've helped nonprofits apply for, as of <span translate="no">May 2026</span>. Values reflect the retail-equivalent annual list price of each entitlement, not cash transferred.</li>
+              <li>Google for Nonprofits. Google Workspace for Nonprofits. <a href="https://www.google.com/nonprofits/offerings/workspace/" target="_blank" rel="noopener noreferrer">google.com/nonprofits/offerings/workspace</a></li>
+              <li>Google for Nonprofits. Google Ad Grants. In-kind cap of US$10,000 per month. <a href="https://www.google.com/grants/" target="_blank" rel="noopener noreferrer">google.com/grants</a></li>
+              <li>Canva. Canva for Nonprofits. <a href="https://www.canva.com/canva-for-nonprofits/" target="_blank" rel="noopener noreferrer">canva.com/canva-for-nonprofits</a></li>
+              <li>Microsoft. Microsoft for Nonprofits. Annual Azure grant US$2,000 plus Microsoft 365 Business Premium grants and discounts for eligible nonprofits. <a href="https://www.microsoft.com/en-us/nonprofits/eligibility" target="_blank" rel="noopener noreferrer">microsoft.com/nonprofits/eligibility</a></li>
+              <li>TechSoup. About TechSoup. <a href="https://www.techsoup.org/about" target="_blank" rel="noopener noreferrer">techsoup.org/about</a></li>
+              <li>Atlassian. Community License Program for nonprofits. 75% off Atlassian Cloud for eligible registered charities. <a href="https://www.atlassian.com/teams/nonprofits" target="_blank" rel="noopener noreferrer">atlassian.com/teams/nonprofits</a></li>
+              <li>Anthropic. Claude for Nonprofits. <a href="https://claude.com/contact-sales/nonprofits" target="_blank" rel="noopener noreferrer">claude.com/contact-sales/nonprofits</a></li>
+              <li>Google Workspace standard list pricing, Business Standard tier. <a href="https://workspace.google.com/pricing.html" target="_blank" rel="noopener noreferrer">workspace.google.com/pricing</a></li>
               <li>Microsoft 365 Business Premium standard pricing. <a href="https://www.microsoft.com/en-ca/microsoft-365/business/compare-all-plans" target="_blank" rel="noopener noreferrer">microsoft.com/microsoft-365/business/compare-all-plans</a></li>
               <li>Bank of Canada annual average exchange rates. <a href="https://www.bankofcanada.ca/rates/exchange/annual-average-exchange-rates/" target="_blank" rel="noopener noreferrer">bankofcanada.ca/rates/exchange/annual-average-exchange-rates</a></li>
             </ol>
             <p class="text-xs text-gray-500 leading-relaxed mt-6 pt-5 border-t border-gray-100">
-              Program names and logos are the property of their respective owners. Eligibility, entitlements, and standard pricing change &mdash; the figures on this page reflect our best understanding at the time of each grant&rsquo;s approval and may not match a given nonprofit&rsquo;s current pricing.
+              Program names and logos are the property of their respective owners. Eligibility, entitlements, and standard pricing change. The figures on this page reflect our best understanding at the time of each grant's approval and may not match a given nonprofit's current pricing.
             </p>
           </div>
 
@@ -578,8 +522,8 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start" style="position:relative;z-index:1">
               <div class="lg:col-span-7">
                 <p class="text-sm uppercase tracking-[0.18em] mb-4" style="color:#9ca3af">Apply with us</p>
-                <h2 class="text-white text-2xl md:text-3xl lg:text-4xl font-heading tracking-tight mb-4" style="line-height:1.15">Let&rsquo;s find the grants your nonprofit qualifies for</h2>
-                <p class="leading-8 mb-7 max-w-2xl" style="color:#9ca3af">Tell us about your organization and what you need. We&rsquo;ll help with eligibility, the application, and getting set up after approval &mdash; at no cost to qualifying nonprofits.</p>
+                <h2 class="text-white text-2xl md:text-3xl lg:text-4xl font-heading tracking-tight mb-4" style="line-height:1.15">Let's find the grants your nonprofit qualifies for</h2>
+                <p class="leading-8 mb-7 max-w-2xl" style="color:#9ca3af">Tell us about your organization and what you need. We'll help with eligibility, the application, and getting set up after approval, at no cost to qualifying nonprofits.</p>
                 <div class="flex flex-col sm:flex-row gap-3">
                   <a href="../contact.html?type=nonprofit-grants" class="ntg-btn-green w-full sm:w-auto">
                     Talk to us about grants
