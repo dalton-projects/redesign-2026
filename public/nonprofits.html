@@ -9,19 +9,62 @@
     <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon.png">
     <link rel="manifest" href="images/favicon/site.webmanifest">
     <title>For Nonprofits | Oasis of Change, Inc.</title>
-    <meta name="description" content="Oasis of Change partners with nonprofits to secure technology grants, reduce website carbon and energy use, and improve accessibility through our Web-Ready programme.">
+    <meta name="description" content="Oasis of Change partners with nonprofits to secure technology grants, reduce website carbon and energy use, and improve accessibility, shaped around nonprofit budgets and timelines.">
     <meta property="og:type" content="website">
     <meta property="og:title" content="For Nonprofits | Oasis of Change, Inc.">
-    <meta property="og:description" content="Partner with Oasis of Change to access technology grants, lower-carbon web improvements, and accessibility support through our Web-Ready programme.">
+    <meta property="og:description" content="Partner with Oasis of Change to access technology grants, lower-carbon web improvements, and accessibility support shaped around nonprofit budgets and timelines.">
     <meta property="og:site_name" content="Oasis of Change, Inc.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="For Nonprofits | Oasis of Change, Inc.">
-    <meta name="twitter:description" content="Partner with Oasis of Change to access technology grants, lower-carbon web improvements, and accessibility support through our Web-Ready programme.">
+    <meta name="twitter:description" content="Partner with Oasis of Change to access technology grants, lower-carbon web improvements, and accessibility support shaped around nonprofit budgets and timelines.">
     <style>@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style>
     <link rel="stylesheet" href="css/site.css">
     <link rel="stylesheet" href="css/tailwind/tailwind.min.css?v=2">
     <script src="js/site.js" defer></script>
     <script src="js/i18n.js" defer></script>
+    <style>
+      /* Nonprofits page — scoped visual enhancements (npx-) */
+      .npx-badge { display:inline-flex; align-items:center; gap:0.45rem; padding:0.35rem 0.85rem; border-radius:9999px; background:rgba(21,128,61,0.08); border:1px solid rgba(21,128,61,0.18); color:#15803d; font-size:0.72rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; }
+      .npx-badge::before { content:''; width:0.45rem; height:0.45rem; border-radius:9999px; background:#22c55e; }
+
+      .npx-hero-media { position:relative; border-radius:1.5rem; overflow:hidden; box-shadow:0 24px 60px -24px rgba(0,0,0,0.28); }
+      .npx-hero-media img { display:block; width:100%; height:100%; object-fit:cover; aspect-ratio:5/4; }
+      @media (min-width:1024px){ .npx-hero-media img { aspect-ratio:4/3; } }
+      .npx-hero-stat { position:absolute; left:0.85rem; right:0.85rem; bottom:0.85rem; display:flex; align-items:baseline; gap:0.55rem; flex-wrap:wrap; background:rgba(10,10,10,0.74); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); color:#fff; border-radius:1rem; padding:0.8rem 1.05rem; }
+      .npx-hero-stat b { font-family:'Plus Jakarta Sans',system-ui,sans-serif; font-weight:600; font-size:1.45rem; letter-spacing:-0.02em; line-height:1; }
+      .npx-hero-stat span { color:#d1d5db; font-size:0.78rem; line-height:1.3; }
+
+      .npx-aud-grid { display:grid; grid-template-columns:1fr; gap:0.65rem; }
+      @media (min-width:480px){ .npx-aud-grid { grid-template-columns:repeat(3,1fr); } }
+      .npx-aud { display:flex; align-items:center; gap:0.6rem; padding:0.85rem 1rem; border-radius:1rem; font-weight:500; font-size:0.95rem; color:#0f172a; border:1px solid; }
+      .npx-aud i { width:0.7rem; height:0.7rem; border-radius:9999px; flex-shrink:0; }
+      .npx-aud--g { background:#ecfdf5; border-color:#a7f3d0; } .npx-aud--g i{ background:#16a34a; }
+      .npx-aud--b { background:#eff6ff; border-color:#bfdbfe; } .npx-aud--b i{ background:#2563eb; }
+      .npx-aud--v { background:#f5f3ff; border-color:#ddd6fe; } .npx-aud--v i{ background:#7c3aed; }
+
+      .npx-svc { position:relative; display:flex; flex-direction:column; background:#fff; border:1px solid #e5e7eb; border-radius:1.5rem; padding:1.85rem 1.55rem 1.6rem; overflow:hidden; transition:transform .3s ease, box-shadow .3s ease; }
+      .npx-svc::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; }
+      .npx-svc:hover { transform:translateY(-4px); box-shadow:0 18px 40px -16px rgba(0,0,0,0.16); }
+      .npx-svc-ico { width:3rem; height:3rem; border-radius:0.9rem; display:inline-flex; align-items:center; justify-content:center; margin-bottom:1.15rem; }
+      .npx-svc-ico svg { width:1.5rem; height:1.5rem; }
+      .npx-svc h3 { font-family:'Plus Jakarta Sans',system-ui,sans-serif; font-size:1.3rem; font-weight:600; letter-spacing:-0.02em; line-height:1.2; color:#000; margin:0 0 1rem; }
+      .npx-svc ul { list-style:none; padding:0; margin:0 0 1.5rem; flex:1; }
+      .npx-svc li { display:flex; gap:0.55rem; padding:0.55rem 0; border-bottom:1px solid #f3f4f6; color:#4b5563; font-size:0.93rem; line-height:1.5; }
+      .npx-svc li:last-child { border-bottom:0; }
+      .npx-svc li svg { width:1rem; height:1rem; flex-shrink:0; margin-top:0.16rem; }
+      .npx-svc-link { display:inline-flex; align-items:center; gap:0.45rem; font-weight:600; font-size:0.9rem; text-decoration:none; margin-top:auto; }
+      .npx-svc-link svg { transition:transform .25s cubic-bezier(.22,1,.36,1); }
+      .npx-svc-link:hover svg { transform:translateX(4px); }
+      .npx-svc--g::before{ background:#16a34a; } .npx-svc--g .npx-svc-ico{ background:#ecfdf5; color:#15803d; } .npx-svc--g li svg{ color:#16a34a; } .npx-svc--g .npx-svc-link{ color:#15803d; }
+      .npx-svc--b::before{ background:#2563eb; } .npx-svc--b .npx-svc-ico{ background:#eff6ff; color:#1d4ed8; } .npx-svc--b li svg{ color:#2563eb; } .npx-svc--b .npx-svc-link{ color:#1d4ed8; }
+      .npx-svc--v::before{ background:#7c3aed; } .npx-svc--v .npx-svc-ico{ background:#f5f3ff; color:#6d28d9; } .npx-svc--v li svg{ color:#7c3aed; } .npx-svc--v .npx-svc-link{ color:#6d28d9; }
+
+      .npx-value-card { background:linear-gradient(155deg,#0a0a0a 0%, #143a24 130%); color:#fff; border:0; }
+      .npx-media { border-radius:1.5rem; overflow:hidden; height:100%; min-height:240px; }
+      .npx-media img { width:100%; height:100%; object-fit:cover; display:block; }
+
+      @media (prefers-reduced-motion: reduce){ .npx-svc{ transition:none; } .npx-svc-link svg{ transition:none; } }
+    </style>
     <meta property="og:image" content="https://oasisofchange.com/images/og/nonprofits.png">
     <meta name="twitter:image" content="https://oasisofchange.com/images/og/nonprofits.png">
 </head>
@@ -239,30 +282,38 @@
           <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
 
             <!-- HERO -->
-            <div class="np-hero rounded-[2rem] px-5 sm:px-8 md:px-12 lg:px-16 py-10 sm:py-12 md:py-16 lg:py-20 mb-5 sm:mb-6">
+            <div class="np-hero rounded-[2rem] px-5 sm:px-8 md:px-12 lg:px-16 py-10 sm:py-12 md:py-14 lg:py-16 mb-5 sm:mb-6">
               <nav class="text-sm text-gray-600 mb-8" aria-label="Breadcrumb">
                 <a href="index.html" class="hover:text-black transition duration-200">Home</a>
                 <span class="mx-2 text-gray-400">/</span>
                 <span class="text-gray-900 font-medium">For Nonprofits</span>
               </nav>
-              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-                <div class="lg:col-span-7">
-                  <h1 translate="no" class="font-heading tracking-tight text-black text-4xl sm:text-5xl md:text-[3.5rem] font-medium leading-[1.05] mb-5">We partner with<br>other nonprofits</h1>
-                  <p class="tracking-tight text-gray-600 text-lg sm:text-xl leading-8 sm:leading-9 max-w-xl">
-                    <span translate="no">Web-Ready</span> helps nonprofits strengthen their digital presence with donated technology, lower-impact websites, and practical accessibility improvements.
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                <div class="lg:col-span-6">
+                  <span class="npx-badge mb-5">For nonprofits</span>
+                  <h1 class="font-heading tracking-tight text-black text-4xl sm:text-5xl md:text-[3.4rem] font-medium leading-[1.05] mb-5 mt-5"><span translate="no">Oasis of Change</span> partners with other nonprofits</h1>
+                  <p class="tracking-tight text-gray-600 text-lg sm:text-xl leading-8 sm:leading-9 max-w-xl mb-7">
+                    We help nonprofits strengthen their digital presence with donated technology, lower-impact websites, and practical accessibility improvements.
                   </p>
+                  <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="contact.html" class="inline-flex items-center justify-center rounded-full bg-black px-6 py-3.5 text-sm font-semibold tracking-tight text-white hover:bg-gray-900 focus:ring-4 focus:ring-gray-200 transition duration-200">
+                      Request Nonprofit Support
+                    </a>
+                    <a href="nonprofit-tech-grants/" class="inline-flex items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-6 py-3.5 text-sm font-semibold tracking-tight text-black hover:bg-gray-50 focus:ring-4 focus:ring-gray-200 transition duration-200">
+                      See grant programs
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                  </div>
                 </div>
-                <div class="lg:col-span-5">
-                  <div class="np-quick-start rounded-[1.75rem] p-6 sm:p-7">
-                    <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-2">Quick start</p>
-                    <p class="text-black text-xl font-heading tracking-tight mb-5">Tell us what you need</p>
-                    <div class="flex flex-col gap-3">
-                      <a href="contact.html" class="w-full inline-flex items-center justify-center rounded-full bg-black px-5 py-3 text-sm font-semibold tracking-tight text-white hover:bg-gray-900 focus:ring-4 focus:ring-gray-200 transition duration-200">
-                        Request Nonprofit Support
-                      </a>
-                      <a href="initiatives/web-ready/" class="w-full inline-flex items-center justify-center rounded-full border border-gray-300 bg-white px-5 py-3 text-sm font-semibold tracking-tight text-black hover:bg-gray-50 focus:ring-4 focus:ring-gray-200 transition duration-200">
-                        <span>Explore <span translate="no">Web-Ready</span></span>
-                      </a>
+                <div class="lg:col-span-6">
+                  <div class="npx-hero-media">
+                    <picture>
+                      <source type="image/webp" srcset="images/blog/nonprofit-teamwork-400w.webp 400w, images/blog/nonprofit-teamwork-800w.webp 800w, images/blog/nonprofit-teamwork-1200w.webp 1200w" sizes="(min-width:1024px) 45vw, 100vw">
+                      <img src="images/blog/nonprofit-teamwork.webp" alt="Nonprofit team collaborating around a laptop" width="1200" height="800" loading="eager" decoding="async">
+                    </picture>
+                    <div class="npx-hero-stat">
+                      <b>$868,200</b>
+                      <span>in estimated in-kind value secured for the nonprofits we work with</span>
                     </div>
                   </div>
                 </div>
@@ -270,11 +321,22 @@
             </div>
 
             <!-- AUDIENCE -->
-            <div class="rounded-[2rem] border border-gray-200 bg-white px-5 py-7 sm:px-8 sm:py-8 md:px-10 md:py-10 mb-5 sm:mb-6">
-              <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-4">Who this is for</p>
-              <p class="text-xl sm:text-2xl md:text-[1.85rem] tracking-tight text-black max-w-4xl" style="line-height:1.55">
-                Nonprofits, charities, and community organizations that want stronger tools, a simpler website, and a better experience for everyone.
-              </p>
+            <div class="rounded-[2rem] border border-gray-200 bg-white px-5 py-7 sm:px-8 sm:py-9 md:px-10 md:py-10 mb-5 sm:mb-6">
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-10 items-center">
+                <div class="lg:col-span-7">
+                  <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-4">Who this is for</p>
+                  <p class="text-xl sm:text-2xl md:text-[1.7rem] tracking-tight text-black" style="line-height:1.5">
+                    Mission-driven organizations that want stronger tools, a simpler website, and a better experience for everyone.
+                  </p>
+                </div>
+                <div class="lg:col-span-5">
+                  <div class="npx-aud-grid">
+                    <div class="npx-aud npx-aud--g"><i aria-hidden="true"></i>Nonprofits</div>
+                    <div class="npx-aud npx-aud--b"><i aria-hidden="true"></i>Charities</div>
+                    <div class="npx-aud npx-aud--v"><i aria-hidden="true"></i>Community groups</div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <!-- GRANT PROGRAMS CTA -->
@@ -295,11 +357,11 @@
                   </ul>
                 </div>
                 <div class="lg:col-span-5">
-                  <div class="rounded-[1.5rem] bg-gray-50 border border-gray-200 p-5 sm:p-6">
-                    <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-2">Estimated in-kind value</p>
-                    <p class="font-heading tracking-tight text-black text-3xl sm:text-4xl font-medium leading-none mb-2">$868,200<span class="text-sm align-baseline text-gray-500 font-normal ml-1">CAD</span></p>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-5">Estimated annual value across grants we've helped nonprofits unlock.</p>
-                    <a href="nonprofit-tech-grants/" class="w-full inline-flex items-center justify-center gap-2 rounded-full bg-black px-5 py-3 text-sm font-semibold tracking-tight text-white hover:bg-gray-900 focus:ring-4 focus:ring-gray-200 transition duration-200">
+                  <div class="npx-value-card rounded-[1.5rem] p-6 sm:p-7">
+                    <p class="text-sm uppercase tracking-[0.18em] mb-2" style="color:#86efac">Estimated in-kind value</p>
+                    <p class="font-heading tracking-tight text-white text-4xl sm:text-[2.75rem] font-medium leading-none mb-3">$868,200<span class="text-sm align-baseline font-normal ml-1" style="color:#9ca3af">CAD</span></p>
+                    <p class="text-sm leading-relaxed mb-6" style="color:#d1d5db">Estimated annual value across grants we've helped nonprofits unlock.</p>
+                    <a href="nonprofit-tech-grants/" class="w-full inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold tracking-tight text-black hover:bg-green-300 transition duration-200">
                       See the full breakdown
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </a>
@@ -310,63 +372,58 @@
 
             <!-- SERVICES -->
             <div class="mb-5 sm:mb-6">
-              <div class="flex items-end justify-between gap-6 mb-7 sm:mb-8">
-                <div>
-                  <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-3"><span translate="no">Web-Ready</span> support</p>
-                  <h2 class="text-black text-3xl md:text-4xl lg:text-[2.75rem] font-heading tracking-tight" style="line-height:1.05">How we can help</h2>
-                </div>
+              <div class="mb-7 sm:mb-8">
+                <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-3">What we do</p>
+                <h2 class="text-black text-3xl md:text-4xl lg:text-[2.75rem] font-heading tracking-tight" style="line-height:1.05">How we can help</h2>
               </div>
               <div class="np-svc-grid">
 
-                <!-- 01 — Technology grants -->
-                <div class="np-svc-card">
-                  <div class="np-svc-num-row">
-                    <span class="np-svc-num np-svc-num--green">01</span>
-                    <span class="np-svc-num-rule" style="color:#047857" aria-hidden="true"></span>
-                  </div>
-                  <h3 class="np-svc-title">Nonprofit technology grants</h3>
-                  <ul class="np-svc-list">
-                    <li>Find in-kind grants and donated tools</li>
-                    <li>Get set up with accounts, access, and basics</li>
-                    <li>Reduce overhead while improving capacity</li>
+                <!-- Technology grants (green) -->
+                <div class="npx-svc npx-svc--g">
+                  <span class="npx-svc-ico">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M5 12v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7"/><path d="M12 8S10.5 4 8.5 4 5.5 5.3 5.5 6.2 6.6 8 8 8h4zM12 8s1.5-4 3.5-4 3 1.3 3 2.2S17.4 8 16 8h-4z"/></svg>
+                  </span>
+                  <h3>Nonprofit technology grants</h3>
+                  <ul>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Find in-kind grants and donated tools</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Get set up with accounts, access, and basics</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Reduce overhead while improving capacity</li>
                   </ul>
-                  <a href="nonprofit-tech-grants/" class="np-svc-link">
+                  <a href="nonprofit-tech-grants/" class="npx-svc-link">
                     See grant programs
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                   </a>
                 </div>
 
-                <!-- 02 — Low-carbon web -->
-                <div class="np-svc-card">
-                  <div class="np-svc-num-row">
-                    <span class="np-svc-num np-svc-num--amber">02</span>
-                    <span class="np-svc-num-rule" style="color:#b45309" aria-hidden="true"></span>
-                  </div>
-                  <h3 class="np-svc-title">Lower energy, faster pages</h3>
-                  <ul class="np-svc-list">
-                    <li>Improve performance and reduce page weight</li>
-                    <li>Lower carbon, energy, and data transfer</li>
-                    <li>Keep the design modern and reliable</li>
+                <!-- Low-carbon web (blue) -->
+                <div class="npx-svc npx-svc--b">
+                  <span class="npx-svc-ico">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4.5 13.5H11l-1 8.5 8.5-11.5H12l1-8.5z"/></svg>
+                  </span>
+                  <h3>Lower energy, faster pages</h3>
+                  <ul>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Improve performance and reduce page weight</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lower carbon, energy, and data transfer</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Keep the design modern and reliable</li>
                   </ul>
-                  <a href="case-studies/" class="np-svc-link">
+                  <a href="case-studies/" class="npx-svc-link">
                     See results
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                   </a>
                 </div>
 
-                <!-- 03 — Accessibility -->
-                <div class="np-svc-card">
-                  <div class="np-svc-num-row">
-                    <span class="np-svc-num np-svc-num--violet">03</span>
-                    <span class="np-svc-num-rule" style="color:#6d28d9" aria-hidden="true"></span>
-                  </div>
-                  <h3 class="np-svc-title">Easier to use for everyone</h3>
-                  <ul class="np-svc-list">
-                    <li>Clear structure, headings, and navigation</li>
-                    <li>Better contrast, forms, and keyboard support</li>
-                    <li>Improved experience with assistive tech</li>
+                <!-- Accessibility (violet) -->
+                <div class="npx-svc npx-svc--v">
+                  <span class="npx-svc-ico">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4" r="1.6"/><path d="M4.5 8.2c2.4.9 4.9 1.3 7.5 1.3s5.1-.4 7.5-1.3"/><path d="M12 9.5V15m0 0-3 6.5M12 15l3 6.5"/></svg>
+                  </span>
+                  <h3>Easier to use for everyone</h3>
+                  <ul>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Clear structure, headings, and navigation</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Better contrast, forms, and keyboard support</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Improved experience with assistive tech</li>
                   </ul>
-                  <a href="accessibility-statement/" class="np-svc-link">
+                  <a href="accessibility-statement/" class="npx-svc-link">
                     Accessibility approach
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                   </a>
@@ -377,18 +434,24 @@
 
             <!-- PROCESS -->
             <div class="rounded-[2rem] border border-gray-200 bg-gray-50 px-5 py-8 sm:px-8 sm:py-10 md:px-10 md:py-12 mb-5 sm:mb-6">
-              <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
-                <div class="lg:col-span-4">
-                  <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-3">What to expect</p>
-                  <h2 class="text-black text-2xl md:text-3xl font-heading tracking-tight mb-4">A simple, nonprofit-friendly workflow</h2>
-                  <p class="text-gray-600 leading-8">We start with your goals, then focus on the few changes that make the biggest difference.</p>
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                <div class="lg:col-span-5">
+                  <div class="npx-media">
+                    <picture>
+                      <source type="image/webp" srcset="images/blog/team-collaboration-400w.webp 400w, images/blog/team-collaboration-800w.webp 800w, images/blog/team-collaboration-1200w.webp 1200w" sizes="(min-width:1024px) 40vw, 100vw">
+                      <img src="images/blog/team-collaboration.webp" alt="Two people reviewing a project together at a desk" width="1200" height="800" loading="lazy" decoding="async">
+                    </picture>
+                  </div>
                 </div>
-                <div class="lg:col-span-8">
+                <div class="lg:col-span-7">
+                  <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-3">What to expect</p>
+                  <h2 class="text-black text-2xl md:text-3xl font-heading tracking-tight mb-3">A simple, nonprofit-friendly workflow</h2>
+                  <p class="text-gray-600 leading-8 mb-7">We start with your goals, then focus on the few changes that make the biggest difference.</p>
                   <div class="flex flex-col">
                     <div class="flex gap-5">
                       <div class="np-flow-rail">
-                        <div class="w-4 h-4 rounded-full bg-green-700 mt-1"></div>
-                        <div class="np-flow-line"></div>
+                        <div class="w-4 h-4 rounded-full mt-1" style="background:#16a34a"></div>
+                        <div class="np-flow-line" style="background:linear-gradient(#16a34a,#2563eb)"></div>
                       </div>
                       <div class="flex-1 pb-8">
                         <p class="text-black font-heading text-lg tracking-tight mb-2">Share your needs</p>
@@ -397,8 +460,8 @@
                     </div>
                     <div class="flex gap-5">
                       <div class="np-flow-rail">
-                        <div class="w-4 h-4 rounded-full bg-green-700 mt-1"></div>
-                        <div class="np-flow-line"></div>
+                        <div class="w-4 h-4 rounded-full mt-1" style="background:#2563eb"></div>
+                        <div class="np-flow-line" style="background:linear-gradient(#2563eb,#7c3aed)"></div>
                       </div>
                       <div class="flex-1 pb-8">
                         <p class="text-black font-heading text-lg tracking-tight mb-2">Get a clear plan</p>
@@ -407,7 +470,7 @@
                     </div>
                     <div class="flex gap-5">
                       <div class="np-flow-rail">
-                        <div class="w-4 h-4 rounded-full bg-green-700 mt-1"></div>
+                        <div class="w-4 h-4 rounded-full mt-1" style="background:#7c3aed"></div>
                       </div>
                       <div class="flex-1">
                         <p class="text-black font-heading text-lg tracking-tight mb-2">Implement and improve</p>
@@ -430,8 +493,8 @@
                     <a href="contact.html" class="np-btn-green w-full sm:w-auto">
                       Contact Us
                     </a>
-                    <a href="initiatives/wra-platform/" class="np-btn-ghost w-full sm:w-auto">
-                      <span>Explore the <span translate="no">WRA Platform</span></span>
+                    <a href="nonprofit-tech-grants/" class="np-btn-ghost w-full sm:w-auto">
+                      <span>See grant programs</span>
                     </a>
                   </div>
                 </div>
