@@ -24,16 +24,6 @@
     <script src="js/i18n.js" defer></script>
     <style>
       /* Nonprofits page — scoped visual enhancements (npx-) */
-      .npx-badge { display:inline-flex; align-items:center; gap:0.45rem; padding:0.35rem 0.85rem; border-radius:9999px; background:rgba(21,128,61,0.08); border:1px solid rgba(21,128,61,0.18); color:#15803d; font-size:0.72rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; }
-      .npx-badge::before { content:''; width:0.45rem; height:0.45rem; border-radius:9999px; background:#22c55e; }
-
-      .npx-hero-media { position:relative; border-radius:1.5rem; overflow:hidden; box-shadow:0 24px 60px -24px rgba(0,0,0,0.28); }
-      .npx-hero-media img { display:block; width:100%; height:100%; object-fit:cover; aspect-ratio:5/4; }
-      @media (min-width:1024px){ .npx-hero-media img { aspect-ratio:4/3; } }
-      .npx-hero-stat { position:absolute; left:0.85rem; right:0.85rem; bottom:0.85rem; display:flex; align-items:baseline; gap:0.55rem; flex-wrap:wrap; background:rgba(10,10,10,0.74); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); color:#fff; border-radius:1rem; padding:0.8rem 1.05rem; }
-      .npx-hero-stat b { font-family:'Plus Jakarta Sans',system-ui,sans-serif; font-weight:600; font-size:1.45rem; letter-spacing:-0.02em; line-height:1; }
-      .npx-hero-stat span { color:#d1d5db; font-size:0.78rem; line-height:1.3; }
-
       .npx-aud-grid { display:grid; grid-template-columns:1fr; gap:0.65rem; }
       @media (min-width:480px){ .npx-aud-grid { grid-template-columns:repeat(3,1fr); } }
       .npx-aud { display:flex; align-items:center; gap:0.6rem; padding:0.85rem 1rem; border-radius:1rem; font-weight:500; font-size:0.95rem; color:#0f172a; border:1px solid; }
@@ -282,39 +272,27 @@
           <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
 
             <!-- HERO -->
-            <div class="np-hero rounded-[2rem] px-5 sm:px-8 md:px-12 lg:px-16 py-10 sm:py-12 md:py-14 lg:py-16 mb-5 sm:mb-6">
+            <div class="np-hero rounded-[2rem] px-5 sm:px-8 md:px-12 lg:px-16 py-10 sm:py-12 md:py-16 lg:py-20 mb-5 sm:mb-6">
               <nav class="text-sm text-gray-600 mb-8" aria-label="Breadcrumb">
                 <a href="index.html" class="hover:text-black transition duration-200">Home</a>
                 <span class="mx-2 text-gray-400">/</span>
                 <span class="text-gray-900 font-medium">For Nonprofits</span>
               </nav>
-              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                <div class="lg:col-span-6">
-                  <span class="npx-badge mb-5">For nonprofits</span>
-                  <h1 class="font-heading tracking-tight text-black text-4xl sm:text-5xl md:text-[3.4rem] font-medium leading-[1.05] mb-5 mt-5"><span translate="no">Oasis of Change</span> partners with other nonprofits</h1>
-                  <p class="tracking-tight text-gray-600 text-lg sm:text-xl leading-8 sm:leading-9 max-w-xl mb-7">
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                <div class="lg:col-span-7">
+                  <h1 class="font-heading tracking-tight text-black text-4xl sm:text-5xl md:text-[3.5rem] font-medium leading-[1.05] mb-5"><span translate="no">Oasis of Change</span> partners with other nonprofits</h1>
+                  <p class="tracking-tight text-gray-600 text-lg sm:text-xl leading-8 sm:leading-9 max-w-xl">
                     We help nonprofits strengthen their digital presence with donated technology, lower-impact websites, and practical accessibility improvements.
                   </p>
-                  <div class="flex flex-col sm:flex-row gap-3">
-                    <a href="contact.html" class="inline-flex items-center justify-center rounded-full bg-black px-6 py-3.5 text-sm font-semibold tracking-tight text-white hover:bg-gray-900 focus:ring-4 focus:ring-gray-200 transition duration-200">
+                </div>
+                <div class="lg:col-span-5">
+                  <div class="rounded-[1.75rem] bg-white p-6 sm:p-7" style="box-shadow:0 8px 32px rgba(0,0,0,0.06),0 0 0 1px rgba(0,0,0,0.03)">
+                    <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-2">Estimated in-kind value</p>
+                    <p class="font-heading tracking-tight text-black text-4xl sm:text-5xl font-medium leading-none mb-2">$868,200</p>
+                    <p class="text-gray-600 text-sm mb-5">Estimated annual value in CAD across grants we've helped nonprofits secure.</p>
+                    <a href="contact.html" class="w-full inline-flex items-center justify-center rounded-full bg-black px-5 py-3 text-sm font-semibold tracking-tight text-white hover:bg-gray-900 focus:ring-4 focus:ring-gray-200 transition duration-200">
                       Request Nonprofit Support
                     </a>
-                    <a href="nonprofit-tech-grants/" class="inline-flex items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-6 py-3.5 text-sm font-semibold tracking-tight text-black hover:bg-gray-50 focus:ring-4 focus:ring-gray-200 transition duration-200">
-                      See grant programs
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
-                  </div>
-                </div>
-                <div class="lg:col-span-6">
-                  <div class="npx-hero-media">
-                    <picture>
-                      <source type="image/webp" srcset="images/blog/nonprofit-teamwork-400w.webp 400w, images/blog/nonprofit-teamwork-800w.webp 800w, images/blog/nonprofit-teamwork-1200w.webp 1200w" sizes="(min-width:1024px) 45vw, 100vw">
-                      <img src="images/blog/nonprofit-teamwork.webp" alt="Nonprofit team collaborating around a laptop" width="1200" height="800" loading="eager" decoding="async">
-                    </picture>
-                    <div class="npx-hero-stat">
-                      <b>$868,200</b>
-                      <span>in estimated in-kind value secured for the nonprofits we work with</span>
-                    </div>
                   </div>
                 </div>
               </div>
