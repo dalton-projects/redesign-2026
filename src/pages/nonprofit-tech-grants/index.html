@@ -60,6 +60,19 @@
       .ntg-method-title { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 600; color: #000; margin-bottom: 0.25rem; }
       .ntg-method-body { color: #4b5563; line-height: 1.6; font-size: 0.95rem; }
 
+      .ntg-val-block { border-top: 1px solid #d1d5db; padding-top: 1.75rem; }
+      .ntg-val-list { display: grid; gap: 0; }
+      .ntg-val-row { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.6fr) minmax(0, 1fr); gap: 1.25rem; padding: 0.8rem 0; border-bottom: 1px solid #e5e7eb; align-items: center; }
+      .ntg-val-row:first-child { padding-top: 0; }
+      .ntg-val-row:last-child { border-bottom: 0; padding-bottom: 0; }
+      .ntg-val-name { color: #0f172a; font-weight: 500; font-size: 0.95rem; }
+      .ntg-val-math { color: #4b5563; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.82rem; }
+      .ntg-val-result { color: #0f172a; font-weight: 600; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.82rem; text-align: right; }
+      @media (max-width: 767px) {
+        .ntg-val-row { grid-template-columns: 1fr; gap: 0.3rem; padding: 0.95rem 0; }
+        .ntg-val-result { text-align: left; }
+      }
+
       .ntg-foot-list { list-style: none; counter-reset: ntg-foot; padding: 0; margin: 0; display: grid; gap: 0.85rem; }
       .ntg-foot-list li { counter-increment: ntg-foot; padding-left: 2.25rem; position: relative; color: #4b5563; font-size: 0.92rem; line-height: 1.55; }
       .ntg-foot-list li::before { content: counter(ntg-foot); position: absolute; left: 0; top: 0; width: 1.6rem; height: 1.6rem; border-radius: 9999px; background: #f3f4f6; color: #111; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 600; font-size: 0.78rem; display: inline-flex; align-items: center; justify-content: center; }
@@ -357,37 +370,37 @@
 
               <article class="ntg-prog-card">
                 <div class="ntg-prog-header"><span class="ntg-prog-dot" style="background:#15803d"></span><h3 class="ntg-prog-title">Google Workspace for Nonprofits</h3></div>
-                <p class="ntg-prog-body">Free Google Workspace for eligible nonprofits, a nonprofit-specific tier that includes 100 TB of pooled storage, mail, Drive, Meet, Docs, and admin controls under your own domain.<sup>2</sup></p>
+                <p class="ntg-prog-body">Free Google Workspace for up to 2,000 users, with 100 TB of pooled storage, custom domain email, Gemini AI, and NotebookLM. Roughly equivalent to a Business Standard plan.<sup>2</sup></p>
               </article>
 
               <article class="ntg-prog-card">
                 <div class="ntg-prog-header"><span class="ntg-prog-dot" style="background:#0891b2"></span><h3 class="ntg-prog-title">Google Ad Grants</h3></div>
-                <p class="ntg-prog-body">Up to US$10,000 per month in in-kind search advertising for eligible nonprofits, used to drive awareness, donations, and volunteer sign-ups.<sup>3</sup></p>
+                <p class="ntg-prog-body">Up to US$10,000 per month of in-kind Google Search advertising credit for eligible nonprofits.<sup>3</sup></p>
               </article>
 
               <article class="ntg-prog-card">
                 <div class="ntg-prog-header"><span class="ntg-prog-dot" style="background:#6d28d9"></span><h3 class="ntg-prog-title">Canva for Nonprofits</h3></div>
-                <p class="ntg-prog-body">Free <span translate="no">Canva Pro</span> features for teams of up to 50 users at eligible nonprofits. Includes brand kits, premium templates, photos, fonts, and team collaboration.<sup>4</sup></p>
+                <p class="ntg-prog-body">One free team of up to 50 seats with all Canva Pro premium features and Canva Teams collaboration tools.<sup>4</sup></p>
               </article>
 
               <article class="ntg-prog-card">
                 <div class="ntg-prog-header"><span class="ntg-prog-dot" style="background:#a16207"></span><h3 class="ntg-prog-title">Microsoft for Nonprofits</h3></div>
-                <p class="ntg-prog-body">Microsoft 365 Business Premium grants and discounts, plus Azure credits for eligible nonprofits.<sup>5</sup></p>
+                <p class="ntg-prog-body">Up to 300 free Microsoft 365 Business Basic licenses (Teams, Exchange, web and mobile Office apps), plus 75% off Business Premium and other Microsoft cloud products.<sup>5</sup></p>
               </article>
 
               <article class="ntg-prog-card">
                 <div class="ntg-prog-header"><span class="ntg-prog-dot" style="background:#475569"></span><h3 class="ntg-prog-title">TechSoup</h3></div>
-                <p class="ntg-prog-body">A nonprofit-validation gateway to discounted and donated software from dozens of vendors, with admin fees only on most items.<sup>6</sup></p>
+                <p class="ntg-prog-body">Validates nonprofit status across 236 countries to unlock donated and discounted software from 90+ partners including Microsoft, Adobe, Autodesk, Zoom, and Dropbox.<sup>6</sup></p>
               </article>
 
               <article class="ntg-prog-card">
                 <div class="ntg-prog-header"><span class="ntg-prog-dot" style="background:#1d4ed8"></span><h3 class="ntg-prog-title">Atlassian for Nonprofits</h3></div>
-                <p class="ntg-prog-body">75% discount on <span translate="no">Jira</span>, <span translate="no">Confluence</span>, and other Atlassian Cloud products for eligible registered charities.<sup>7</sup></p>
+                <p class="ntg-prog-body">100% off Teamwork Collection (<span translate="no">Jira</span>, <span translate="no">Confluence</span>, <span translate="no">Loom</span>) for up to 25 users, then 75% off Atlassian Cloud products above that. Includes <span translate="no">Rovo</span> AI.<sup>7</sup></p>
               </article>
 
               <article class="ntg-prog-card">
                 <div class="ntg-prog-header"><span class="ntg-prog-dot" style="background:#c2410c"></span><h3 class="ntg-prog-title">Claude for Nonprofits</h3></div>
-                <p class="ntg-prog-body">Discounted access to <span translate="no">Claude</span>, Anthropic's AI assistant, for qualifying nonprofits. Useful for writing, research, accessibility, and operations.<sup>8</sup></p>
+                <p class="ntg-prog-body">Up to 75% off <span translate="no">Claude</span> Team for eligible nonprofits, with built-in integrations for <span translate="no">Blackbaud</span>, <span translate="no">Candid</span>, and <span translate="no">Benevity</span>, and a free AI Fluency course.<sup>8</sup></p>
               </article>
 
             </div>
@@ -448,7 +461,7 @@
 
           <!-- METHODOLOGY -->
           <div class="rounded-[2rem] border border-gray-200 bg-gray-50 px-5 py-8 sm:px-8 sm:py-10 md:px-10 md:py-12 mb-5 sm:mb-6">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 mb-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 mb-8">
               <div class="lg:col-span-5">
                 <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-3">Methodology</p>
                 <h2 class="text-black text-2xl md:text-3xl font-heading tracking-tight mb-4">How we calculate annual value</h2>
@@ -467,14 +480,14 @@
                     <span class="ntg-method-num" aria-hidden="true"></span>
                     <div>
                       <p class="ntg-method-title">Multiply by the retail rate, over 12 months</p>
-                      <p class="ntg-method-body">We use the publicly advertised market price the nonprofit would otherwise pay, multiplied across all seats (or units) and over 12 months. For Canva for Nonprofits, that is 50 seats at about CA$19 per seat per month, which works out to 50 &times; $19 &times; 12 = CA$11,400 per year.</p>
+                      <p class="ntg-method-body">We use the publicly advertised market price the nonprofit would otherwise pay, multiplied across all seats (or units) and over 12 months.</p>
                     </div>
                   </div>
                   <div class="ntg-method-step">
                     <span class="ntg-method-num" aria-hidden="true"></span>
                     <div>
                       <p class="ntg-method-title">Convert USD to CAD where needed</p>
-                      <p class="ntg-method-body">USD-denominated grants are converted to Canadian dollars at the Bank of Canada annual average exchange rate for the grant's approval year.<sup>9</sup></p>
+                      <p class="ntg-method-body">USD-denominated grants are converted to Canadian dollars at the Bank of Canada annual average exchange rate for the grant's approval year.<sup>9</sup> For round-number programs (Google Workspace, Google Ad Grants) we treat USD figures 1:1 as CAD.</p>
                     </div>
                   </div>
                   <div class="ntg-method-step">
@@ -486,6 +499,33 @@
                   </div>
                 </div>
               </div>
+            </div>
+
+            <div class="ntg-val-block">
+              <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-5">How each grant is valued</p>
+              <div class="ntg-val-list">
+                <div class="ntg-val-row">
+                  <span class="ntg-val-name">Canva for Nonprofits</span>
+                  <span class="ntg-val-math">50 seats &times; CA$19/month &times; 12</span>
+                  <span class="ntg-val-result">CA$11,400 / year</span>
+                </div>
+                <div class="ntg-val-row">
+                  <span class="ntg-val-name">Microsoft for Nonprofits</span>
+                  <span class="ntg-val-math">300 seats &times; US$6/month &times; 12, converted</span>
+                  <span class="ntg-val-result">&asymp; CA$30,000 / year</span>
+                </div>
+                <div class="ntg-val-row">
+                  <span class="ntg-val-name">Google Workspace for Nonprofits</span>
+                  <span class="ntg-val-math">~1,000 seats &times; US$14/month &times; 12</span>
+                  <span class="ntg-val-result">US$168,000 / year</span>
+                </div>
+                <div class="ntg-val-row">
+                  <span class="ntg-val-name">Google Ad Grants</span>
+                  <span class="ntg-val-math">US$10,000/month &times; 12</span>
+                  <span class="ntg-val-result">US$120,000 / year</span>
+                </div>
+              </div>
+              <p class="text-xs text-gray-500 mt-5 leading-relaxed">These are per-grant values. The totals shown in the breakdown above include multiple grants per program across the nonprofits we work with.</p>
             </div>
           </div>
 
@@ -499,7 +539,7 @@
               <li>Canva. Canva for Nonprofits. <a href="https://www.canva.com/canva-for-nonprofits/" target="_blank" rel="noopener noreferrer">canva.com/canva-for-nonprofits</a></li>
               <li>Microsoft. Microsoft for Nonprofits. Microsoft 365 Business Premium grants and discounts plus Azure credits for eligible nonprofits. <a href="https://www.microsoft.com/en-us/nonprofits/eligibility" target="_blank" rel="noopener noreferrer">microsoft.com/nonprofits/eligibility</a></li>
               <li>TechSoup. About TechSoup. <a href="https://www.techsoup.org/about" target="_blank" rel="noopener noreferrer">techsoup.org/about</a></li>
-              <li>Atlassian. Community License Program for nonprofits. 75% off Atlassian Cloud for eligible registered charities. <a href="https://www.atlassian.com/teams/nonprofits" target="_blank" rel="noopener noreferrer">atlassian.com/teams/nonprofits</a></li>
+              <li>Atlassian. Community License Program for nonprofits. 100% off Teamwork Collection for up to 25 users, 75% off Atlassian Cloud above that. <a href="https://www.atlassian.com/teams/nonprofits" target="_blank" rel="noopener noreferrer">atlassian.com/teams/nonprofits</a></li>
               <li>Anthropic. Claude for Nonprofits. <a href="https://claude.com/contact-sales/nonprofits" target="_blank" rel="noopener noreferrer">claude.com/contact-sales/nonprofits</a></li>
               <li>Bank of Canada annual average exchange rates. <a href="https://www.bankofcanada.ca/rates/exchange/annual-average-exchange-rates/" target="_blank" rel="noopener noreferrer">bankofcanada.ca/rates/exchange/annual-average-exchange-rates</a></li>
             </ol>
