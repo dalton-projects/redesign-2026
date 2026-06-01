@@ -2499,3 +2499,13 @@ html[lang="fr"] [data-lang-text="en"] { display: none; }
     animation: none;
   }
 }
+
+/* WEBUPDATE-7: the home-page hero photo is sky-heavy. On phones the container's
+   aspect ratio nearly matched the image, so almost no sky was cropped and the
+   solar panels sat in a thin strip at the very bottom ("too much sky"). The
+   object-bottom anchor already keeps the panels in frame; shortening the height
+   on small screens trims the excess sky so the panels read clearly. Desktop is
+   unaffected (its wider box already crops the sky). */
+@media (max-width: 639px) {
+  img.home-hero-img { height: 180px; }
+}
