@@ -2383,14 +2383,16 @@ button:hover .icon-swap-hover { opacity: 1; }
 /* ── Hard-coded translations ──────────────────────────────────────────────
    Where Google Translate produces awkward output, we ship multiple language
    variants in the markup with [data-lang-text="<code>"] and toggle them via
-   the html[lang] attribute (set by i18n.js). Default: only the active-lang
-   variant is visible. */
+   the html[data-lang] attribute (set by i18n.js). Default: only the
+   active-lang variant is visible. We key on data-lang, NOT html[lang]:
+   the lang attribute must stay "en" so Google Translate recognises the
+   source language and translates the rest of the page. */
 [data-lang-text="es"],
 [data-lang-text="fr"] { display: none; }
-html[lang="es"] [data-lang-text="es"] { display: inline; }
-html[lang="es"] [data-lang-text="en"] { display: none; }
-html[lang="fr"] [data-lang-text="fr"] { display: inline; }
-html[lang="fr"] [data-lang-text="en"] { display: none; }
+html[data-lang="es"] [data-lang-text="es"] { display: inline; }
+html[data-lang="es"] [data-lang-text="en"] { display: none; }
+html[data-lang="fr"] [data-lang-text="fr"] { display: inline; }
+html[data-lang="fr"] [data-lang-text="en"] { display: none; }
 
 /* ── Translation disclaimer modal ─────────────────────────────────────────
    Shown once after the user switches to a non-English language. Copy and
