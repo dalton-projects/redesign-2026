@@ -104,7 +104,7 @@ Comma-separated. Each entry must be an origin (scheme + host, no path).
 After your first deploy with the new env vars:
 
 1. **CSP** — open the site in Chrome DevTools → Network → click the document → Response Headers. Confirm:
-   - `Content-Security-Policy` is present and does **not** contain `script-src 'unsafe-inline'`.
+   - `Content-Security-Policy` is present. Note: `script-src` / `script-src-elem` intentionally include `'unsafe-inline'` — Google Translate renders its UI inside `about:srcdoc` iframes that inherit the page CSP and contain an inline bootstrap script, so removing `'unsafe-inline'` silently breaks all machine translation (this happened on 2026-05-17 and was reverted on 2026-06-10). If you tighten this again, verify FR/ES translation still works on a content page first.
    - `Cross-Origin-Resource-Policy: same-origin`.
 2. **Turnstile** — visit `/contact`, scroll to the form, confirm the small Turnstile widget appears below the consent checkboxes. If it doesn't appear, check the meta tag and the browser console.
 3. **Request ID** — submit the contact form. Inspect the response — `X-Request-Id` header and `requestId` in the JSON body should both be present.
