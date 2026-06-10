@@ -77,6 +77,24 @@ html, body {
   min-width: 0;
 }
 
+/* Column headings (GENERAL, ACCOUNTABILITY, RESPONSABILITÉ, …) are single
+   long words: never split them mid-word in narrow columns — overflowing by
+   a couple of px reads far better than "ACCOUNTABIL/ITY". */
+.site-global-footer .site-footer-heading {
+  overflow-wrap: normal;
+  word-break: keep-all;
+  hyphens: none;
+}
+
+/* On very narrow phones the 2-column footer grid leaves ~130px per column —
+   headings clip and every multi-word link wraps. One column reads better.
+   (nav.… for specificity: tailwind.min.css loads after this file.) */
+@media (max-width: 360px) {
+  .site-global-footer nav.site-footer-nav {
+    grid-template-columns: 1fr;
+  }
+}
+
 [data-mobile-toggle]:focus-visible,
 [data-nav-dropdown-toggle]:focus-visible,
 [data-mobile-panel] a:focus-visible {
