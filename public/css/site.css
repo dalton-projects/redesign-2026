@@ -105,7 +105,7 @@ html, body {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
 }
 .nav-dd-panel--company {
-  max-width: min(15.5rem, calc(100vw - 2rem));
+  max-width: min(18rem, calc(100vw - 2rem));
   padding: 0.65rem 0.55rem;
 }
 .nav-dd-company-popover {
