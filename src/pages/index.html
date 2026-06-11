@@ -171,7 +171,7 @@
       <style>
         /* ── Impact stats: mobile-first (stacked) ── */
         .impact-stats { display: flex; flex-direction: column; gap: 2rem; align-items: center; }
-        .impact-stat { text-align: center; }
+        .impact-stat { text-align: center; display: flex; flex-direction: column-reverse; }
         .impact-stat-number { font-size: 2.25rem; line-height: 1; font-weight: 700; color: #fff; margin-bottom: .5rem; }
         .impact-stat-label { font-size: 1rem; line-height: 1.4; color: #a3a3a3; font-weight: 500; }
 
@@ -222,18 +222,18 @@
       <section class="bg-black py-8 sm:py-10 md:py-16 relative overflow-hidden">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
           <div class="impact-stats">
-            <div class="impact-stat">
-              <p class="impact-stat-number font-heading tracking-tight">17,000+</p>
-              <p translate="no" class="impact-stat-label tracking-tight"><span data-lang-text="en">Trees Planted</span><span data-lang-text="es" lang="es">&Aacute;rboles plantados</span><span data-lang-text="fr" lang="fr">Arbres plant&eacute;s</span></p>
-            </div>
-            <div class="impact-stat">
-              <p class="impact-stat-number font-heading tracking-tight">$870,000+</p>
-              <p translate="no" class="impact-stat-label tracking-tight"><span data-lang-text="en">In-Kind Technology Grants Secured</span><span data-lang-text="es" lang="es">Becas de tecnolog&iacute;a en especie obtenidas</span><span data-lang-text="fr" lang="fr">Subventions technologiques en nature obtenues</span></p>
-            </div>
-            <div class="impact-stat">
-              <p class="impact-stat-number font-heading tracking-tight">32</p>
-              <p translate="no" class="impact-stat-label tracking-tight"><span data-lang-text="en">Countries Impacted</span><span data-lang-text="es" lang="es">Pa&iacute;ses impactados</span><span data-lang-text="fr" lang="fr">Pays touch&eacute;s</span></p>
-            </div>
+            <dl class="impact-stat">
+              <dt translate="no" class="impact-stat-label tracking-tight"><span data-lang-text="en">Trees Planted</span><span data-lang-text="es" lang="es">&Aacute;rboles plantados</span><span data-lang-text="fr" lang="fr">Arbres plant&eacute;s</span></dt>
+              <dd class="impact-stat-number font-heading tracking-tight">17,000+</dd>
+            </dl>
+            <dl class="impact-stat">
+              <dt translate="no" class="impact-stat-label tracking-tight"><span data-lang-text="en">In-Kind Technology Grants Secured</span><span data-lang-text="es" lang="es">Becas de tecnolog&iacute;a en especie obtenidas</span><span data-lang-text="fr" lang="fr">Subventions technologiques en nature obtenues</span></dt>
+              <dd class="impact-stat-number font-heading tracking-tight">$870,000+</dd>
+            </dl>
+            <dl class="impact-stat">
+              <dt translate="no" class="impact-stat-label tracking-tight"><span data-lang-text="en">Countries Impacted</span><span data-lang-text="es" lang="es">Pa&iacute;ses impactados</span><span data-lang-text="fr" lang="fr">Pays touch&eacute;s</span></dt>
+              <dd class="impact-stat-number font-heading tracking-tight">32</dd>
+            </dl>
           </div>
         </div>
       </section>
@@ -436,21 +436,21 @@
 
           <!-- Stats grid — always three on one row, compact on mobile -->
           <div class="mittler-stats-grid">
-            <div class="mittler-stat-card">
-              <p class="mittler-stat-card__label">Energy per visit</p>
-              <p class="mittler-stat-card__value">&darr;98.2%</p>
-              <p class="mittler-stat-card__unit">0.0139&rarr;0.0002 kWh</p>
-            </div>
-            <div class="mittler-stat-card">
-              <p class="mittler-stat-card__label">Carbon per visit</p>
-              <p class="mittler-stat-card__value">&darr;98.1%</p>
-              <p class="mittler-stat-card__unit">5.31g&rarr;0.10g CO&#8322;</p>
-            </div>
-            <div class="mittler-stat-card">
-              <p class="mittler-stat-card__label">Water per visit</p>
-              <p class="mittler-stat-card__value">&darr;98.1%</p>
-              <p class="mittler-stat-card__unit">2.95L&rarr;0.06L</p>
-            </div>
+            <dl class="mittler-stat-card">
+              <dt class="mittler-stat-card__label">Energy per visit</dt>
+              <dd class="mittler-stat-card__value">&darr;98.2%</dd>
+              <dd class="mittler-stat-card__unit">0.0139&rarr;0.0002 kWh</dd>
+            </dl>
+            <dl class="mittler-stat-card">
+              <dt class="mittler-stat-card__label">Carbon per visit</dt>
+              <dd class="mittler-stat-card__value">&darr;98.1%</dd>
+              <dd class="mittler-stat-card__unit">5.31g&rarr;0.10g CO&#8322;</dd>
+            </dl>
+            <dl class="mittler-stat-card">
+              <dt class="mittler-stat-card__label">Water per visit</dt>
+              <dd class="mittler-stat-card__value">&darr;98.1%</dd>
+              <dd class="mittler-stat-card__unit">2.95L&rarr;0.06L</dd>
+            </dl>
           </div>
 
           <!-- CTA -->
@@ -582,21 +582,21 @@
               <h2 class="font-heading tracking-tight text-3xl sm:text-4xl md:text-5xl font-medium text-black mb-4 leading-[1.05]">2025–2026 tree planting complete</h2>
               <p class="tracking-tight text-gray-600 text-base sm:text-lg leading-7 sm:leading-8 mb-7 max-w-2xl">Explore<span translate="no">&nbsp;Oasis of Change</span>'s live transparency platform with verified planting data, project locations, partner contributions, and climate outcomes all in one place. See how every tree is counted across our global impact ecosystem.</p>
               <div class="flex flex-wrap gap-3 sm:gap-4 mb-8">
-                <div class="rounded-2xl border border-gray-200 px-4 sm:px-5 py-3 sm:py-4 bg-white tracking-tight">
-                  <p class="text-sm text-gray-600 mb-1">2025–2026 FY</p>
-                  <p class="text-2xl font-semibold">7,144</p>
-                  <p class="text-sm text-gray-600">trees planted</p>
-                </div>
-                <div class="rounded-2xl border border-gray-200 px-4 sm:px-5 py-3 sm:py-4 bg-white tracking-tight">
-                  <p class="text-sm text-gray-600 mb-1">Total reach</p>
-                  <p class="text-2xl font-semibold">32</p>
-                  <p class="text-sm text-gray-600">countries</p>
-                </div>
-                <div class="rounded-2xl border border-gray-200 px-4 sm:px-5 py-3 sm:py-4 bg-white tracking-tight">
-                  <p class="text-sm text-gray-600 mb-1">All-time total</p>
-                  <p class="text-2xl font-semibold">17,000+</p>
-                  <p class="text-sm text-gray-600">trees planted</p>
-                </div>
+                <dl class="rounded-2xl border border-gray-200 px-4 sm:px-5 py-3 sm:py-4 bg-white tracking-tight">
+                  <dt class="text-sm text-gray-600 mb-1">2025–2026 FY</dt>
+                  <dd class="text-2xl font-semibold">7,144</dd>
+                  <dd class="text-sm text-gray-600">trees planted</dd>
+                </dl>
+                <dl class="rounded-2xl border border-gray-200 px-4 sm:px-5 py-3 sm:py-4 bg-white tracking-tight">
+                  <dt class="text-sm text-gray-600 mb-1">Total reach</dt>
+                  <dd class="text-2xl font-semibold">32</dd>
+                  <dd class="text-sm text-gray-600">countries</dd>
+                </dl>
+                <dl class="rounded-2xl border border-gray-200 px-4 sm:px-5 py-3 sm:py-4 bg-white tracking-tight">
+                  <dt class="text-sm text-gray-600 mb-1">All-time total</dt>
+                  <dd class="text-2xl font-semibold">17,000+</dd>
+                  <dd class="text-sm text-gray-600">trees planted</dd>
+                </dl>
               </div>
               <div class="flex flex-wrap items-center gap-6"><a href="https://impact.oasisofchange.com" target="_blank" rel="noopener noreferrer" class="bg-black min-h-14 rounded-full px-6 py-3 inline-flex items-center justify-center hover:bg-green-400 transition duration-200 tracking-tight font-semibold text-white w-full sm:w-auto">View Impact</a></div>
             </div>
