@@ -10,9 +10,16 @@
 
   var activeLang = 'en';
 
-  // Set html.lang as early as possible (before DOMContentLoaded) so CSS
-  // rules driven by html[lang="…"] (e.g. hard-coded translation variants)
+  // Set html[data-lang] as early as possible (before DOMContentLoaded) so CSS
+  // rules driven by html[data-lang="…"] (the hard-coded translation variants)
   // resolve to the correct text on first paint instead of flashing English.
+  //
+  // IMPORTANT: we deliberately do NOT set html.lang here. Google Translate
+  // reads the document's lang attribute as the source language — if it
+  // already equals the target (e.g. lang="fr" with googtrans=/en/fr), GT
+  // considers the page already translated and silently skips it. The lang
+  // attribute must stay "en" (the true source language); GT updates it to
+  // the target itself once it has actually translated the page.
   try {
     var earlyParams = new URLSearchParams(location.search);
     var earlyRaw = (earlyParams.get('l') || earlyParams.get('L') || earlyParams.get('lang') || earlyParams.get('language') || '').toLowerCase().trim();
@@ -24,7 +31,7 @@
       if (LANGS[ei].code === earlyCode) { earlyValid = true; break; }
     }
     if (earlyValid && earlyCode && earlyCode !== 'en') {
-      document.documentElement.lang = earlyCode;
+      document.documentElement.setAttribute('data-lang', earlyCode);
     }
   } catch (e) {}
 
@@ -539,8 +546,14 @@
     // Translate does not re-translate a page the user has since reset to English.
     setGTCookie(activeLang);
 
+    // Drive the hard-coded translation spans via data-lang, never via
+    // html.lang — see the comment at the top of this file. Setting lang to
+    // the target language here is what made Google Translate treat every
+    // page as already translated and skip it.
     if (activeLang !== 'en') {
-      document.documentElement.lang = activeLang;
+      document.documentElement.setAttribute('data-lang', activeLang);
+    } else {
+      document.documentElement.removeAttribute('data-lang');
     }
 
     // Only fetch the Google Translate runtime when the user has actively

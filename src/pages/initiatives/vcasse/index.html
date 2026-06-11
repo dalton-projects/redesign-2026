@@ -32,202 +32,7 @@
       <section class="pt-3 sm:pt-4 px-4 sm:px-6 md:px-12 lg:px-24">
         <div class="max-w-[1400px] mx-auto">
           <!-- NAV -->
-          <nav aria-label="Main" class="relative z-[100] bg-black rounded-2xl px-4 py-3 sm:px-6 sm:py-4 border border-white/10 mb-4 sm:mb-6 shadow-[0_12px_30px_rgba(0,0,0,0.12)]">
-            <div class="flex items-center justify-between gap-4">
-              <div class="flex items-center gap-3 min-w-0 lg:flex-1">
-                <a href="{{base}}index.html" class="inline-block shrink-0">
-                  <img class="h-11 sm:h-12 md:h-14 w-auto" src="{{base}}images/logo/Oasis_of_Change-official.svg" alt="Oasis of Change" width="281" height="56">
-                </a>
-              </div>
-              <ul class="hidden lg:flex items-center gap-2 text-white text-sm font-medium tracking-tight">
-                <li><a href="{{base}}index.html" class="inline-block py-2 px-3 hover:bg-gray-900 transition duration-200 rounded-full">Home</a></li>
-                <!-- Initiatives -->
-                <li class="relative group">
-                  <a href="{{base}}initiatives.html" class="inline-block py-2 px-3 hover:bg-gray-900 transition duration-200 rounded-full">
-                    <div class="flex items-center gap-2">
-                      <span>Initiatives</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewbox="0 0 17 16" fill="none">
-                        <path d="M12.848 6L8.18132 10.6667L3.51465 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                      </svg>
-                    </div>
-                  </a>
-                  <div class="absolute top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 z-[120] nav-dd-initiatives-popover">
-                    <div data-site-nav-dropdown class="nav-dd-panel nav-dd-panel--initiatives">
-                      <div class="nav-dd-initiatives-top">
-                        <ul>
-                          <li>
-                            <a href="{{base}}initiatives.html" class="nav-dd-link nav-dd-link--init font-medium"><span class="nav-dd-link-stack"><span class="nav-dd-link-title">All Initiatives</span><span class="nav-dd-link-desc">See the full portfolio and all our initiatives in one place.</span></span><svg class="nav-dd-icon shrink-0 w-4 h-4 text-gray-300 transition-colors" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM13.5 6c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-2.25A1.125 1.125 0 0113.5 8.25V6zM3.75 15.75a2.25 2.25 0 012.25-2.25h2.25a2.25 2.25 0 012.25 2.25v2.25a2.25 2.25 0 01-2.25 2.25h-2.25a2.25 2.25 0 01-2.25-2.25v-2.25zM13.5 15.75c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125v-2.25z" /></svg></a>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="nav-dd-initiatives-split">
-                        <div class="nav-dd-initiatives-col">
-                          <p class="nav-dd-kicker">Subsidiaries</p>
-                          <ul>
-                            <li>
-                              <a href="{{base}}initiatives/web-ready/" class="nav-dd-link nav-dd-link--init"><span class="nav-dd-link-stack"><span class="nav-dd-link-title"><span translate="no">Web-Ready</span></span><span class="nav-dd-link-desc">Sustainable website development and digital strategy for mission-driven organizations.</span></span></a>
-                            </li>
-                            <li>
-                              <a href="{{base}}initiatives/vcasse/" class="nav-dd-link nav-dd-link--init"><span class="nav-dd-link-stack"><span class="nav-dd-link-title"><span translate="no">VCASSE</span></span><span class="nav-dd-link-desc">Advancing responsible AI, safety, sustainability, and ethical technology leadership.</span></span></a>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="nav-dd-initiatives-col">
-                          <p class="nav-dd-kicker">Projects</p>
-                          <ul>
-                            <li>
-                              <a href="{{base}}initiatives/sustainable-technology-week/" class="nav-dd-link nav-dd-link--init"><span class="nav-dd-link-stack"><span class="nav-dd-link-title"><span translate="no">Sustainable Technology Week</span></span><span class="nav-dd-link-desc">A focused week of programming exploring sustainable technology, innovation, and culture.</span></span></a>
-                            </li>
-                            <li>
-                              <a href="{{base}}initiatives/wra-platform/" class="nav-dd-link nav-dd-link--init"><span class="nav-dd-link-stack"><span class="nav-dd-link-title"><span translate="no">WRA Platform</span></span><span class="nav-dd-link-desc">Helping nonprofits build accessible, lower-carbon websites and access digital grants.</span></span></a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="nav-dd-initiatives-foot">
-                        <p class="nav-dd-kicker">Accountability</p>
-                        <ul>
-                          <li>
-                            <a href="https://impact.oasisofchange.com" target="_blank" rel="noopener noreferrer" class="nav-dd-link nav-dd-link--init"><span class="nav-dd-link-stack"><span class="nav-dd-link-title">Impact Dashboard</span><span class="nav-dd-link-desc">Tracking live impact, transparency, and measurable outcomes across our initiatives.</span></span><svg class="nav-dd-icon shrink-0 w-4 h-4 text-gray-300 transition-colors" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg></a>
-                          </li>
-                        </ul>
-                      </div>
-</div>
-                  </div>
-                </li>
-                <li><a href="{{base}}case-studies/" class="inline-block py-2 px-3 hover:bg-gray-900 transition duration-200 rounded-full whitespace-nowrap">Case Studies</a></li>
-                <!-- Company -->
-                <li class="relative group">
-                  <a href="{{base}}company.html" class="inline-block py-2 px-3 hover:bg-gray-900 transition duration-200 rounded-full">
-                    <div class="flex items-center gap-2">
-                      <span>Company</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewbox="0 0 17 16" fill="none">
-                        <path d="M12.848 6L8.18132 10.6667L3.51465 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                      </svg>
-                    </div>
-                  </a>
-                  <div class="absolute left-0 top-full opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 z-[120] nav-dd-company-popover">
-                    <div data-site-nav-dropdown class="nav-dd-panel nav-dd-panel--company">
-                      <ul class="flex flex-col gap-0.5">
-                        <li>
-                          <a href="{{base}}about.html" class="nav-dd-link"><svg class="nav-dd-icon shrink-0 w-4 h-4 text-gray-300 transition-colors" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg><span class="whitespace-nowrap">Our Story</span></a>
-                        </li>
-                        <li>
-                          <a href="{{base}}about.html#OurMission" class="nav-dd-link"><svg class="nav-dd-icon shrink-0 w-4 h-4 text-gray-300 transition-colors" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 3.75H6A2.25 2.25 0 0 0 3.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0 1 20.25 6v1.5m0 9V18A2.25 2.25 0 0 1 18 20.25h-1.5m-9 0H6A2.25 2.25 0 0 1 3.75 18v-1.5M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" /></svg><span class="whitespace-nowrap">Our Mission</span></a>
-                        </li>
-                        <li>
-                          <a href="{{base}}gabriel-dalton.html" class="nav-dd-link"><svg class="nav-dd-icon shrink-0 w-4 h-4 text-gray-300 transition-colors" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg><span class="whitespace-nowrap">Our Founder</span></a>
-                        </li>
-                        <li>
-                          <a href="{{base}}about.html#our-board" class="nav-dd-link"><svg class="nav-dd-icon shrink-0 w-4 h-4 text-gray-300 transition-colors" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg><span class="whitespace-nowrap">Our Board</span></a>
-                        </li>
-                        <li>
-                          <a href="{{base}}annual-report/" class="nav-dd-link"><svg class="nav-dd-icon shrink-0 w-4 h-4 text-gray-300 transition-colors" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg><span class="whitespace-nowrap">Annual Reports</span></a>
-                        </li>
-                        <li>
-                          <a href="{{base}}news/" class="nav-dd-link"><svg class="nav-dd-icon shrink-0 w-4 h-4 text-gray-300 transition-colors" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M13.5 7.5h-9v9h9v-9z" /></svg><span class="whitespace-nowrap">News &amp; Press</span></a>
-                        </li>
-                      </ul>
-</div>
-                  </div>
-                </li>
-                <li><a href="{{base}}blog/" class="inline-block py-2 px-3 hover:bg-gray-900 transition duration-200 rounded-full">Blog</a></li>
-              </ul>
-              <div class="hidden lg:flex lg:flex-1 justify-end">
-                <a href="{{base}}get_involved.html" class="rounded-full border border-gray-200 bg-white text-black px-5 py-3 h-14 hover:bg-gray-50 focus:ring-4 focus:ring-gray-200 inline-flex items-center justify-center gap-2 transition duration-200 shrink-0">
-                <span class="text-sm font-semibold tracking-tight">Get Involved</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16" fill="none">
-                  <path d="M14 6.66666H7.33333C4.38781 6.66666 2 9.05447 2 12V13.3333M14 6.66666L10 10.6667M14 6.66666L10 2.66666" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-              </a>
-              </div>
-              <button data-mobile-toggle type="button" class="relative lg:hidden inline-flex items-center justify-center w-12 h-12 rounded-full border border-white/20 bg-white/5 text-white hover:bg-white/10 transition duration-200 shrink-0" aria-label="Open navigation menu" aria-expanded="false">
-                <span data-icon-menu class="absolute inset-0 flex items-center justify-center transition-opacity duration-150" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                    <path d="M4 6h16M4 12h16M4 18h16"></path>
-                  </svg>
-                </span>
-                <span data-icon-close class="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-150" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                    <path d="M6 6l12 12M18 6L6 18"></path>
-                  </svg>
-                </span>
-              </button>
-            </div>
-            <!-- MOBILE NAV PANEL -->
-            <div data-mobile-panel class="lg:hidden pt-4" style="display: none;">
-              <div class="border-t border-white/10 pt-4 pb-4">
-                <div class="flex flex-col gap-1">
-                  <a href="{{base}}index.html" class="text-white text-sm font-medium tracking-tight p-3 rounded-xl hover:bg-gray-900 transition">Home</a>
-                  <div>
-                    <button data-nav-dropdown-toggle class="flex items-center justify-between w-full text-white text-sm font-medium tracking-tight p-3 rounded-xl hover:bg-gray-900 transition">
-                      <span>Initiatives</span>
-                      <svg data-nav-dropdown-chevron class="w-4 h-4 text-gray-300 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" fill="none">
-                        <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                      </svg>
-                    </button>
-                    <div data-nav-dropdown-content class="grid overflow-hidden" style="display: grid; grid-template-rows: 0fr;">
-                      <div class="min-h-0 overflow-hidden">
-                        <div class="rounded-xl border border-white/10 p-2 ml-3 mt-1 mb-2">
-                        <a href="{{base}}initiatives.html" class="text-white text-sm font-medium py-2.5 px-3 rounded-xl hover:bg-gray-900 transition block mb-2">All Initiatives</a>
-                        <div class="mb-2 border-t border-white/10 pt-3 px-1">
-                          <p class="text-[10px] uppercase tracking-[0.18em] text-gray-300 mb-2">Subsidiaries</p>
-                          <div class="flex flex-col gap-1">
-                            <a href="{{base}}initiatives/web-ready/" class="text-gray-300 text-sm py-1.5 px-2 rounded-lg hover:bg-gray-900 hover:text-white transition"><span translate="no">Web-Ready</span></a>
-                            <a href="{{base}}initiatives/vcasse/" class="text-gray-300 text-sm py-1.5 px-2 rounded-lg hover:bg-gray-900 hover:text-white transition"><span translate="no">VCASSE</span></a>
-                          </div>
-                        </div>
-                        <div class="mb-2 border-t border-white/10 pt-3 px-1">
-                          <p class="text-[10px] uppercase tracking-[0.18em] text-gray-300 mb-2">Projects</p>
-                          <div class="flex flex-col gap-1">
-                            <a href="{{base}}initiatives/sustainable-technology-week/" class="text-gray-300 text-sm py-1.5 px-2 rounded-lg hover:bg-gray-900 hover:text-white transition"><span translate="no">Sustainable Technology Week</span></a>
-                            <a href="{{base}}initiatives/wra-platform/" class="text-gray-300 text-sm py-1.5 px-2 rounded-lg hover:bg-gray-900 hover:text-white transition"><span translate="no">WRA Platform</span></a>
-                          </div>
-                        </div>
-                        <div class="border-t border-white/10 pt-3 px-1">
-                          <p class="text-[10px] uppercase tracking-[0.18em] text-gray-300 mb-2">Accountability</p>
-                          <div class="flex flex-col gap-1">
-                            <a href="https://impact.oasisofchange.com" class="text-gray-300 text-sm py-1.5 px-2 rounded-lg hover:bg-gray-900 hover:text-white transition">Impact Dashboard</a>
-                          </div>
-                        </div>
-                      </div>
-                      </div>
-                    </div>
-                  </div>
-                  <a href="{{base}}case-studies/" class="text-white text-sm font-medium tracking-tight p-3 rounded-xl hover:bg-gray-900 transition">Case Studies</a>
-                  <div>
-                    <button data-nav-dropdown-toggle class="flex items-center justify-between w-full text-white text-sm font-medium tracking-tight p-3 rounded-xl hover:bg-gray-900 transition">
-                      <span>Company</span>
-                      <svg data-nav-dropdown-chevron class="w-4 h-4 text-gray-300 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" fill="none">
-                        <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                      </svg>
-                    </button>
-                    <div data-nav-dropdown-content class="grid overflow-hidden" style="display: grid; grid-template-rows: 0fr;">
-                      <div class="min-h-0 overflow-hidden">
-                        <div class="rounded-xl border border-white/10 p-2 ml-3 mt-1 mb-2">
-                        <div class="flex flex-col gap-1">
-                          <a href="{{base}}about.html" class="text-gray-300 text-sm py-2 px-3 rounded-xl hover:bg-gray-900 hover:text-white transition">Our Story</a>
-                          <a href="{{base}}about.html#OurMission" class="text-gray-300 text-sm py-2 px-3 rounded-xl hover:bg-gray-900 hover:text-white transition">Our Mission</a>
-                          <a href="{{base}}gabriel-dalton.html" class="text-gray-300 text-sm py-2 px-3 rounded-xl hover:bg-gray-900 hover:text-white transition">Our Founder</a>
-                          <a href="{{base}}about.html#our-board" class="text-gray-300 text-sm py-2 px-3 rounded-xl hover:bg-gray-900 hover:text-white transition">Our Board</a>
-                          <a href="{{base}}annual-report/" class="text-gray-300 text-sm py-2 px-3 rounded-xl hover:bg-gray-900 hover:text-white transition">Annual Reports</a>
-                          <a href="{{base}}news/" class="text-gray-300 text-sm py-2 px-3 rounded-xl hover:bg-gray-900 hover:text-white transition">News &amp; Press</a>
-                        </div>
-                      </div>
-                      </div>
-                    </div>
-                  </div>
-                  <a href="{{base}}blog/" class="text-white text-sm font-medium tracking-tight p-3 rounded-xl hover:bg-gray-900 transition">Blog</a>
-                  <a href="{{base}}get_involved.html" class="mt-3 rounded-full border border-gray-200 bg-white text-black px-5 py-3 hover:bg-gray-50 transition inline-flex items-center justify-center gap-2">
-                    <span class="text-sm font-semibold tracking-tight">Get Involved</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16" fill="none">
-                      <path d="M14 6.66666H7.33333C4.38781 6.66666 2 9.05447 2 12V13.3333M14 6.66666L10 10.6667M14 6.66666L10 2.66666" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </nav>
+          {{include nav.html}}
 
           <section class="min-h-screen">
             <article class="max-w-7xl mx-auto pt-6 sm:pt-10 md:pt-14 lg:pt-20 pb-12 md:pb-16">
@@ -272,7 +77,7 @@
               <section class="mb-10 sm:mb-16">
                 <div class="rounded-[2rem] bg-[#f7f7f5] border border-black/5 px-5 py-7 sm:px-6 sm:py-8 md:px-10 md:py-10">
                   <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-3">What it is about</p>
-                  <p class="text-xl sm:text-2xl md:text-3xl leading-relaxed tracking-tight text-black max-w-5xl"><span translate="no">VCASSE</span> is being designed to explore how artificial intelligence can be developed and used in ways that are safer for people, more ethically grounded, and more conscious of long-term social and environmental impact.</p>
+                  <p class="text-xl sm:text-2xl md:text-3xl leading-relaxed tracking-tight text-black max-w-5xl"><span translate="no">VCASSE&nbsp;</span>is being designed to explore how artificial intelligence can be developed and used in ways that are safer for people, more ethically grounded, and more conscious of long-term social and environmental impact.</p>
                 </div>
               </section>
               <!-- Focus areas -->
@@ -280,7 +85,7 @@
                 <div class="mb-8">
                   <p class="text-sm uppercase tracking-[0.18em] text-gray-600 mb-3">Core Areas</p>
                   <h2 class="text-2xl sm:text-3xl md:text-5xl font-heading font-medium tracking-tight text-black max-w-3xl">
-                    What <span translate="no">VCASSE</span> will focus on
+                    What<span translate="no">&nbsp;VCASSE&nbsp;</span>will focus on
                   </h2>
                 </div>
       

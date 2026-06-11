@@ -77,6 +77,24 @@ html, body {
   min-width: 0;
 }
 
+/* Column headings (GENERAL, ACCOUNTABILITY, RESPONSABILITÉ, …) are single
+   long words: never split them mid-word in narrow columns — overflowing by
+   a couple of px reads far better than "ACCOUNTABIL/ITY". */
+.site-global-footer .site-footer-heading {
+  overflow-wrap: normal;
+  word-break: keep-all;
+  hyphens: none;
+}
+
+/* On very narrow phones the 2-column footer grid leaves ~130px per column —
+   headings clip and every multi-word link wraps. One column reads better.
+   (nav.… for specificity: tailwind.min.css loads after this file.) */
+@media (max-width: 360px) {
+  .site-global-footer nav.site-footer-nav {
+    grid-template-columns: 1fr;
+  }
+}
+
 [data-mobile-toggle]:focus-visible,
 [data-nav-dropdown-toggle]:focus-visible,
 [data-mobile-panel] a:focus-visible {
@@ -105,7 +123,7 @@ html, body {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
 }
 .nav-dd-panel--company {
-  max-width: min(15.5rem, calc(100vw - 2rem));
+  max-width: min(18rem, calc(100vw - 2rem));
   padding: 0.65rem 0.55rem;
 }
 .nav-dd-company-popover {
@@ -2383,14 +2401,16 @@ button:hover .icon-swap-hover { opacity: 1; }
 /* ── Hard-coded translations ──────────────────────────────────────────────
    Where Google Translate produces awkward output, we ship multiple language
    variants in the markup with [data-lang-text="<code>"] and toggle them via
-   the html[lang] attribute (set by i18n.js). Default: only the active-lang
-   variant is visible. */
+   the html[data-lang] attribute (set by i18n.js). Default: only the
+   active-lang variant is visible. We key on data-lang, NOT html[lang]:
+   the lang attribute must stay "en" so Google Translate recognises the
+   source language and translates the rest of the page. */
 [data-lang-text="es"],
 [data-lang-text="fr"] { display: none; }
-html[lang="es"] [data-lang-text="es"] { display: inline; }
-html[lang="es"] [data-lang-text="en"] { display: none; }
-html[lang="fr"] [data-lang-text="fr"] { display: inline; }
-html[lang="fr"] [data-lang-text="en"] { display: none; }
+html[data-lang="es"] [data-lang-text="es"] { display: inline; }
+html[data-lang="es"] [data-lang-text="en"] { display: none; }
+html[data-lang="fr"] [data-lang-text="fr"] { display: inline; }
+html[data-lang="fr"] [data-lang-text="en"] { display: none; }
 
 /* ── Translation disclaimer modal ─────────────────────────────────────────
    Shown once after the user switches to a non-English language. Copy and
