@@ -908,12 +908,12 @@ textarea.cf-input {
   box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15);
 }
 .cf-link {
-  color: #16a34a;
+  color: #15803d;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 .cf-link:hover {
-  color: #15803d;
+  color: #166534;
 }
 .cf-submit {
   display: inline-flex;
@@ -1902,6 +1902,11 @@ textarea.cf-input {
     gap: 1rem;
     margin-bottom: 2.5rem;
   }
+}
+
+.stat-value-card {
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .mittler-stat-card {
